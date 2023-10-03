@@ -1,6 +1,6 @@
 import axios from "axios"
 import { Api } from "../../Utils/ApiUrl"
-import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants";
+import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_DATA_UPDATE_FAILURE, PROFILE_DATA_UPDATE_REQUEST, PROFILE_DATA_UPDATE_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_UPDATE_FAILURE, PROFILE_IMAGE_UPDATE_REQUEST, PROFILE_IMAGE_UPDATE_SUCCESS, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants";
 import { header } from "../../Utils/Function"
 import { getLocalStorage } from "../../Utils/LocalStorage";
 
@@ -373,4 +373,72 @@ export const createRoom = (slug) => {
                 dispatch(createRoomFailure(error))
             })
     }
+}
+const profileImageUpdateRequest = () => ({ type: PROFILE_IMAGE_UPDATE_REQUEST })
+
+const profileImageUpdateSuccess = data => ({
+    type: PROFILE_IMAGE_UPDATE_SUCCESS,
+    payload: data,
+})
+
+const profileImageUpdateFailure = error => ({
+    type: PROFILE_IMAGE_UPDATE_FAILURE,
+    payload: error,
+    error: true,
+})
+
+export const updateProfileImage = (id, image) => {
+    return async (dispatch) => {
+        dispatch(profileImageUpdateRequest())
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('user', id)
+        try {
+            const response = await axios.put(Api.profilePictureUpdate(id), formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            dispatch(profileImageUpdateSuccess(response.data));
+        } catch (error) {
+            dispatch(profileImageUpdateFailure(error));
+        }
+    };
+}
+
+
+const profileUpdateRequest = () => ({ type: PROFILE_DATA_UPDATE_REQUEST })
+
+const profileUpdateSuccess = data => ({
+    type: PROFILE_DATA_UPDATE_SUCCESS,
+    payload: data,
+})
+
+const profileUpdateFailure = error => ({
+    type: PROFILE_DATA_UPDATE_FAILURE,
+    payload: error,
+    error: true,
+})
+
+export const updateProfileData = (id, editProfileData) => {
+    return async (dispatch) => {
+        dispatch(profileUpdateRequest())
+        const formData = new FormData();
+        formData.append('first_name', editProfileData?.name.split(" ")[0])
+        formData.append('last_name', editProfileData?.name.split(" ")[1]);
+        formData.append('date_of_birth', editProfileData.date_of_birth)
+        formData.append('email', editProfileData.email)
+        formData.append('gender', editProfileData.gender)
+        formData.append('living_in', editProfileData.living_in)
+        formData.append('mobile_number', editProfileData.mobile_number)
+        formData.append('profile_for', editProfileData.profile_for)
+        formData.append('religion', editProfileData.religion)
+        formData.append('username', editProfileData.username)
+        try {
+            const response = await axios.put(Api.profileDataUpdate(id), formData);
+            dispatch(profileUpdateSuccess(response.data));
+        } catch (error) {
+            dispatch(profileUpdateFailure(error));
+        }
+    };
 }

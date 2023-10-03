@@ -1,6 +1,6 @@
-import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants"
+import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_DATA_UPDATE_FAILURE, PROFILE_DATA_UPDATE_REQUEST, PROFILE_DATA_UPDATE_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_UPDATE_FAILURE, PROFILE_IMAGE_UPDATE_REQUEST, PROFILE_IMAGE_UPDATE_SUCCESS, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants"
 let initialState = {
-    profileData: "",
+    profileData: null,
     profileLoading: false,
     postProfileData: "",
     profilePostDataLoading: false,
@@ -24,7 +24,9 @@ let initialState = {
     friendList: null,
     chatRoomLoading: false,
     chatRoomList: null,
-
+    profileImageUpdate: "",
+    profileImageUpdateLoading: false,
+    profileDataUpdateLoading: false
 }
 
 const ProfileReducer = (state = initialState, action) => {
@@ -244,6 +246,40 @@ const ProfileReducer = (state = initialState, action) => {
                 ...state,
                 chatRoomLoading: false,
                 chatRoomList: action.payload,
+            }
+        case PROFILE_IMAGE_UPDATE_REQUEST:
+            return {
+                ...state,
+                profileImageUpdate: true,
+            }
+        case PROFILE_IMAGE_UPDATE_SUCCESS:
+            return {
+                ...state,
+                profileImageUpdate: false,
+                profileImage: action.payload,
+            }
+        case PROFILE_IMAGE_UPDATE_FAILURE:
+            return {
+                ...state,
+                profileImageUpdate: false,
+                profileImage: action.payload,
+            }
+        case PROFILE_DATA_UPDATE_REQUEST:
+            return {
+                ...state,
+                profileDataUpdateLoading: true,
+            }
+        case PROFILE_DATA_UPDATE_SUCCESS:
+            return {
+                ...state,
+                profileDataUpdateLoading: false,
+                // profileData: action.payload,
+            }
+        case PROFILE_DATA_UPDATE_FAILURE:
+            return {
+                ...state,
+                profileDataUpdateLoading: false,
+                // profileData: action.payload,
             }
         default:
             return state

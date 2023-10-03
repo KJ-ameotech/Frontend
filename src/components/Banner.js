@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image1 from "../assets/images/main-slider/1.jpg"
 import "../../src/assets/css/owl.css"
 // import "./banner.css"
 import OwlCarousel from 'react-owl-carousel';
-import { getSearchProfileUser } from "../Redux/Actions/ProfileActions";
-import { useDispatch } from "react-redux";
+import { getProfile, getProfileImage, getSearchProfileUser, getuser } from "../Redux/Actions/ProfileActions";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { getLocalStorage } from "../Utils/LocalStorage";
+import { getLocalStorage, setLocalStorage } from "../Utils/LocalStorage";
 
 const Banner = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const data = useSelector(state => state)
+  const { Profile: { userData, profileData
+    , profileImage } } = data
+  const [profileUserData, setProfileUserData] = useState({})
   const [searchData, setSearchData] = useState({
     looking_for: "",
     from_age: "",
@@ -48,7 +52,11 @@ const Banner = () => {
       }
     })
   }
-
+  useEffect(() => {
+    if (!!profileData && !!userData) {
+      setProfileUserData({ ...profileData, ...userData })
+    }
+  }, [userData, profileData])
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     if (searchData.from_age && searchData.to_age && searchData.looking_for && searchData.religion) {
@@ -58,6 +66,15 @@ const Banner = () => {
     }
 
   }
+  useEffect(() => {
+    let id = getLocalStorage("user_id")
+    dispatch(getuser(+id))
+    dispatch(getProfile(+id))
+    dispatch(getProfileImage(+id))
+  }, [getLocalStorage("user_id")])
+  useEffect(() => {
+    setLocalStorage("profileData", JSON.stringify(profileUserData))
+  })
   return (
     <>
       <div className="mainBannerSection">

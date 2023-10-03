@@ -16,6 +16,15 @@ const LikeDislikeCard = () => {
         { img: `/assets/images/actress1.jpg`, name: 'Julia kailey', age: '25', distance: '11 km' },
         { img: `/assets/images/actress1.jpg`, name: 'salena gomez', age: '23', distance: '6 km' }
     ]
+    const [advanceSearch, setAdvanceSearch] = useState({
+        startheight: "",
+        endheight: "",
+        caste: "",
+        minweight: "",
+        maxweight: "",
+        miniincome: "",
+        maxincome: "",
+    })
     const [frame, setFrame] = useState(null)
     const [current, setCurrent] = useState(null)
     const [likeText, setLikeText] = useState(null)
@@ -25,6 +34,8 @@ const LikeDislikeCard = () => {
     const [currentUser, setCurrentUser] = useState({})
     const [acceptedUsers, setAcceptedUsers] = useState([]);
     const [rejectedUsers, setRejectedUsers] = useState([]);
+    const [weight, setWeight] = useState([])
+    const [income, setIncome] = useState([])
     const { allProfile, allSearchData
     } = profile;
 
@@ -165,6 +176,9 @@ const LikeDislikeCard = () => {
         setTransform(0, 0, 0, 100)
         setTimeout(() => current.style.transition = '', 100)
     }
+    const handleSearch = () => {
+
+    }
     useEffect(() => {
         dispatch(getAllProfileUser())
     }, [])
@@ -173,20 +187,231 @@ const LikeDislikeCard = () => {
             // alert("hello")
             setAllProfilesData(allProfile)
         } else if (allSearchData) {
-            const removeCurrentuserId = allProfile?.filter((o) => o.user != getLocalStorage('user_id'))
+            const removeCurrentuserId = allProfile.filter((o) => o.user != getLocalStorage('user_id'))
             setAllProfilesData(removeCurrentuserId)
         }
     }, [allProfile, allSearchData])
-    // useEffect(() => {
-    //     if (allProfilesData) {
-    //         setCurrentUser(allProfilesData[currentCardIndex])
-    //     }
-    // })
-    console.log(allProfilesData, "allProfilesData");
+
+    useEffect(() => {
+        let weightCount = []
+        let income = []
+        for (let i = 1; i < [...Array(150)].length; i++) {
+            if (i > 49) weightCount.push(i)
+        }
+        for (let i = 1; i <= [...Array(10)].length; i++) {
+            // if (i < 2) {
+            //     income.push(i + "00000")
+            // } else {
+            //     income.push(i + "," + "00,000")
+            // }
+            income.push(i + "00000")
+        }
+        setIncome(income)
+        setWeight(weightCount)
+
+        console.log(income, "weightCount")
+    }, [])
+    // console.log(income, "weight");
     return (
         <section>
             <div class="auto-container">
                 <div class="row">
+                    <section className="coming-soon-section" style={{ marginTop: "150px" }}>
+                        <div className="auto-container mb-5">
+                            <div className="outer-box">
+                                <div className="time-counter">
+                                    <div className="col-md-12">
+                                        <div className="row">
+                                            <form className="form-inline"
+                                            //    onSubmit={handleSearchSubmit}
+                                            >
+                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search">Start Height</span></label>
+                                                    <select className="dropselect" name="startheight"
+                                                        value={advanceSearch.startheight}
+                                                        selected tabindex="1"
+                                                        onChange={handleSearch}
+                                                    >
+                                                        <option value="150">150</option>
+                                                        <option value="151">151</option>
+                                                        <option value="152">152</option>
+                                                        <option value="153">153</option>
+                                                        <option value="154">154</option>
+                                                        <option value="155">155</option>
+                                                        <option value="156">156</option>
+
+                                                        <option value="157">157</option>
+                                                        <option value="158">158</option>
+                                                        <option value="159">159</option>
+                                                        <option value="160">160</option>
+                                                        <option value="161">161</option>
+                                                        <option value="162">162</option>
+                                                        <option value="163">163</option>
+                                                        <option value="164">164</option>
+                                                        <option value="165">165</option>
+                                                        <option value="166">166</option>
+                                                        <option value="167">167</option>
+                                                        <option value="168">168</option>
+                                                        <option value="169">169</option>
+                                                        <option value="170">170</option>
+                                                        <option value="171">171</option>
+                                                        <option value="172">172</option>
+                                                        <option value="173">173</option>
+                                                        <option value="174">174</option>
+                                                        <option value="175">175</option>
+                                                        <option value="176">176</option>
+                                                        <option value="177">177</option>
+                                                        <option value="178">178</option>
+                                                        <option value="179">179</option>
+                                                        <option value="180">180</option>
+                                                        <option value="181">181</option>
+                                                        <option value="182">182</option>
+                                                        <option value="183">183</option>
+                                                        <option value="184">184</option>
+                                                        <option value="185">185</option>
+                                                        <option value="186">186</option>
+                                                        <option value="187">187</option>
+                                                        <option value="188">188</option>
+                                                        <option value="189">189</option>
+                                                        <option value="190">190</option>
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search">End Height</span></label>
+                                                    <select className="dropselect" id="fromage"
+                                                        onChange={handleSearch}
+                                                        value={advanceSearch.endheight}
+                                                        name="endheight" tabindex="2"
+                                                        required>
+                                                        <option value="" selected disabled hidden>Select</option>
+                                                        <option value="150">150</option>
+                                                        <option value="151">151</option>
+                                                        <option value="152">152</option>
+                                                        <option value="153">153</option>
+                                                        <option value="154">154</option>
+                                                        <option value="155">155</option>
+                                                        <option value="156">156</option>
+
+                                                        <option value="157">157</option>
+                                                        <option value="158">158</option>
+                                                        <option value="159">159</option>
+                                                        <option value="160">160</option>
+                                                        <option value="161">161</option>
+                                                        <option value="162">162</option>
+                                                        <option value="163">163</option>
+                                                        <option value="164">164</option>
+                                                        <option value="165">165</option>
+                                                        <option value="166">166</option>
+                                                        <option value="167">167</option>
+                                                        <option value="168">168</option>
+                                                        <option value="169">169</option>
+                                                        <option value="170">170</option>
+                                                        <option value="171">171</option>
+                                                        <option value="172">172</option>
+                                                        <option value="173">173</option>
+                                                        <option value="174">174</option>
+                                                        <option value="175">175</option>
+                                                        <option value="176">176</option>
+                                                        <option value="177">177</option>
+                                                        <option value="178">178</option>
+                                                        <option value="179">179</option>
+                                                        <option value="180">180</option>
+                                                        <option value="181">181</option>
+                                                        <option value="182">182</option>
+                                                        <option value="183">183</option>
+                                                        <option value="184">184</option>
+                                                        <option value="185">185</option>
+                                                        <option value="186">186</option>
+                                                        <option value="187">187</option>
+                                                        <option value="188">188</option>
+                                                        <option value="189">189</option>
+                                                        <option value="190">190</option>
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search">Your Caste</span></label>
+                                                    <select className="dropselect" id="toage"
+                                                        value={advanceSearch.caste}
+                                                        name="to_age" tabindex="3"
+                                                        // onChange={handleSearch}
+                                                        required>
+                                                        <option value="" selected disabled hidden>Select</option>
+                                                        <option value="18">Bramin</option>
+                                                        <option value="18">Khatri</option>
+                                                        <option value="18">Pappe</option>
+                                                        <option value="18">Jaat</option>
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search" >Min Weight</span></label>
+                                                    <select className="dropselect"
+                                                        value={advanceSearch.minweight}
+                                                        name="minweight" id="weight" tabindex="4"
+                                                        onChange={handleSearch}
+                                                        required>
+                                                        {!!weight.length && weight.map((item) => {
+                                                            return <option value={item}>{item}</option>
+                                                        })}
+
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search" >max Weight</span></label>
+                                                    <select className="dropselect"
+                                                        value={advanceSearch.maxweight}
+                                                        name="maxweight" id="weight" tabindex="4"
+                                                        onChange={handleSearch}
+                                                        required>
+                                                        {!!weight.length && weight.map((item) => {
+                                                            return <option value={item}>{item}</option>
+                                                        })}
+
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search" >Minimum Income</span></label>
+                                                    <select className="dropselect"
+                                                        value={advanceSearch.miniincome}
+                                                        name="miniincome" id="weight" tabindex="4"
+                                                        onChange={handleSearch}
+                                                        required>
+                                                        {!!income.length && income.map((item) => {
+                                                            return <option value={item}>{item}</option>
+                                                        })}
+
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <label className="label" for="lookingfor"><span className="search" >Maximum Income</span></label>
+                                                    <select className="dropselect"
+                                                        value={advanceSearch.maxincome}
+                                                        name="maxincome" id="weight" tabindex="4"
+                                                        onChange={handleSearch}
+                                                        required>
+                                                        {!!income.length && income.map((item) => {
+                                                            return <option value={item}>{item}</option>
+                                                        })}
+
+                                                    </select>
+                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                </div>
+                                                <div className="btn-box col-md-2 mt-3 ">
+                                                    <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin">
+                                                        <span className="btn-title">Lets's Begin </span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <div class="col-lg-3 mx-auto">
                         <div class="frame"></div>
                         <div class="icons">

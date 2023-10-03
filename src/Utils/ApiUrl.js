@@ -20,4 +20,6 @@ export const Api = {
     // friendList: (id) => `${baseUrl}/followed-users/${id}/`,
     friendList: (id) => `${baseUrl}/liked-users-likes/${id}/`,
     createChatRoom: `${chatBaseUrl}/rooms/`,
+    profilePictureUpdate: (id) => `${baseUrl}/profiles_picture/${id}/`,
+    profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
 }
