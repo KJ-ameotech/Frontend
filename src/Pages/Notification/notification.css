@@ -1,0 +1,16 @@
+.notification {
+    margin-top: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.notification-box {
+    position: absolute;
+    width: 252px;
+    color: black;
+    background: white;
+    z-index: 99;
+    padding: 15px;
+}
