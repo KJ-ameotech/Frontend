@@ -8,13 +8,12 @@ import CheckoutForm from "./CheckoutForm";
 const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
 const Payment = () => {
-    const params = useParams();
+    const { id } = useParams();
 
     const options = {
         mode: 'payment',
-        amount: Number(params.id),
+        amount: Number(id),
         currency: 'usd',
-        // Fully customizable with appearance API.
         appearance: {
         },
     };

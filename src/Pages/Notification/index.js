@@ -12,8 +12,14 @@ const Notification = () => {
     const [isShown, setIsShown] = useState(false);
     const dispatch = useDispatch()
     const handleAccept = (item) => {
-        item.approved = true;
-        dispatch(acceptRequest(item))
+        let req = { id: item.id, approved: true, display: false, liked_user: item.liked_user, user: item.user };
+        dispatch(acceptRequest(req))
+        setIsShown(false);
+        setTimeout(() => {
+            setNotificationData([])
+            let quary = `?liked_user_id=${getLocalStorage("user_id")}`
+            dispatch(getAllNotification(quary))
+        }, 500);
     }
 
     const handleHover = (e) => {
@@ -55,7 +61,7 @@ const Notification = () => {
                                     <span>{item.user_like?.first_name} {item.user_like?.last_name} wants to be your friend</span>
                                 </div>
                                 <div class="request-btn-row">
-                                    <button class="friend-request accept-request" onClick={() => handleAccept(item)}>Accept</button>
+                                    <button class="friend-request accept-request" onClick={() => handleAccept(item?.user_like)}>Accept</button>
                                     <button class="friend-request decline-request" onClick={() => handleHover(false)}>Decline</button>
                                 </div>
                             </>

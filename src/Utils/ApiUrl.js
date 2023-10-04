@@ -22,4 +22,6 @@ export const Api = {
     createChatRoom: `${chatBaseUrl}/rooms/`,
     profilePictureUpdate: (id) => `${baseUrl}/profiles_picture/${id}/`,
     profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
+    advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
 }
+//http://127.0.0.1:8000/api/profile/advanced/search/?startheight=160&endheight=180&caste=YourCaste&minweight=50&maxweight=70

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo, useCallback } from 'react'
 import "./LikeDislikeCard.css"
-import { getAllProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
+import { advanceSearchh, getAllProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLocalStorage } from '../../Utils/LocalStorage'
 
@@ -176,8 +176,14 @@ const LikeDislikeCard = () => {
         setTransform(0, 0, 0, 100)
         setTimeout(() => current.style.transition = '', 100)
     }
-    const handleSearch = () => {
-
+    const handleSearch = (e) => {
+        const { name, value } = e.target;
+        setAdvanceSearch((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
     }
     useEffect(() => {
         dispatch(getAllProfileUser())
@@ -191,7 +197,19 @@ const LikeDislikeCard = () => {
             setAllProfilesData(removeCurrentuserId)
         }
     }, [allProfile, allSearchData])
-
+    const handleAdvanceSearch = (e) => {
+        e.preventDefault()
+        let req = '';
+        Object.keys(advanceSearch).forEach((element, index) => {
+            if (advanceSearch[element] != '') {
+                if (index > 0) {
+                    req += '&'
+                }
+                req += element + '=' + advanceSearch[element];
+            }
+        });
+        dispatch(advanceSearchh(req))
+    }
     useEffect(() => {
         let weightCount = []
         let income = []
@@ -211,7 +229,7 @@ const LikeDislikeCard = () => {
 
         console.log(income, "weightCount")
     }, [])
-    // console.log(income, "weight");
+
     return (
         <section>
             <div class="auto-container">
@@ -334,14 +352,16 @@ const LikeDislikeCard = () => {
                                                     <label className="label" for="lookingfor"><span className="search">Your Caste</span></label>
                                                     <select className="dropselect" id="toage"
                                                         value={advanceSearch.caste}
-                                                        name="to_age" tabindex="3"
-                                                        // onChange={handleSearch}
+                                                        name="caste" tabindex="3"
+
+                                                        onChange={handleSearch}
                                                         required>
                                                         <option value="" selected disabled hidden>Select</option>
-                                                        <option value="18">Bramin</option>
-                                                        <option value="18">Khatri</option>
-                                                        <option value="18">Pappe</option>
-                                                        <option value="18">Jaat</option>
+                                                        <option value="Bramin">Bramin</option>
+                                                        <option value="Khatri">Khatri</option>
+                                                        <option value="Pappe">Pappe</option>
+                                                        <option value="Jaat">Jaat</option>
+                                                        <option value="Hindu">Hindu</option>
                                                     </select>
                                                     {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                                                 </div>
@@ -402,7 +422,7 @@ const LikeDislikeCard = () => {
                                                     {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                 </div>
                                                 <div className="btn-box col-md-2 mt-3 ">
-                                                    <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin">
+                                                    <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin" onClick={handleAdvanceSearch}>
                                                         <span className="btn-title">Lets's Begin </span></button>
                                                 </div>
                                             </form>

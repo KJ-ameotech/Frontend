@@ -1,6 +1,6 @@
 import axios from "axios"
 import { Api } from "../../Utils/ApiUrl"
-import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_DATA_UPDATE_FAILURE, PROFILE_DATA_UPDATE_REQUEST, PROFILE_DATA_UPDATE_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_UPDATE_FAILURE, PROFILE_IMAGE_UPDATE_REQUEST, PROFILE_IMAGE_UPDATE_SUCCESS, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants";
+import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, ADVANCE_SEARCH_PROFILE_FAILURE, ADVANCE_SEARCH_PROFILE_REQUEST, ADVANCE_SEARCH_PROFILE_SUCCESS, CREATE_ROOM_FAILURE, CREATE_ROOM_REQUEST, CREATE_ROOM_SUCCESS, FRIEND_LIST_FAILURE, FRIEND_LIST_REQUEST, FRIEND_LIST_SUCCESS, FRIEND_REQUEST_FAILURE, FRIEND_REQUEST_REQUEST, FRIEND_REQUEST_SUCCESS, GET_ALL_PROFILE_FAILURE, GET_ALL_PROFILE_REQUEST, GET_ALL_PROFILE_SUCCESS, GET_PROFILE_IMAGE_FAILURE, GET_PROFILE_IMAGE_REQUEST, GET_PROFILE_IMAGE_SUCCESS, GET_SEARCH_PROFILE_FAILURE, GET_SEARCH_PROFILE_REQUEST, GET_SEARCH_PROFILE_SUCCESS, NOTIFICATION_FAILURE, NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, PROFILE_DATA_UPDATE_FAILURE, PROFILE_DATA_UPDATE_REQUEST, PROFILE_DATA_UPDATE_SUCCESS, PROFILE_FAILURE, PROFILE_IMAGE_UPDATE_FAILURE, PROFILE_IMAGE_UPDATE_REQUEST, PROFILE_IMAGE_UPDATE_SUCCESS, PROFILE_IMAGE_USER_FAILURE, PROFILE_IMAGE_USER_REQUEST, PROFILE_IMAGE_USER_SUCCESS, PROFILE_POST_FAILURE, PROFILE_POST_REQUEST, PROFILE_POST_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_USER_FAILURE, PROFILE_USER_REQUEST, PROFILE_USER_SUCCESS } from "../Constants";
 import { header } from "../../Utils/Function"
 import { getLocalStorage } from "../../Utils/LocalStorage";
 
@@ -289,17 +289,6 @@ const acceptFriendFailure = error => ({
 export const acceptRequest = (item) => {
     console.log("item", item);
     return async (dispatch) => {
-        // const formData = new FormData();
-        // formData.append('liked_user', getLocalStorage("user_id"));
-        // formData.append("user", id)
-        // formData.append("approved", true)
-        // const requestOptions = {
-        //     method: 'PUT',
-        //     data: item, // Use 'data' to send the FormData
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data', // Set the correct content type
-        //     },
-        // };
         dispatch(acceptFriendRequest())
         axios.put(Api.acceptFriendReq(item.id), item)
             .then((response) => {
@@ -442,3 +431,34 @@ export const updateProfileData = (id, editProfileData) => {
         }
     };
 }
+
+
+
+const advanceSearchRequest = () => ({ type: ADVANCE_SEARCH_PROFILE_REQUEST })
+
+const advanceSearchSuccess = data => ({
+    type: ADVANCE_SEARCH_PROFILE_SUCCESS,
+    payload: data,
+}
+)
+
+const advanceSearchFailure = error => ({
+    type: ADVANCE_SEARCH_PROFILE_FAILURE,
+    payload: error,
+    error: true,
+})
+export const advanceSearchh = (quary) => {
+    return async (dispatch) => {
+        dispatch(advanceSearchRequest())
+        axios.get(Api.advanceSearch(quary))
+            .then((response) => {
+                dispatch(advanceSearchSuccess(response.data))
+            })
+            .catch((error) => {
+                dispatch(advanceSearchFailure(error))
+            })
+    }
+}
+
+
+
