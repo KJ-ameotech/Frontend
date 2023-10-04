@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../../Layout'
 import image from "../../assets/images/background/5.jpg"
 import { Link } from 'react-router-dom'
@@ -36,7 +36,7 @@ const Contactus = () => {
                                         <li>
                                             <span className="icon fa fa-envelope"></span>
                                             <p><strong>Mail Us</strong></p>
-                                            <p>info@matrimonysoftware.in</p>
+                                            <p>info@ameotech.in</p>
                                         </li>
 
                                         <li>
@@ -106,9 +106,6 @@ const Contactus = () => {
                 <section class="map-section">
                     <div class="auto-container mb-4">
                         <p><iframe frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30546.57270317713!2d74.600819!3d16.859979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x76d3c6745c2bda7b!2sReady%20Matrimonial!5e0!3m2!1sen!2sin!4v1613735289413!5m2!1sen!2sin" style={{ border: 0, tabindex: "0", width: "100%" }}></iframe></p>
-
-
-
                     </div>
                 </section>
             </div>

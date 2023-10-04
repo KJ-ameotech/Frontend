@@ -1,6 +1,6 @@
 export let baseUrl = "http://127.0.0.1:8000";
 export let chatBaseUrl = "http://127.0.0.1:8001";
-// const socket = io('http://your-server-url');
+
 export const Api = {
     register: `${baseUrl}/register/`,
     login: `${baseUrl}/login/`,
@@ -17,11 +17,9 @@ export const Api = {
     sendFriendRequest: `${baseUrl}/like/`,
     allNotification: (quary) => `${baseUrl}/user-likerequest/${quary}`,
     acceptFriendReq: (id) => `${baseUrl}/userlikes/${id}/`,
-    // friendList: (id) => `${baseUrl}/followed-users/${id}/`,
     friendList: (id) => `${baseUrl}/liked-users-likes/${id}/`,
     createChatRoom: `${chatBaseUrl}/rooms/`,
     profilePictureUpdate: (id) => `${baseUrl}/profiles_picture/${id}/`,
     profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
     advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
 }
-//http://127.0.0.1:8000/api/profile/advanced/search/?startheight=160&endheight=180&caste=YourCaste&minweight=50&maxweight=70

@@ -46,7 +46,7 @@ const Navbar = ({ auth }) => {
                   <li className={`${pathname === "/about" ? 'current' : ""} dropdown`}><Link to="/about">About</Link>
                   </li>
                   <li className={`${pathname === "/membership" ? 'current' : ""} dropdown`}><Link to="/membership">Membership</Link></li>
-                  <li><a href="#">Search</a></li>
+                  {/* <li><a href="#">Search</a></li> */}
                   <li className={`${pathname === "/contact-us" ? 'current' : ""} dropdown`}><Link to="/contact-us">Contact</Link></li>
                   <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/chat"><BsFillChatRightDotsFill /></Link></li>
                   <li className="dropdown"><Notification /></li>

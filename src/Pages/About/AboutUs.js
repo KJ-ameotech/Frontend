@@ -28,7 +28,7 @@ const AboutUs = () => {
                                 <div className="inner-column">
                                     <div className="sec-title">
                                         <span className="title">ABOUT US</span>
-                                        <h2>Welcome to matrimonysoftware.in </h2>
+                                        <h2>Welcome to Ameotech </h2>
                                         <div className="text"><p>Ready Matrimonial is one of the professional and highly experienced Matrimonial Website Development Companies in India. As one of the leading matrimonial software development organizations in India, we have maintained a strong team of PHP Developers with us, who work in a synchronized manner to provide you the perfect Matrimony Software at a reasonable cost.</p>
 
                                             <p>So if you are planning to start a matrimonial website with excellent features, then Ready Matrimony is a perfect platform for you. Ready Matrimonial offers a great service in the design, development, programming, and marketing of your website. We are one of the professional and popular matrimony software development company in India since 2011. With the help of our matrimonial script application, many potential brides and grooms can build their profiles on it and find a suitable partner.</p></div>
