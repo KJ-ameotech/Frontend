@@ -27,11 +27,9 @@ const Chat = () => {
 
     useEffect(() => {
         if (roomName != '') {
-            console.log("test")
             let webSocket = new WebSocket(chatPortURL + roomName + '/');
 
             webSocket.onopen = function (e) {
-                debugger;
                 console.log("The connection was setup successfully !");
             };
             webSocket.onclose = function (e) {
@@ -117,11 +115,15 @@ const Chat = () => {
     }, [userId])
 
     const handleCurrentChatUser = (item) => {
+        chatSocket?.close();
+        setChatSocket(null);
+        setSendMessage('');
         setSelectedFriend(item);
         dispatch(createRoom(item.slug));
         setRoomName(item.slug);
+        setMessages([])
     }
-
+    console.log(messages, "messages");
     return (
         <Layout>
             <section style={{ padding: "100px 0" }}>
