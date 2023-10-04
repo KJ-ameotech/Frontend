@@ -4,6 +4,7 @@ import { acceptRequest, getAllNotification } from '../../Redux/Actions/ProfileAc
 import { getLocalStorage } from '../../Utils/LocalStorage'
 import './notification.css'
 import { BsFillBellFill } from 'react-icons/bs'
+import { baseUrl } from '../../Utils/ApiUrl'
 
 const Notification = () => {
     const notificationState = useSelector(state => state.Profile.allNotificationData)
@@ -44,10 +45,16 @@ const Notification = () => {
                     {notificationData && notificationData?.map((item) => {
                         return (
                             <>
-                                <div>{item.user} wants to be your friend</div>
-                                <div>
-                                    <button style={{ margin: '5px', padding: '5px', border: 'solid 1px black' }} onClick={() => handleAccept(item)}>Accept</button>
-                                    <button style={{ margin: '5px', padding: '5px', border: 'solid 1px black' }} onClick={handleClose}>Close</button>
+                                <div className='request-box'>
+                                    <img className='notification-img'
+                                        src={item?.user_like?.profile_picture_image ?
+                                            baseUrl + item?.user_like?.profile_picture_image :
+                                            "/assets/images/background/bg.jpg"} alt="" />
+                                    <span>{item.user_like?.first_name} {item.user_like?.last_name} wants to be your friend</span>
+                                </div>
+                                <div class="request-btn-row">
+                                    <button class="friend-request accept-request" onClick={() => handleAccept(item)}>Accept</button>
+                                    <button class="friend-request decline-request" onClick={handleClose}>Decline</button>
                                 </div>
                             </>
                         )

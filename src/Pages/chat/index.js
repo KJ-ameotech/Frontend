@@ -194,7 +194,6 @@ const Chat = () => {
                                 </div>
                                 <button type="button" onClick={handleSendMessage}>
                                     <BiSend size={25} />
-
                                 </button>
                             </div>
                         </div>

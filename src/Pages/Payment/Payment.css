@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+.cards-wrapper {
+  padding: 100px 0px;
+  margin: 12px;
+}

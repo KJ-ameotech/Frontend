@@ -2,6 +2,7 @@ import React from 'react';
 import { lazy, Suspense } from "react";
 import Loading from "../components/Loading";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import Payment from '../Pages/Payment';
 
 // import TestLike from '../components/LikeDislikeCard/TestLike';
 const Profile = lazy(() => import("../Pages/Profile"))
@@ -75,10 +76,11 @@ const AppRoutes = ({ auth }) => {
             <Route path="/connection" element={<Suspense fallback={<Loading />}><LikeDislikeCard /></Suspense>} />
             <Route path="/" element={<Suspense fallback={<Loading />}><Feed /></Suspense>} />
             <Route path="/membership" element={<Suspense fallback={<Loading />}><MemberShip /></Suspense>} />
+            <Route path="/payment/:id" element={<Suspense fallback={<Loading />}><Payment /></Suspense>} />
+            {/* <Route path="/payment/:id" Component={(props) => { <Suspense fallback={<Loading />}><Payment {...props} /></Suspense> }} /> */}
             <Route path="/about" element={<Suspense fallback={<Loading />}><AboutUs /></Suspense>} />
             <Route path="*" element={<Navigate to="/" replace />} />
             {/* public  routes end here*/}
-
 
         </Routes>
     )
