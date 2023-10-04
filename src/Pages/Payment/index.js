@@ -12,11 +12,10 @@ const Payment = () => {
 
     const options = {
         mode: 'payment',
-        amount: params.id,
+        amount: Number(params.id),
         currency: 'usd',
         // Fully customizable with appearance API.
         appearance: {
-            /*...*/
         },
     };
 

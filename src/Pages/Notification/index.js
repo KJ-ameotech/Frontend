@@ -16,8 +16,10 @@ const Notification = () => {
         dispatch(acceptRequest(item))
     }
 
-    const handleClose = () => {
-        setIsShown(false)
+    const handleHover = (e) => {
+        if (notificationData?.length > 0) {
+            setIsShown(e)
+        }
     }
 
     useEffect(() => {
@@ -36,12 +38,12 @@ const Notification = () => {
     return (
         <div>
             <div className='notification'
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}>
+                onMouseEnter={() => handleHover(true)}
+                onMouseLeave={() => handleHover(false)}>
                 <BsFillBellFill />
             </div>
             {isShown && (
-                <div className='notification-box' onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+                <div className='notification-box' onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
                     {notificationData && notificationData?.map((item) => {
                         return (
                             <>
@@ -54,7 +56,7 @@ const Notification = () => {
                                 </div>
                                 <div class="request-btn-row">
                                     <button class="friend-request accept-request" onClick={() => handleAccept(item)}>Accept</button>
-                                    <button class="friend-request decline-request" onClick={handleClose}>Decline</button>
+                                    <button class="friend-request decline-request" onClick={() => handleHover(false)}>Decline</button>
                                 </div>
                             </>
                         )
