@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { acceptRequest, getAllNotification } from '../../Redux/Actions/ProfileActions'
 import { getLocalStorage } from '../../Utils/LocalStorage'
 import './notification.css'
+import { BsFillBellFill } from 'react-icons/bs'
 
 const Notification = () => {
     const notificationState = useSelector(state => state.Profile.allNotificationData)
@@ -25,8 +26,10 @@ const Notification = () => {
     }, [notificationState])
 
     useEffect(() => {
-        let quary = `?liked_user_id=${getLocalStorage("user_id")}`
-        dispatch(getAllNotification(quary))
+        if (getLocalStorage("access_token") != null) {
+            let quary = `?liked_user_id=${getLocalStorage("user_id")}`
+            dispatch(getAllNotification(quary))
+        }
     }, [])
 
     return (
@@ -34,7 +37,7 @@ const Notification = () => {
             <div className='notification'
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}>
-                Notifications
+                <BsFillBellFill />
             </div>
             {isShown && (
                 <div className='notification-box' onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>

@@ -13,9 +13,7 @@ let chatPortURL = "ws://127.0.0.1:8001/ws/";
 const Chat = () => {
     const dispatch = useDispatch();
     const friendListState = useSelector((state) => state.Profile)
-
     const { friendList, friendListLoading, chatRoomList, chatRoomLoading } = friendListState
-
     const [friendListData, setFriendListData] = useState([])
 
     const [userId, setUserId] = useState(getLocalStorage('user_id'));
@@ -33,6 +31,7 @@ const Chat = () => {
             let webSocket = new WebSocket(chatPortURL + roomName + '/');
 
             webSocket.onopen = function (e) {
+                debugger;
                 console.log("The connection was setup successfully !");
             };
             webSocket.onclose = function (e) {
@@ -99,10 +98,12 @@ const Chat = () => {
     }, [messages]);
 
     const handleSendMessage = (e) => {
-        e.preventDefault();
-        let data = { username: userId, message: sendMessage, room_name: roomName };
-        setSendMessage('');
-        chatSocket.send(JSON.stringify(data));
+        if (sendMessage) {
+            e.preventDefault();
+            let data = { username: userId, message: sendMessage, room_name: roomName };
+            setSendMessage('');
+            chatSocket.send(JSON.stringify(data));
+        }
     }
 
     useEffect(() => {

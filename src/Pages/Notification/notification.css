@@ -1,8 +1,7 @@
 .notification {
-    margin-top: 15px;
+    margin-top: 11px;
     color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-size: 18px;
     cursor: pointer;
 }
 

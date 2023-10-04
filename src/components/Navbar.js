@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getLocalStorage, removeLocalStorage } from "../Utils/LocalStorage";
-import { BsFillBellFill } from "react-icons/bs"
+import { BsFillChatRightDotsFill } from "react-icons/bs"
 import { useDispatch } from "react-redux";
 import { getAllNotification } from "../Redux/Actions/ProfileActions";
 import Notification from "../Pages/Notification";
@@ -48,7 +48,7 @@ const Navbar = ({ auth }) => {
                   <li className={`${pathname === "/membership" ? 'current' : ""} dropdown`}><Link to="/membership">Membership</Link></li>
                   <li><a href="#">Search</a></li>
                   <li className={`${pathname === "/contact-us" ? 'current' : ""} dropdown`}><Link to="/contact-us">Contact</Link></li>
-                  <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/all-notification "><BsFillBellFill /></Link></li>
+                  <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/chat"><BsFillChatRightDotsFill /></Link></li>
                   <li className="dropdown"><Notification /></li>
                 </ul>
               </div>
