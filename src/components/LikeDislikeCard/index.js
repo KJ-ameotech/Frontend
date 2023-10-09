@@ -3,8 +3,7 @@ import "./LikeDislikeCard.css"
 import { advanceSearchh, getAllProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLocalStorage } from '../../Utils/LocalStorage'
-
-
+import Layout from '../../Layout'
 
 const LikeDislikeCard = () => {
     const dispatch = useDispatch()
@@ -231,223 +230,225 @@ const LikeDislikeCard = () => {
     }, [])
 
     return (
-        <section>
-            <div class="auto-container">
-                <div class="row">
-                    <section className="coming-soon-section" style={{ marginTop: "150px" }}>
-                        <div className="auto-container mb-5">
-                            <div className="outer-box">
-                                <div className="time-counter">
-                                    <div className="col-md-12">
-                                        <div className="row">
-                                            <form className="form-inline"
-                                            //    onSubmit={handleSearchSubmit}
-                                            >
-                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search">Start Height</span></label>
-                                                    <select className="dropselect" name="startheight"
-                                                        value={advanceSearch.startheight}
-                                                        selected tabindex="1"
-                                                        onChange={handleSearch}
-                                                    >
-                                                        <option value="150">150</option>
-                                                        <option value="151">151</option>
-                                                        <option value="152">152</option>
-                                                        <option value="153">153</option>
-                                                        <option value="154">154</option>
-                                                        <option value="155">155</option>
-                                                        <option value="156">156</option>
+        <Layout>
+            <section>
+                <div class="auto-container">
+                    <div class="row">
+                        <section className="coming-soon-section" style={{ marginTop: "175px" }}>
+                            <div className="auto-container mb-5">
+                                <div className="outer-box">
+                                    <div className="time-counter">
+                                        <div className="col-md-12">
+                                            <div className="row">
+                                                <form className="form-inline"
+                                                //    onSubmit={handleSearchSubmit}
+                                                >
+                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search">Start Height</span></label>
+                                                        <select className="dropselect" name="startheight"
+                                                            value={advanceSearch.startheight}
+                                                            selected tabindex="1"
+                                                            onChange={handleSearch}
+                                                        >
+                                                            <option value="150">150</option>
+                                                            <option value="151">151</option>
+                                                            <option value="152">152</option>
+                                                            <option value="153">153</option>
+                                                            <option value="154">154</option>
+                                                            <option value="155">155</option>
+                                                            <option value="156">156</option>
 
-                                                        <option value="157">157</option>
-                                                        <option value="158">158</option>
-                                                        <option value="159">159</option>
-                                                        <option value="160">160</option>
-                                                        <option value="161">161</option>
-                                                        <option value="162">162</option>
-                                                        <option value="163">163</option>
-                                                        <option value="164">164</option>
-                                                        <option value="165">165</option>
-                                                        <option value="166">166</option>
-                                                        <option value="167">167</option>
-                                                        <option value="168">168</option>
-                                                        <option value="169">169</option>
-                                                        <option value="170">170</option>
-                                                        <option value="171">171</option>
-                                                        <option value="172">172</option>
-                                                        <option value="173">173</option>
-                                                        <option value="174">174</option>
-                                                        <option value="175">175</option>
-                                                        <option value="176">176</option>
-                                                        <option value="177">177</option>
-                                                        <option value="178">178</option>
-                                                        <option value="179">179</option>
-                                                        <option value="180">180</option>
-                                                        <option value="181">181</option>
-                                                        <option value="182">182</option>
-                                                        <option value="183">183</option>
-                                                        <option value="184">184</option>
-                                                        <option value="185">185</option>
-                                                        <option value="186">186</option>
-                                                        <option value="187">187</option>
-                                                        <option value="188">188</option>
-                                                        <option value="189">189</option>
-                                                        <option value="190">190</option>
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search">End Height</span></label>
-                                                    <select className="dropselect" id="fromage"
-                                                        onChange={handleSearch}
-                                                        value={advanceSearch.endheight}
-                                                        name="endheight" tabindex="2"
-                                                        required>
-                                                        <option value="" selected disabled hidden>Select</option>
-                                                        <option value="150">150</option>
-                                                        <option value="151">151</option>
-                                                        <option value="152">152</option>
-                                                        <option value="153">153</option>
-                                                        <option value="154">154</option>
-                                                        <option value="155">155</option>
-                                                        <option value="156">156</option>
+                                                            <option value="157">157</option>
+                                                            <option value="158">158</option>
+                                                            <option value="159">159</option>
+                                                            <option value="160">160</option>
+                                                            <option value="161">161</option>
+                                                            <option value="162">162</option>
+                                                            <option value="163">163</option>
+                                                            <option value="164">164</option>
+                                                            <option value="165">165</option>
+                                                            <option value="166">166</option>
+                                                            <option value="167">167</option>
+                                                            <option value="168">168</option>
+                                                            <option value="169">169</option>
+                                                            <option value="170">170</option>
+                                                            <option value="171">171</option>
+                                                            <option value="172">172</option>
+                                                            <option value="173">173</option>
+                                                            <option value="174">174</option>
+                                                            <option value="175">175</option>
+                                                            <option value="176">176</option>
+                                                            <option value="177">177</option>
+                                                            <option value="178">178</option>
+                                                            <option value="179">179</option>
+                                                            <option value="180">180</option>
+                                                            <option value="181">181</option>
+                                                            <option value="182">182</option>
+                                                            <option value="183">183</option>
+                                                            <option value="184">184</option>
+                                                            <option value="185">185</option>
+                                                            <option value="186">186</option>
+                                                            <option value="187">187</option>
+                                                            <option value="188">188</option>
+                                                            <option value="189">189</option>
+                                                            <option value="190">190</option>
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search">End Height</span></label>
+                                                        <select className="dropselect" id="fromage"
+                                                            onChange={handleSearch}
+                                                            value={advanceSearch.endheight}
+                                                            name="endheight" tabindex="2"
+                                                            required>
+                                                            <option value="" selected disabled hidden>Select</option>
+                                                            <option value="150">150</option>
+                                                            <option value="151">151</option>
+                                                            <option value="152">152</option>
+                                                            <option value="153">153</option>
+                                                            <option value="154">154</option>
+                                                            <option value="155">155</option>
+                                                            <option value="156">156</option>
 
-                                                        <option value="157">157</option>
-                                                        <option value="158">158</option>
-                                                        <option value="159">159</option>
-                                                        <option value="160">160</option>
-                                                        <option value="161">161</option>
-                                                        <option value="162">162</option>
-                                                        <option value="163">163</option>
-                                                        <option value="164">164</option>
-                                                        <option value="165">165</option>
-                                                        <option value="166">166</option>
-                                                        <option value="167">167</option>
-                                                        <option value="168">168</option>
-                                                        <option value="169">169</option>
-                                                        <option value="170">170</option>
-                                                        <option value="171">171</option>
-                                                        <option value="172">172</option>
-                                                        <option value="173">173</option>
-                                                        <option value="174">174</option>
-                                                        <option value="175">175</option>
-                                                        <option value="176">176</option>
-                                                        <option value="177">177</option>
-                                                        <option value="178">178</option>
-                                                        <option value="179">179</option>
-                                                        <option value="180">180</option>
-                                                        <option value="181">181</option>
-                                                        <option value="182">182</option>
-                                                        <option value="183">183</option>
-                                                        <option value="184">184</option>
-                                                        <option value="185">185</option>
-                                                        <option value="186">186</option>
-                                                        <option value="187">187</option>
-                                                        <option value="188">188</option>
-                                                        <option value="189">189</option>
-                                                        <option value="190">190</option>
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search">Your Caste</span></label>
-                                                    <select className="dropselect" id="toage"
-                                                        value={advanceSearch.caste}
-                                                        name="caste" tabindex="3"
+                                                            <option value="157">157</option>
+                                                            <option value="158">158</option>
+                                                            <option value="159">159</option>
+                                                            <option value="160">160</option>
+                                                            <option value="161">161</option>
+                                                            <option value="162">162</option>
+                                                            <option value="163">163</option>
+                                                            <option value="164">164</option>
+                                                            <option value="165">165</option>
+                                                            <option value="166">166</option>
+                                                            <option value="167">167</option>
+                                                            <option value="168">168</option>
+                                                            <option value="169">169</option>
+                                                            <option value="170">170</option>
+                                                            <option value="171">171</option>
+                                                            <option value="172">172</option>
+                                                            <option value="173">173</option>
+                                                            <option value="174">174</option>
+                                                            <option value="175">175</option>
+                                                            <option value="176">176</option>
+                                                            <option value="177">177</option>
+                                                            <option value="178">178</option>
+                                                            <option value="179">179</option>
+                                                            <option value="180">180</option>
+                                                            <option value="181">181</option>
+                                                            <option value="182">182</option>
+                                                            <option value="183">183</option>
+                                                            <option value="184">184</option>
+                                                            <option value="185">185</option>
+                                                            <option value="186">186</option>
+                                                            <option value="187">187</option>
+                                                            <option value="188">188</option>
+                                                            <option value="189">189</option>
+                                                            <option value="190">190</option>
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search">Your Caste</span></label>
+                                                        <select className="dropselect" id="toage"
+                                                            value={advanceSearch.caste}
+                                                            name="caste" tabindex="3"
 
-                                                        onChange={handleSearch}
-                                                        required>
-                                                        <option value="" selected disabled hidden>Select</option>
-                                                        <option value="Bramin">Bramin</option>
-                                                        <option value="Khatri">Khatri</option>
-                                                        <option value="Pappe">Pappe</option>
-                                                        <option value="Jaat">Jaat</option>
-                                                        <option value="Hindu">Hindu</option>
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search" >Min Weight</span></label>
-                                                    <select className="dropselect"
-                                                        value={advanceSearch.minweight}
-                                                        name="minweight" id="weight" tabindex="4"
-                                                        onChange={handleSearch}
-                                                        required>
-                                                        {!!weight.length && weight.map((item) => {
-                                                            return <option value={item}>{item}</option>
-                                                        })}
+                                                            onChange={handleSearch}
+                                                            required>
+                                                            <option value="" selected disabled hidden>Select</option>
+                                                            <option value="Bramin">Bramin</option>
+                                                            <option value="Khatri">Khatri</option>
+                                                            <option value="Pappe">Pappe</option>
+                                                            <option value="Jaat">Jaat</option>
+                                                            <option value="Hindu">Hindu</option>
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search" >Min Weight</span></label>
+                                                        <select className="dropselect"
+                                                            value={advanceSearch.minweight}
+                                                            name="minweight" id="weight" tabindex="4"
+                                                            onChange={handleSearch}
+                                                            required>
+                                                            {!!weight.length && weight.map((item) => {
+                                                                return <option value={item}>{item}</option>
+                                                            })}
 
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search" >max Weight</span></label>
-                                                    <select className="dropselect"
-                                                        value={advanceSearch.maxweight}
-                                                        name="maxweight" id="weight" tabindex="4"
-                                                        onChange={handleSearch}
-                                                        required>
-                                                        {!!weight.length && weight.map((item) => {
-                                                            return <option value={item}>{item}</option>
-                                                        })}
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search" >max Weight</span></label>
+                                                        <select className="dropselect"
+                                                            value={advanceSearch.maxweight}
+                                                            name="maxweight" id="weight" tabindex="4"
+                                                            onChange={handleSearch}
+                                                            required>
+                                                            {!!weight.length && weight.map((item) => {
+                                                                return <option value={item}>{item}</option>
+                                                            })}
 
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search" >Minimum Income</span></label>
-                                                    <select className="dropselect"
-                                                        value={advanceSearch.miniincome}
-                                                        name="miniincome" id="weight" tabindex="4"
-                                                        onChange={handleSearch}
-                                                        required>
-                                                        {!!income.length && income.map((item) => {
-                                                            return <option value={item}>{item}</option>
-                                                        })}
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search" >Minimum Income</span></label>
+                                                        <select className="dropselect"
+                                                            value={advanceSearch.miniincome}
+                                                            name="miniincome" id="weight" tabindex="4"
+                                                            onChange={handleSearch}
+                                                            required>
+                                                            {!!income.length && income.map((item) => {
+                                                                return <option value={item}>{item}</option>
+                                                            })}
 
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                    <label className="label" for="lookingfor"><span className="search" >Maximum Income</span></label>
-                                                    <select className="dropselect"
-                                                        value={advanceSearch.maxincome}
-                                                        name="maxincome" id="weight" tabindex="4"
-                                                        onChange={handleSearch}
-                                                        required>
-                                                        {!!income.length && income.map((item) => {
-                                                            return <option value={item}>{item}</option>
-                                                        })}
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                        <label className="label" for="lookingfor"><span className="search" >Maximum Income</span></label>
+                                                        <select className="dropselect"
+                                                            value={advanceSearch.maxincome}
+                                                            name="maxincome" id="weight" tabindex="4"
+                                                            onChange={handleSearch}
+                                                            required>
+                                                            {!!income.length && income.map((item) => {
+                                                                return <option value={item}>{item}</option>
+                                                            })}
 
-                                                    </select>
-                                                    {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
-                                                </div>
-                                                <div className="btn-box col-md-2 mt-3 ">
-                                                    <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin" onClick={handleAdvanceSearch}>
-                                                        <span className="btn-title">Lets's Begin </span></button>
-                                                </div>
-                                            </form>
+                                                        </select>
+                                                        {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
+                                                    </div>
+                                                    <div className="btn-box col-md-2 mt-3 ">
+                                                        <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin" onClick={handleAdvanceSearch}>
+                                                            <span className="btn-title">Lets's Begin </span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <div class="col-lg-3 mx-auto">
-                        <div class="frame"></div>
-                        <div class="icons">
-                            <svg id="hate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.07 127.89" onClick={() => hanedleLikeDislike("hate")}>
-                                <path class="a" d="M128.07,64.07c-.5,36.31-28,63.57-64,63.82S-.17,99.33,0,63.29C.17,28.25,29.23-.3,64.43,0A63.88,63.88,0,0,1,128.07,64.07ZM45.32,38.54c-2.44.36-4.63,1.12-6,3.68a6.39,6.39,0,0,0,.94,7.83A143,143,0,0,0,50.42,60.36c2.73,2.48,3.44,4.31.2,7a98.44,98.44,0,0,0-9.52,9.53c-3.62,4-3.66,7.48-.47,10.59,2.82,2.76,7.12,2.54,10.7-.79,3.05-2.83,5.91-5.86,8.85-8.8,2.58-2.57,5.16-2.53,7.73,0,2.83,2.81,5.62,5.67,8.52,8.42,3.87,3.68,8.08,4.08,11,1.15,3.23-3.21,3-6.85-.83-11C83.57,73.21,80.44,70,77.1,67c-2.37-2.13-2.71-3.65-.13-5.91,3.24-2.85,6.15-6.08,9.2-9.15,4.17-4.2,4.66-8,1.45-11.34-2.93-3-7.58-2.61-11.49,1.19-3.34,3.25-6.66,6.52-9.85,9.91-1.64,1.74-2.85,1.73-4.49,0-3.32-3.5-6.84-6.81-10.21-10.26A9,9,0,0,0,45.32,38.54Z" />
-                                <path d="M45.32,38.54a9,9,0,0,1,6.26,2.87c3.37,3.45,6.89,6.76,10.21,10.26,1.64,1.73,2.85,1.74,4.49,0,3.19-3.39,6.51-6.66,9.85-9.91C80,38,84.69,37.52,87.62,40.57c3.21,3.34,2.72,7.14-1.45,11.34-3,3.07-6,6.3-9.2,9.15-2.58,2.26-2.24,3.78.13,5.91,3.34,3,6.47,6.24,9.53,9.52,3.87,4.16,4.06,7.8.83,11-2.95,2.93-7.16,2.53-11-1.15-2.9-2.75-5.69-5.61-8.52-8.42-2.57-2.54-5.15-2.58-7.73,0-2.94,2.94-5.8,6-8.85,8.8-3.58,3.33-7.88,3.55-10.7.79-3.19-3.11-3.15-6.6.47-10.59a98.44,98.44,0,0,1,9.52-9.53c3.24-2.72,2.53-4.55-.2-7A143,143,0,0,1,40.28,50.05a6.39,6.39,0,0,1-.94-7.83C40.69,39.66,42.88,38.9,45.32,38.54Z" />
-                            </svg>
-                            <svg id="like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.06 127.99" onClick={() => hanedleLikeDislike("like")}>
-                                <path class="a" d="M128.06,63.83a63.65,63.65,0,0,1-64,64.16A63.57,63.57,0,0,1,0,64a64,64,0,0,1,128.06-.13ZM96,56.53c0-5.82-3.9-13.3-10.19-16.05-6.9-3-13.67-2.67-19.37,2.82-2,1.9-3.16,1.41-4.93-.17-2.34-2.08-4.86-3.89-8.25-4.24-9.13-.92-15.31,2.3-19.11,10.25-3.89,8.11-2.42,17.27,4,23.34,7.5,7,15.22,13.88,22.77,20.89,2.06,1.92,3.76,2.27,6,.21C74.36,86.7,82,80,89.39,73.09,93.57,69.21,96.06,64.45,96,56.53Z" />
-                                <path d="M96,56.53c.08,7.92-2.41,12.68-6.59,16.56C82,80,74.36,86.7,66.93,93.58c-2.23,2.06-3.93,1.71-6-.21-7.55-7-15.27-13.84-22.77-20.89-6.46-6.07-7.93-15.23-4-23.34,3.8-8,10-11.17,19.11-10.25,3.39.35,5.91,2.16,8.25,4.24,1.77,1.58,2.95,2.07,4.93.17,5.7-5.49,12.47-5.84,19.37-2.82C92.08,43.23,96,50.71,96,56.53Z" />
-                            </svg>
+                        </section>
+                        <div class="col-lg-3 mx-auto">
+                            <div class="frame"></div>
+                            <div class="icons">
+                                <svg id="hate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.07 127.89" onClick={() => hanedleLikeDislike("hate")}>
+                                    <path class="a" d="M128.07,64.07c-.5,36.31-28,63.57-64,63.82S-.17,99.33,0,63.29C.17,28.25,29.23-.3,64.43,0A63.88,63.88,0,0,1,128.07,64.07ZM45.32,38.54c-2.44.36-4.63,1.12-6,3.68a6.39,6.39,0,0,0,.94,7.83A143,143,0,0,0,50.42,60.36c2.73,2.48,3.44,4.31.2,7a98.44,98.44,0,0,0-9.52,9.53c-3.62,4-3.66,7.48-.47,10.59,2.82,2.76,7.12,2.54,10.7-.79,3.05-2.83,5.91-5.86,8.85-8.8,2.58-2.57,5.16-2.53,7.73,0,2.83,2.81,5.62,5.67,8.52,8.42,3.87,3.68,8.08,4.08,11,1.15,3.23-3.21,3-6.85-.83-11C83.57,73.21,80.44,70,77.1,67c-2.37-2.13-2.71-3.65-.13-5.91,3.24-2.85,6.15-6.08,9.2-9.15,4.17-4.2,4.66-8,1.45-11.34-2.93-3-7.58-2.61-11.49,1.19-3.34,3.25-6.66,6.52-9.85,9.91-1.64,1.74-2.85,1.73-4.49,0-3.32-3.5-6.84-6.81-10.21-10.26A9,9,0,0,0,45.32,38.54Z" />
+                                    <path d="M45.32,38.54a9,9,0,0,1,6.26,2.87c3.37,3.45,6.89,6.76,10.21,10.26,1.64,1.73,2.85,1.74,4.49,0,3.19-3.39,6.51-6.66,9.85-9.91C80,38,84.69,37.52,87.62,40.57c3.21,3.34,2.72,7.14-1.45,11.34-3,3.07-6,6.3-9.2,9.15-2.58,2.26-2.24,3.78.13,5.91,3.34,3,6.47,6.24,9.53,9.52,3.87,4.16,4.06,7.8.83,11-2.95,2.93-7.16,2.53-11-1.15-2.9-2.75-5.69-5.61-8.52-8.42-2.57-2.54-5.15-2.58-7.73,0-2.94,2.94-5.8,6-8.85,8.8-3.58,3.33-7.88,3.55-10.7.79-3.19-3.11-3.15-6.6.47-10.59a98.44,98.44,0,0,1,9.52-9.53c3.24-2.72,2.53-4.55-.2-7A143,143,0,0,1,40.28,50.05a6.39,6.39,0,0,1-.94-7.83C40.69,39.66,42.88,38.9,45.32,38.54Z" />
+                                </svg>
+                                <svg id="like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.06 127.99" onClick={() => hanedleLikeDislike("like")}>
+                                    <path class="a" d="M128.06,63.83a63.65,63.65,0,0,1-64,64.16A63.57,63.57,0,0,1,0,64a64,64,0,0,1,128.06-.13ZM96,56.53c0-5.82-3.9-13.3-10.19-16.05-6.9-3-13.67-2.67-19.37,2.82-2,1.9-3.16,1.41-4.93-.17-2.34-2.08-4.86-3.89-8.25-4.24-9.13-.92-15.31,2.3-19.11,10.25-3.89,8.11-2.42,17.27,4,23.34,7.5,7,15.22,13.88,22.77,20.89,2.06,1.92,3.76,2.27,6,.21C74.36,86.7,82,80,89.39,73.09,93.57,69.21,96.06,64.45,96,56.53Z" />
+                                    <path d="M96,56.53c.08,7.92-2.41,12.68-6.59,16.56C82,80,74.36,86.7,66.93,93.58c-2.23,2.06-3.93,1.71-6-.21-7.55-7-15.27-13.84-22.77-20.89-6.46-6.07-7.93-15.23-4-23.34,3.8-8,10-11.17,19.11-10.25,3.39.35,5.91,2.16,8.25,4.24,1.77,1.58,2.95,2.07,4.93.17,5.7-5.49,12.47-5.84,19.37-2.82C92.08,43.23,96,50.71,96,56.53Z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </Layout>
     )
 }
 

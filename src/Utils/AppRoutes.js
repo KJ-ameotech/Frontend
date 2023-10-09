@@ -75,7 +75,8 @@ const AppRoutes = ({ auth }) => {
             {/* <Route path="/connection" element={<Suspense fallback={<Loading />}><TestLike /></Suspense>} /> */}
             <Route path="/connection" element={<Suspense fallback={<Loading />}><LikeDislikeCard /></Suspense>} />
             <Route path="/" element={<Suspense fallback={<Loading />}><Feed /></Suspense>} />
-            <Route path="/membership" element={<Suspense fallback={<Loading />}><MemberShip /></Suspense>} />
+            <Route path="/membership" element={auth ? <Suspense fallback={<Loading />}><MemberShip /></Suspense> : <Navigate to="/login" replace />} />
+            <Route path="/membership" element={auth ? <Suspense fallback={<Loading />}><MemberShip /></Suspense> : <Navigate to="/login" replace />} />
             <Route path="/payment/:id" element={<Suspense fallback={<Loading />}><Payment /></Suspense>} />
             {/* <Route path="/payment/:id" Component={(props) => { <Suspense fallback={<Loading />}><Payment {...props} /></Suspense> }} /> */}
             <Route path="/about" element={<Suspense fallback={<Loading />}><AboutUs /></Suspense>} />

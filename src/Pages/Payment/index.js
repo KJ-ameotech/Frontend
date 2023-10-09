@@ -5,7 +5,7 @@ import './Payment.css';
 import Layout from "../../Layout";
 import CheckoutForm from "./CheckoutForm";
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+const stripePromise = loadStripe('pk_test_51NfjzOSA1sOBZbZTKvOc1PHFkMYgufgopdqvT1UKkwrlZp7O8rdJQnk7UMPzom20CjPrwuQxqexQKa3oMPqQPoC500C3FrDN6Q');
 
 const Payment = () => {
     const { id } = useParams();
@@ -22,7 +22,7 @@ const Payment = () => {
         <Layout>
             <section className="cards-wrapper">
                 <Elements stripe={stripePromise} options={options}>
-                    <CheckoutForm />
+                    <CheckoutForm props={id} />
                 </Elements>
             </section>
         </Layout>

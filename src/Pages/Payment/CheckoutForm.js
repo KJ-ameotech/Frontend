@@ -1,88 +1,86 @@
 import React, { useState } from 'react';
 import {
-    PaymentElement,
     useStripe,
     useElements,
-    Elements,
+    CardElement,
 } from '@stripe/react-stripe-js';
+import { useDispatch } from 'react-redux';
+import { stripePayment } from '../../Redux/Actions/ProfileActions';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ props }) => {
+    const dispatch = useDispatch();
     const stripe = useStripe();
     const elements = useElements();
 
-    const [errorMessage, setErrorMessage] = useState(null);
+    const [isPaymentLoading, setPaymentLoading] = useState(false);
+    //const [errorMessage, setErrorMessage] = useState(null);
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    //     if (elements == null) {
-    //         return;
-    //     }
-
-    //     // Trigger form validation and wallet collection
-    //     const { error: submitError } = await elements.submit();
-    //     if (submitError) {
-    //         // Show error to your customer
-    //         setErrorMessage(submitError.message);
-    //         return;
-    //     }
-
-    //     // Create the PaymentIntent and obtain clientSecret from your server endpoint
-    //     const res = await fetch('/create-intent', {
-    //         method: 'POST',
-    //     });
-
-    //     const { client_secret: clientSecret } = await res.json();
-
-    //     const { error } = await stripe.confirmPayment({
-    //         //`Elements` instance that was used to create the Payment Element
-    //         elements,
-    //         clientSecret,
-    //         confirmParams: {
-    //             return_url: 'http://127.0.0.1:8000/complete',
-    //         },
-    //     });
-
-    //     if (error) {
-    //         debugger;
-    //         // This point will only be reached if there is an immediate error when
-    //         // confirming the payment. Show error to your customer (for example, payment
-    //         // details incomplete)
-    //         setErrorMessage(error.message);
-    //     } else {
-    //         debugger;
-    //         // Your customer will be redirected to your `return_url`. For some payment
-    //         // methods like iDEAL, your customer will be redirected to an intermediate
-    //         // site first to authorize the payment, then redirected to the `return_url`.
-    //     }
-    // };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        debugger;
+        setPaymentLoading(true);
         if (!stripe || !elements) {
             return;
         }
+        const cardElement = elements.getElement(CardElement);
 
-        const card = elements.getElement(Elements);
-        const result = await stripe.createToken(card);
-        if (result.error) {
-            console.log(result.error.message);
+        // use stripe.createToken to get a unique token for the card
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+        });
+
+        console.log("token", paymentMethod);
+        setPaymentLoading(false);
+        if (!error) {
+            const formData = new FormData();
+            formData.append('token', paymentMethod.id)
+            formData.append('amount', props);
+            formData.append('currency', 'USD')
+
+            dispatch(stripePayment(formData));
+            // axios
+            //     .post("http://localhost:5000/api/stripe/charge", {
+            //         token: token.id,
+            //         currency: "USD",
+            //         price: props, // or 10 pounds (10*100). Stripe charges with the smallest price unit allowed
+            //     })
+            //     .then((resp) => {
+            //         alert("Your payment was successful");
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     });
         } else {
-            console.log(result.token);
-            // pass the token to your backend API
+            console.log(error);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <PaymentElement />
-            <button type="submit" disabled={!stripe || !elements}>
-                Pay
-            </button>
-            {/* Show error message to your customers */}
-            {errorMessage && <div>{errorMessage}</div>}
-        </form>
+        <div style={{ padding: "3rem" }}>
+            <div style={{ maxWidth: "500px", margin: "0 auto" }}>
+                <form style={{ display: "block", width: "100%" }} onSubmit={handleSubmit}>
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                        <CardElement
+                            className="card"
+                            options={{
+                                style: {
+                                    base: {
+                                        backgroundColor: "white"
+                                    }
+                                },
+                            }}
+                        />
+                        <button
+                            className="pay-button"
+                            disabled={isPaymentLoading}
+                        >
+                            {isPaymentLoading ? "Loading..." : `Pay $${props}`}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 };
 

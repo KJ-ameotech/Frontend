@@ -22,4 +22,5 @@ export const Api = {
     profilePictureUpdate: (id) => `${baseUrl}/profiles_picture/${id}/`,
     profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
     advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
+    stripePaymentAPI: `${baseUrl}/stripe/payment/`,
 }
