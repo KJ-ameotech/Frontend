@@ -4,6 +4,7 @@ import { advanceSearchh, getAllProfileUser, sendFriendRequest } from '../../Redu
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from '../../Layout'
 import { baseUrl } from '../../Utils/ApiUrl'
+import { getLocalStorage } from '../../Utils/LocalStorage'
 
 const LikeDislikeCard = () => {
     const dispatch = useDispatch()
@@ -46,14 +47,16 @@ const LikeDislikeCard = () => {
             setAllProfilesData(allSearchData)
         }
         else if (!!allProfile?.length) {
-            setAllProfilesData(allProfile)
+            let userId = getLocalStorage('user_id');
+            let data = allProfile.filter(x => x.user_id != userId);
+            setAllProfilesData(data)
         }
     }, [allProfile, allSearchData, advanceSearchRes])
 
     let startX = 0, startY = 0, moveX = 0, moveY = 0
     const hanedleLikeDislike = (action) => {
         const currentUserProfileData = allProfilesData[currentCardIndex];
-        const userId = currentUserProfileData.id;
+        const userId = currentUserProfileData.user_id;
         console.log(userId, "currentUserProfileData");
         if (action == "like") {
             moveX = 1
@@ -144,6 +147,7 @@ const LikeDislikeCard = () => {
         } else cancel()
     }, [current, frame, onPointerDown])
 
+
     const complete = useCallback(() => {
         const flyX = (Math.abs(moveX) / moveX) * window.innerWidth * 1.3;
         const flyY = (moveY / moveX) * flyX;
@@ -205,12 +209,14 @@ const LikeDislikeCard = () => {
     }
     const handleAdvanceSearch = (e) => {
         e.preventDefault()
-        let req = '';
+        let userId = getLocalStorage('user_id');
+        let req = `user_id=${userId}`;
         Object.keys(advanceSearch).forEach((element, index) => {
             if (advanceSearch[element] != '') {
-                if (index > 0) {
-                    req += '&'
-                }
+                // if (index > 0) {
+                //     req += '&'
+                // }
+                req += '&'
                 req += element + '=' + advanceSearch[element];
             }
         });

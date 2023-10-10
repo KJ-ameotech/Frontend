@@ -36,6 +36,7 @@
 
 .icons>svg:nth-child(2) {
   fill: #f70529;
+  margin-left: -25px;
 }
 
 .icons>svg>path:nth-child(1) {
@@ -140,11 +141,6 @@
 .card .bottom .info {
   margin: 3% 0 0 2%;
   font-size: clamp(10px, 1.1em, 20px);
-}
-
-.error-msg {
-  font-size: 18px;
-  text-align: center;
 }
 
 @media screen and (max-height: 540px) {
