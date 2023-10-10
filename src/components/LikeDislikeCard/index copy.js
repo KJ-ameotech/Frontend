@@ -2,13 +2,13 @@ import React, { useEffect, useState, memo, useCallback } from 'react'
 import "./LikeDislikeCard.css"
 import { advanceSearchh, getAllProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { getLocalStorage } from '../../Utils/LocalStorage'
 import Layout from '../../Layout'
-import { baseUrl } from '../../Utils/ApiUrl'
 
 const LikeDislikeCard = () => {
     const dispatch = useDispatch()
-    const profile = useSelector((state) => state.Profile)
-    const { allProfile, allSearchData, advanceSearchRes } = profile;
+    const profile = useSelector((state) => state.Profile
+    )
     const data = [
         { img: `/assets/images/actress1.jpg`, name: 'Camila Cabello', age: '20', distance: '2 km' },
         { img: `/assets/images/actress1.jpg`, name: 'kathrine', age: '23', distance: '5 km' },
@@ -30,25 +30,13 @@ const LikeDislikeCard = () => {
     const [imgCount, setImageCount] = useState(0)
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [allProfilesData, setAllProfilesData] = useState([])
+    const [currentUser, setCurrentUser] = useState({})
     const [acceptedUsers, setAcceptedUsers] = useState([]);
     const [rejectedUsers, setRejectedUsers] = useState([]);
     const [weight, setWeight] = useState([])
     const [income, setIncome] = useState([])
-
-    useEffect(() => {
-        dispatch(getAllProfileUser())
-    }, [])
-    useEffect(() => {
-        if (!!advanceSearchRes?.length) {
-            setAllProfilesData(advanceSearchRes)
-        }
-        else if (!!allSearchData?.length) {
-            setAllProfilesData(allSearchData)
-        }
-        else if (!!allProfile?.length) {
-            setAllProfilesData(allProfile)
-        }
-    }, [allProfile, allSearchData, advanceSearchRes])
+    const { allProfile, allSearchData
+    } = profile;
 
     let startX = 0, startY = 0, moveX = 0, moveY = 0
     const hanedleLikeDislike = (action) => {
@@ -77,15 +65,13 @@ const LikeDislikeCard = () => {
         if (classId) setFrame(classId)
     }, [frame])
     useEffect(() => {
-        if (allProfilesData?.length > 0) {
-            allProfilesData.forEach(_data => appendCard(_data))
-            let getChild = frame?.querySelector('.card:last-child')
-            if (getChild) {
-                setCurrent(getChild)
-                setLikeText(getChild.children[0])
-            }
+        data.forEach(_data => appendCard(_data))
+        let getChild = frame?.querySelector('.card:last-child')
+        if (getChild) {
+            setCurrent(getChild)
+            setLikeText(getChild.children[0])
         }
-    }, [frame, allProfilesData])
+    }, [frame])
     useEffect(() => {
         initCard(current)
     }, [current])
@@ -93,19 +79,19 @@ const LikeDislikeCard = () => {
         const firstCard = frame?.children[0]
         const newCard = document.createElement('div')
         newCard.className = 'card'
-        newCard.style.backgroundImage = `url(${data?.profile_picture ? baseUrl + data?.profile_picture : "/assets/images/background/bg.jpg"})`
+        newCard.style.backgroundImage = `url(${data.img})`
         newCard.innerHTML = `
-            <div class="is-like">LIKE</div>
-            <div class="bottom">
-                <div class="title">
-                <span>${data.first_name + ' ' + data.last_name}</span>
-                <span>${data.age}</span>
-                </div>
-                <div class="info">
-                ${data.distance} miles away
-                </div>
-            </div>
-            `
+      <div class="is-like">LIKE</div>
+      <div class="bottom">
+        <div class="title">
+          <span>${data.name}</span>
+          <span>${data.age}</span>
+        </div>
+        <div class="info">
+          ${data.distance} miles away
+        </div>
+      </div>
+    `
         if (firstCard) frame?.insertBefore(newCard, firstCard)
         else frame?.appendChild(newCard)
         setImageCount(prev => prev + 1)
@@ -133,6 +119,7 @@ const LikeDislikeCard = () => {
         moveY = clientY - startY
         setTransform(moveX, moveY, moveX / window.innerWidth * 50)
     }, [current])
+
 
     const onPointerUp = useCallback(() => {
         current.removeEventListener('pointermove', onPointerMove)
@@ -197,7 +184,18 @@ const LikeDislikeCard = () => {
             }
         })
     }
-
+    useEffect(() => {
+        dispatch(getAllProfileUser())
+    }, [])
+    useEffect(() => {
+        if (!!allProfile?.length) {
+            // alert("hello")
+            setAllProfilesData(allProfile)
+        } else if (allSearchData) {
+            const removeCurrentuserId = allProfile.filter((o) => o.user != getLocalStorage('user_id'))
+            setAllProfilesData(removeCurrentuserId)
+        }
+    }, [allProfile, allSearchData])
     const handleAdvanceSearch = (e) => {
         e.preventDefault()
         let req = '';
@@ -211,16 +209,24 @@ const LikeDislikeCard = () => {
         });
         dispatch(advanceSearchh(req))
     }
-
     useEffect(() => {
         let weightCount = []
         let income = []
         for (let i = 1; i < [...Array(150)].length; i++) {
-            if (i <= 10) income.push(i + "00000")
             if (i > 49) weightCount.push(i)
+        }
+        for (let i = 1; i <= [...Array(10)].length; i++) {
+            // if (i < 2) {
+            //     income.push(i + "00000")
+            // } else {
+            //     income.push(i + "," + "00,000")
+            // }
+            income.push(i + "00000")
         }
         setIncome(income)
         setWeight(weightCount)
+
+        console.log(income, "weightCount")
     }, [])
 
     return (

@@ -295,7 +295,7 @@ const ProfileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 advanceSearchLoading: false,
-                advanceSearchRes: action.payload,
+                advanceSearchRes: action.payload?.results,
             }
         case ADVANCE_SEARCH_PROFILE_FAILURE:
             return {

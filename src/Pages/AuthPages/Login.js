@@ -34,14 +34,31 @@ const Login = () => {
     const handleSumbit = (e) => {
         e.preventDefault()
         if (((!!loginData.text?.length) && !!loginData.password?.length)) {
-            if (validEmail(loginData.text)) {
-                const obj = { email: loginData.text, password: loginData.password }
-                dispatch(loginUser(obj))
-            } else if (userNameValidation(loginData.text)) {
-                const obj = { username: loginData.text, password: loginData.password }
-                dispatch(loginUser(obj))
-            } else {
-                setError(true)
+            const location = window.navigator && window.navigator.geolocation;
+            if (location) {
+                location.getCurrentPosition((position) => {
+                    if (validEmail(loginData.text)) {
+                        const obj = {
+                            email: loginData.text,
+                            password: loginData.password,
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        }
+                        dispatch(loginUser(obj))
+                    } else if (userNameValidation(loginData.text)) {
+                        const obj = {
+                            username: loginData.text,
+                            password: loginData.password,
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        }
+                        dispatch(loginUser(obj))
+                    } else {
+                        setError(true)
+                    }
+                }, (error) => {
+                    alert("Please allow navigation");
+                })
             }
         } else {
             setError(true)

@@ -207,8 +207,6 @@ export const getSearchProfileUser = (quary) => {
     }
 }
 
-
-
 const friendRequest = () => ({ type: FRIEND_REQUEST_REQUEST })
 
 const friendRequestSuccess = data => ({

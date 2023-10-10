@@ -12,8 +12,7 @@ const Banner = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const data = useSelector(state => state)
-  const { Profile: { userData, profileData
-    , profileImage } } = data
+  const { Profile: { userData, profileData, profileImage } } = data
   const [profileUserData, setProfileUserData] = useState({})
   const [searchData, setSearchData] = useState({
     looking_for: "",
@@ -53,7 +52,10 @@ const Banner = () => {
     })
   }
   useEffect(() => {
-    if (!!profileData && !!userData) {
+    if (profileData?.response?.data?.detail == "Not found.") {
+      navigate("/profile-info")
+    }
+    else if (!!profileData && !!userData) {
       setProfileUserData({ ...profileData, ...userData })
     }
   }, [userData, profileData])
