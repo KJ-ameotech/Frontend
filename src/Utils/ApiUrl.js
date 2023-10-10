@@ -12,7 +12,7 @@ export const Api = {
     user: (id) => `${baseUrl}/api/user/${id}/`,
     profileImage: `${baseUrl}/profiles_picture/`,
     getProfile: (id) => `${baseUrl}/profiles_picture/${id}`,
-    allProfile: `${baseUrl}/profiles/`,
+    allProfile: (quary) => `${baseUrl}/profiles/${quary}`,
     searchProfile: (quary) => `${baseUrl}/search/${quary}`,
     sendFriendRequest: `${baseUrl}/like/`,
     allNotification: (quary) => `${baseUrl}/user-likerequest/${quary}`,

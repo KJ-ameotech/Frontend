@@ -169,8 +169,10 @@ const getAllProfileFailure = error => ({
 })
 export const getAllProfileUser = () => {
     return async (dispatch) => {
+        let id = getLocalStorage("user_id")
+        let quary = `?user_id=${id}`;
         dispatch(getAllProfileRequest())
-        axios.get(Api.allProfile)
+        axios.get(Api.allProfile(quary))
             .then((response) => {
                 dispatch(getAllProfileSuccess(response.data))
             })
