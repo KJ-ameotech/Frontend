@@ -57,7 +57,6 @@ const LikeDislikeCard = () => {
     const hanedleLikeDislike = (action) => {
         const currentUserProfileData = allProfilesData[currentCardIndex];
         const userId = currentUserProfileData.user_id;
-        console.log(userId, "currentUserProfileData");
         if (action == "like") {
             moveX = 1
             moveY = 0
@@ -178,7 +177,8 @@ const LikeDislikeCard = () => {
         // appendCard(data[imgCount % 4]);
         if (moveX > 0) {
             const currentUserProfileData = allProfilesData[currentCardIndex];
-            // const userId = currentUserProfileData.id;
+            const userId = currentUserProfileData.user_id;
+            dispatch(sendFriendRequest(userId))
             // let x = setTimeout(() => {
             //     dispatch(sendFriendRequest(userId))
             // }, 800)
