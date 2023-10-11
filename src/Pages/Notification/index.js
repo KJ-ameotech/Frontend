@@ -52,7 +52,6 @@ const Notification = () => {
                 {notificationData?.length > 0 &&
                     <div className='badge'>{notificationData?.length}</div>
                 }
-
             </div>
             {isShown && (
                 <div className='notification-box' onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>

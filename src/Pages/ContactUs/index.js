@@ -61,10 +61,8 @@ const Contactus = () => {
                                     <div className="contact-form ">
                                         <div className="sec-title">
                                             <h2>Address</h2>
-                                            <p className="mt-3">Near, T3B, 4th Fooor, Matoshree App, Railway Bridge, Vijaynagar, Sangli, Maharashtra 416416 </p>
+                                            <p className="mt-3">Ameotech Mohali</p>
                                         </div>
-
-
 
                                         <div className="contact-form">
                                             <div className="sec-title">
