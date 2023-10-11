@@ -3,9 +3,6 @@ import "./Modal1.css"
 import Modal from 'react-bootstrap/Modal';
 import { countries } from '../../Utils/lists';
 
-
-
-
 const SignUpModal = ({ religionData, modalShow, handleRegister, communitiesData }) => {
     return (
         <Modal

@@ -5,6 +5,7 @@ import { getLocalStorage } from '../../Utils/LocalStorage'
 import './notification.css'
 import { BsFillBellFill } from 'react-icons/bs'
 import { baseUrl } from '../../Utils/ApiUrl'
+import { randomString } from '../../Utils/Function'
 
 const Notification = () => {
     const notificationState = useSelector(state => state.Profile.allNotificationData)
@@ -12,7 +13,8 @@ const Notification = () => {
     const [isShown, setIsShown] = useState(false);
     const dispatch = useDispatch()
     const handleAccept = (item) => {
-        let req = { id: item.id, approved: true, display: false, liked_user: item.liked_user, user: item.user };
+        let slug = randomString(9);
+        let req = { id: item.id, approved: true, display: false, liked_user: item.liked_user, user: item.user, slug: slug };
         dispatch(acceptRequest(req))
         setIsShown(false);
         setTimeout(() => {

@@ -80,7 +80,7 @@ const LikeDislikeCard = () => {
     }, [frame])
     useEffect(() => {
         if (allProfilesData?.length > 0) {
-            allProfilesData.forEach(_data => appendCard(_data))
+            allProfilesData.forEach((_data, index) => appendCard(_data, index))
             let getChild = frame?.querySelector('.card:last-child')
             if (getChild) {
                 setCurrent(getChild)
@@ -91,9 +91,10 @@ const LikeDislikeCard = () => {
     useEffect(() => {
         initCard(current)
     }, [current])
-    const appendCard = useCallback((data) => {
+    const appendCard = useCallback((data, index) => {
         const firstCard = frame?.children[0]
         const newCard = document.createElement('div')
+        newCard.setAttribute('key', index)
         newCard.className = 'card'
         newCard.style.backgroundImage = `url(${data?.profile_picture ? baseUrl + data?.profile_picture : "/assets/images/background/bg.jpg"})`
         newCard.innerHTML = `
@@ -213,9 +214,6 @@ const LikeDislikeCard = () => {
         let req = `user_id=${userId}`;
         Object.keys(advanceSearch).forEach((element, index) => {
             if (advanceSearch[element] != '') {
-                // if (index > 0) {
-                //     req += '&'
-                // }
                 req += '&'
                 req += element + '=' + advanceSearch[element];
             }
