@@ -24,4 +24,5 @@ export const Api = {
     advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
     stripePaymentAPI: `${baseUrl}/stripe/payment/`,
     getSubscriptionAPI: `${baseUrl}/api/subscriptions/`,
+    getContactAPI: `${baseUrl}/api/contact-details/`,
 }
