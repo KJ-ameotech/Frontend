@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LookingForModal from '../../components/SignupModal/LookingForModal';
 import SignUpModal from '../../components/SignupModal/SignUpModal';
 import Layout from '../../Layout'
-import { getCommunities, getReligion, registerUser } from '../../Redux/Actions/AuthAction';
+import { getCommunities, getFamilyNames, getReligion, registerUser } from '../../Redux/Actions/AuthAction';
 import { firstNameAndLastNameValidation, userNameValidation, validEmail, validPassword } from '../../Utils/Validation';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { toastify } from '../../Utils/Function';
@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
     const navigate = useNavigate()
     const religionState = useSelector(state => state)
-    const { Auth: { religionData, communitiesData } } = religionState
+    const { Auth: { religionData, communitiesData, familyNameData } } = religionState
     const dispatch = useDispatch()
     const [register, setRegister] = useState({
         profile_for: "",
@@ -51,6 +51,10 @@ const SignUp = () => {
         if (name === "religion") {
             const item = religionData?.filter(item => item.name === value)[0]
             dispatch(getCommunities(item.id))
+        }
+        if (name === "community") {
+            const item = communitiesData?.filter(item => item.name === value)[0]
+            dispatch(getFamilyNames(item.id))
         }
         setRegister((prev) => {
             return {
@@ -313,7 +317,7 @@ const SignUp = () => {
                             </div>
                         </div>
                     </section >
-                    <SignUpModal setModalShow={setModalShow} modalShow={modalShow} handleRegister={handleRegister} religionData={religionData} communitiesData={communitiesData} />
+                    <SignUpModal setModalShow={setModalShow} modalShow={modalShow} handleRegister={handleRegister} religionData={religionData} communitiesData={communitiesData} familyNameData={familyNameData} />
                     <LookingForModal setModalShow={setLookingForModal} modalShow={lookingForModal} handleLookingFor={(item) => handleLookingFor(item)} selectedId={selectedId} handleGender={handleGender} />
                 </div>
             </Layout >

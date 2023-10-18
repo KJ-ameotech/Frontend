@@ -7,6 +7,7 @@ export const Api = {
     forgetPassword: `${baseUrl}/forget-password/`,
     religions: `${baseUrl}/religions/`,
     community: (id) => `${baseUrl}/community/${id}/religions/`,
+    familyNames: (id) => `${baseUrl}/api/family-names/${id}/`,
     profile: (id) => `${baseUrl}/profiles/${id}/`,
     profilePost: `${baseUrl}/profiles/`,
     user: (id) => `${baseUrl}/api/user/${id}/`,

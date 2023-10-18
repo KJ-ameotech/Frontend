@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Api } from "../../Utils/ApiUrl"
 import { header } from "../../Utils/Function"
-import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
+import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
 const registerRequest = () => ({ type: REGISTER_REQUEST })
 
 const registerSuccess = posts => ({
@@ -110,8 +110,6 @@ export const getReligion = () => {
     }
 }
 
-
-
 const communitiesRequest = () => ({ type: COMMUNITIES_REQUEST })
 
 const communitiesSuccess = data => ({
@@ -134,6 +132,31 @@ export const getCommunities = (id) => {
             })
             .catch((error) => {
                 dispatch(communitiesFailure(error))
+            })
+    }
+}
+
+const familyNameRequest = () => ({ type: FAMILYNAME_REQUEST })
+
+const familyNameSuccess = data => ({
+    type: FAMILYNAME_SUCCESS,
+    payload: data,
+})
+
+const familyNameFailure = error => ({
+    type: FAMILYNAME_FAILURE,
+    payload: error,
+    error: true,
+})
+export const getFamilyNames = (id) => {
+    return async (dispatch) => {
+        dispatch(familyNameRequest())
+        axios.get(Api.familyNames(id))
+            .then((response) => {
+                dispatch(familyNameSuccess(response.data))
+            })
+            .catch((error) => {
+                dispatch(familyNameFailure(error))
             })
     }
 }

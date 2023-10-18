@@ -1,5 +1,5 @@
 import { setLocalStorage } from "../../Utils/LocalStorage"
-import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
+import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
 
 let initialState = {
     registrationRequest: "",
@@ -11,7 +11,9 @@ let initialState = {
     forgetPasswordRes: "",
     forgetPasswordloading: false,
     communitiesData: [],
-    communitiesDataloading: false
+    communitiesDataloading: false,
+    familyNameData: [],
+    familyNameDataLoading: false
 }
 const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -104,7 +106,23 @@ const AuthReducer = (state = initialState, action) => {
                 communitiesDataloading: false,
                 communitiesData: action.payload,
             }
-
+        case FAMILYNAME_REQUEST:
+            return {
+                ...state,
+                familyNameDataLoading: true,
+            }
+        case FAMILYNAME_SUCCESS:
+            return {
+                ...state,
+                familyNameDataLoading: false,
+                familyNameData: [...action.payload],
+            }
+        case FAMILYNAME_FAILURE:
+            return {
+                ...state,
+                familyNameDataLoading: false,
+                familyNameData: action.payload,
+            }
 
         default:
             return state
