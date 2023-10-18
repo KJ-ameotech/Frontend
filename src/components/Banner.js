@@ -280,7 +280,7 @@ const Banner = () => {
                       {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                      <label className="label" for="lookingfor"><span className="search" >Religion</span></label>
+                      <label className="label" for="lookingfor"><span className="search" >Community</span></label>
                       <select className="dropselect" value={searchData.religion} name="religion" id="religion" tabindex="4" onChange={handleSearch} required>
                         <option value="Any" selected>Any</option>
                         <option value="Christian">Christian</option>

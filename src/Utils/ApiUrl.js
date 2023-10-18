@@ -23,4 +23,5 @@ export const Api = {
     profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
     advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
     stripePaymentAPI: `${baseUrl}/stripe/payment/`,
+    getSubscriptionAPI: `${baseUrl}/api/subscriptions/`,
 }
