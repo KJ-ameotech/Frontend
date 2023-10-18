@@ -3,13 +3,26 @@ import Layout from '../../Layout'
 import image from "../../assets/images/background/5.jpg"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getContact } from '../../Redux/Actions/ProfileActions'
+import { AddFeedback, getContact } from '../../Redux/Actions/ProfileActions'
+import { toastify } from '../../Utils/Function'
+import { toast } from 'react-toastify'
+import './contact.css'
 
 const Contactus = () => {
     const dispatch = useDispatch();
     const profileState = useSelector((state) => state.Profile)
-    const { contactRes } = profileState;
+    const { contactRes, feedbackRes } = profileState;
     const [contact, setContact] = useState({})
+
+    const initialState = {
+        name: "",
+        phoneNumber: null,
+        email: "",
+        subject: "",
+        message: "",
+    };
+
+    const [feedback, setFeedBack] = useState(initialState)
 
     useEffect(() => {
         dispatch(getContact())
@@ -18,6 +31,25 @@ const Contactus = () => {
     useEffect(() => {
         setContact(contactRes)
     }, [contactRes])
+
+    useEffect(() => {
+        if (feedbackRes?.id) {
+            toastify(toast.success, "Thanks for the FeedBack!", "dark");
+            setFeedBack(initialState);
+        }
+    }, [feedbackRes])
+
+    const handleFeedBack = (e) => {
+        const { name, value } = e.target;
+        setFeedBack((prev) => {
+            return { ...prev, [name]: value }
+        })
+    }
+
+    const handleSubmit = (ev) => {
+        ev.preventDefault()
+        dispatch(AddFeedback(feedback));
+    }
 
     return (
         <Layout >
@@ -78,29 +110,30 @@ const Contactus = () => {
                                             <div className="sec-title">
                                                 <h2>Feedback</h2>
                                             </div>
-                                            <form method="post" action="emailsend" id="contact-form">
+                                            <form id="contact-form">
                                                 <div className="row clearfix">
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" maxlength="40" name="name" placeholder="Name" tabindex="1" required />
+                                                        <input type="text" maxLength="40" name="name" placeholder="Name" value={feedback?.name} onChange={(e) => handleFeedBack(e)} tabIndex="1" required />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" maxlength="10" name="phone" placeholder="Phone" tabindex="2" required />
+                                                        <input type="number" maxLength="10" name="phoneNumber" placeholder="Phone" value={feedback?.phoneNumber} onChange={(e) => handleFeedBack(e)} tabIndex="2" required />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="email" name="email" maxlength="35" placeholder="Email" tabindex="3" required="" />
+                                                        <input type="email" name="email" maxLength="35" placeholder="Email" value={feedback?.email} onChange={(e) => handleFeedBack(e)} tabIndex="3" required="" />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" name="subject" maxlength="70" placeholder="Subject" tabindex="4" required />
+                                                        <input type="text" name="subject" maxLength="70" placeholder="Subject" value={feedback?.subject} onChange={(e) => handleFeedBack(e)} tabIndex="4" required />
                                                     </div>
 
                                                     <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-
-                                                        <textarea name="message" maxlength="250" placeholder="Message" tabindex="5"></textarea>
+                                                        <textarea name="message" maxLength="250" placeholder="Message" value={feedback?.message} onChange={(e) => handleFeedBack(e)} tabIndex="5"></textarea>
                                                     </div>
-
+                                                    <div className='sub-div'>
+                                                        <button className='sub-btn' onClick={handleSubmit}>Submit</button>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
