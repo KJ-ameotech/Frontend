@@ -21,7 +21,7 @@ export const Api = {
     createChatRoom: `${chatBaseUrl}/rooms/`,
     profilePictureUpdate: (id) => `${baseUrl}/profiles_picture/${id}/`,
     profileDataUpdate: (id) => `${baseUrl}/api/user/${id}/update/`,
-    advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/?${quary}`,
+    advanceSearch: (quary) => `${baseUrl}/api/profile/advanced/search/${quary}`,
     stripePaymentAPI: `${baseUrl}/stripe/payment/`,
     getSubscriptionAPI: `${baseUrl}/api/subscriptions/`,
     getContactAPI: `${baseUrl}/api/contact-details/`,

@@ -143,6 +143,10 @@
   font-size: clamp(10px, 1.1em, 20px);
 }
 
+.no-data {
+  height: 115px;
+}
+
 @media screen and (max-height: 540px) {
   .frame {
     width: 54vh;

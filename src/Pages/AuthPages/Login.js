@@ -216,7 +216,7 @@ const Login = () => {
                                                 <div className="col-lg-9 col-md-9 col-sm-9 mt-3 registerSection">
                                                     <span className="">
                                                         {" "}
-                                                        New Candidate Register ?
+                                                        New User Register ?
                                                         <Link
                                                             to="/signup"
                                                             tabindex="7"

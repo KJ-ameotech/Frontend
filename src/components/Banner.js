@@ -5,7 +5,7 @@ import "../../src/assets/css/owl.css"
 import OwlCarousel from 'react-owl-carousel';
 import { getProfile, getProfileImage, getSearchProfileUser, getuser } from "../Redux/Actions/ProfileActions";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getLocalStorage, setLocalStorage } from "../Utils/LocalStorage";
 
 const Banner = () => {
@@ -20,7 +20,6 @@ const Banner = () => {
     to_age: "",
     religion: ""
   })
-  // const [error, setError] = useState(false)
   const options = {
     loop: true,
     margin: 10,
@@ -51,6 +50,7 @@ const Banner = () => {
       }
     })
   }
+
   useEffect(() => {
     if (profileData?.response?.data?.detail == "Not found.") {
       navigate("/profile-info")
@@ -59,21 +59,24 @@ const Banner = () => {
       setProfileUserData({ ...profileData, ...userData })
     }
   }, [userData, profileData])
+
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     if (searchData.from_age && searchData.to_age && searchData.looking_for && searchData.religion) {
-      const quary = `?age_from=${searchData.from_age}&age_to=${searchData.to_age}&gender=${searchData.looking_for}&religion=${searchData.religion}`
-      dispatch(getSearchProfileUser(quary))
-      navigate("/searchprofiles")
+      let id = getLocalStorage("user_id");
+      const quary = `?user_id=${id}&age_from=${searchData.from_age}&age_to=${searchData.to_age}&gender=${searchData.looking_for}&religion=${searchData.religion}`
+      // dispatch(getSearchProfileUser(quary))
+      navigate("/searchprofiles", { state: quary })
     }
-
   }
+
   useEffect(() => {
     let id = getLocalStorage("user_id")
     dispatch(getuser(+id))
     dispatch(getProfile(+id))
     dispatch(getProfileImage(+id))
   }, [getLocalStorage("user_id")])
+
   useEffect(() => {
     setLocalStorage("profileData", JSON.stringify(profileUserData))
   })
@@ -146,11 +149,6 @@ const Banner = () => {
                 </div>
               </div>
             </OwlCarousel>
-
-
-
-
-
           </div>
         </section>
       </div>
@@ -164,8 +162,9 @@ const Banner = () => {
                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
                       <label className="label" for="lookingfor"><span className="search">I'm looking for a</span></label>
                       <select className="dropselect" name="looking_for" value={searchData.looking_for} selected tabindex="1" onChange={handleSearch} >
+                        <option value="" disabled selected>Please Select</option>
                         <option value="Male">Groom</option>
-                        <option value="Female" selected>Bride</option>
+                        <option value="Female">Bride</option>
                       </select>
                       {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
                     </div>

@@ -222,12 +222,15 @@ const friendRequestFailure = error => ({
     payload: error,
     error: true,
 })
-export const sendFriendRequest = (linked_id) => {
+export const sendFriendRequest = (linked_id, isDisliked = false) => {
 
     return async (dispatch) => {
         const formData = new FormData();
         formData.append('liked_user', linked_id);
         formData.append("user", getLocalStorage("user_id"))
+        if (isDisliked) {
+            formData.append("is_disliked", getLocalStorage("user_id"))
+        }
         const requestOptions = {
             method: 'POST',
             data: formData, // Use 'data' to send the FormData
