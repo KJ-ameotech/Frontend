@@ -2,7 +2,7 @@ import { ACCEPT_FAILURE, ACCEPT_REQUEST, ACCEPT_SUCCESS, ADVANCE_SEARCH_PROFILE_
 let initialState = {
     profileData: null,
     profileLoading: false,
-    postProfileData: "",
+    postProfileData: null,
     profilePostDataLoading: false,
     userData: "",
     userLoading: false,
@@ -65,7 +65,6 @@ const ProfileReducer = (state = initialState, action) => {
                 profilePostDataLoading: true,
             }
         case PROFILE_POST_SUCCESS:
-
             return {
                 ...state,
                 profilePostDataLoading: false,

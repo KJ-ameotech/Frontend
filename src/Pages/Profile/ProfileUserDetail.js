@@ -6,19 +6,21 @@ import defaultImage from "../../assets/images/background/bg.jpg"
 import { IoIosAlert } from "react-icons/io"
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocalStorage } from '../../Utils/LocalStorage';
-import { getuser, ProfilePost, uploadProfileImage } from '../../Redux/Actions/ProfileActions';
+import { ProfilePost, getProfile, getProfileImage, getuser, uploadProfileImage } from '../../Redux/Actions/ProfileActions';
 import { toast } from 'react-toastify';
-import { header, toastify } from '../../Utils/Function';
-import axios from 'axios';
+import { toastify } from '../../Utils/Function';
+import { useNavigate } from 'react-router-dom';
+
 const ProfileUserDetail = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const profileState = useSelector((state) => state.Profile)
-    const { uploadImageRes: { response } } = profileState
+    const { postProfileData, uploadImageRes: { response } } = profileState
     const [profileData, setProfileData] = useState({
         height: "",
         weight: "",
         marital_status: "",
-        hobbies: {},
+        hobbies: "",
         headline: "",
         caste: "",
         about_me: "",
@@ -28,11 +30,20 @@ const ProfileUserDetail = () => {
         education: ""
 
     })
-    const [hobbies, setHobbies] = useState('')
     const [profileImage, setProfileImage] = useState(null)
     const [file, setFile] = useState(null)
     const [error, setError] = useState(false)
-    const [hobbiesList, setHobbiesList] = useState([])
+
+    useEffect(() => {
+        if (postProfileData != null) {
+            dispatch(getuser(postProfileData?.user))
+            dispatch(getProfile(postProfileData?.user))
+            dispatch(getProfileImage(postProfileData?.user))
+            setTimeout(() => {
+                navigate("/");
+            }, 1000)
+        }
+    }, [postProfileData])
 
     const handleProfilePersonalInfo = (e) => {
         const { name, value } = e.target;
@@ -43,6 +54,7 @@ const ProfileUserDetail = () => {
             }
         })
     }
+
     const handleProfleInfo = (e) => {
         e.preventDefault()
         // (
@@ -71,8 +83,6 @@ const ProfileUserDetail = () => {
         } else {
             setError(true)
         }
-
-
     }
     const handleProfileImage = (e) => {
         let { files } = e.target;
@@ -91,23 +101,8 @@ const ProfileUserDetail = () => {
         } else {
             toastify(toast.info, 'Please select valid image.')
         }
-
     }
 
-    const handleHobbies = () => {
-        if (!!hobbies.length) {
-            setHobbiesList((prev) => [...prev, hobbies])
-            setHobbies("")
-        }
-    }
-
-    useEffect(() => {
-        const obj = { ...hobbiesList }
-        setProfileData({ ...profileData, hobbies: { ...obj } })
-    }, [hobbiesList])
-
-
-    // console.log(profileImage.name, "profileState");
     return (
         <Layout>
             <div className='user_profile' style={{ padding: "100px 0" }}>
@@ -152,12 +147,12 @@ const ProfileUserDetail = () => {
                                     </select>
                                 </div>
                                 {/* <p className="form-text " style={{ color: "red" }}>{(!profileData.marital_status?.length && error) ? "Marital Status is Required" : ""}</p> */}
-                                <div className="col-lg-8 col-md-8 col-sm-12 form-group">
-                                    <input type="text" name="hobbies" maxlength="70" placeholder="Hobbies(Optional)" tabindex="4" value={hobbies} onChange={(e) => setHobbies(e.target.value)} />
+                                <div className="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <input type="text" name="hobbies" maxlength="70" placeholder="Hobbies(Optional)" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} />
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-12 form-group">
+                                {/* <div className="col-lg-4 col-md-4 col-sm-12 form-group">
                                     <input type="button" value="Add Hobbies" style={{ width: "100%", height: "100%" }} onClick={(e) => handleHobbies(e)} />
-                                </div>
+                                </div> */}
                                 <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                                     <input type="text" name="headline" maxlength="70" placeholder="Headline (Optional)" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} />
                                     {/* <p className="form-text " style={{ color: "red" }}>{(!profileData.headline.length && error) ? "Headline is Required" : (profileData.headline.length < 6 && error) ? "Invalid Headline. " : ""}</p> */}

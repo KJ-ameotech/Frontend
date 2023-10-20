@@ -20,8 +20,8 @@ const Search = () => {
         if (val.length > 9) {
             let id = getLocalStorage("user_id")
             const quary = `?user_id=${id}&custom_id=${val}`
-            dispatch(getCustomSearchProfile(quary))
-            navigate("/searchprofiles")
+            // dispatch(getCustomSearchProfile(quary))
+            navigate("/searchprofiles", { state: { searchById: quary } })
         }
     }
 

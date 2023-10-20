@@ -65,8 +65,7 @@ const Banner = () => {
     if (searchData.from_age && searchData.to_age && searchData.looking_for && searchData.religion) {
       let id = getLocalStorage("user_id");
       const quary = `?user_id=${id}&age_from=${searchData.from_age}&age_to=${searchData.to_age}&gender=${searchData.looking_for}&religion=${searchData.religion}`
-      // dispatch(getSearchProfileUser(quary))
-      navigate("/searchprofiles", { state: quary })
+      navigate("/searchprofiles", { state: { searchByFilter: quary } })
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo, useCallback } from 'react'
 import "./LikeDislikeCard.css"
-import { advanceSearchh, getAllProfileUser, getSearchProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
+import { advanceSearchh, getAllProfileUser, getCustomSearchProfile, getSearchProfileUser, sendFriendRequest } from '../../Redux/Actions/ProfileActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from '../../Layout'
 import { baseUrl } from '../../Utils/ApiUrl'
@@ -37,8 +37,13 @@ const LikeDislikeCard = () => {
     const [income, setIncome] = useState([])
 
     useEffect(() => {
-        dispatch(getSearchProfileUser(state))
+        if (state?.searchById) {
+            dispatch(getCustomSearchProfile(state.searchById))
+        } else if (state?.searchByFilter) {
+            dispatch(getSearchProfileUser(state?.searchByFilter))
+        }
     }, [])
+
     useEffect(() => {
         if (!!advanceSearchRes?.length) {
             setAllProfilesData(advanceSearchRes)
