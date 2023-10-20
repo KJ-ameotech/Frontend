@@ -13,6 +13,7 @@ export const Api = {
     user: (id) => `${baseUrl}/api/user/${id}/`,
     profileImage: `${baseUrl}/profiles_picture/`,
     getProfile: (id) => `${baseUrl}/profiles_picture/${id}`,
+    getSuccessStoriesAPI: `${baseUrl}/api/success-stories/`,
     allProfile: (quary) => `${baseUrl}/profiles/${quary}`,
     searchProfile: (quary) => `${baseUrl}/search/${quary}`,
     searchCustomProfile: (quary) => `${baseUrl}/api/custom_user/search_by_custom_id/${quary}`,

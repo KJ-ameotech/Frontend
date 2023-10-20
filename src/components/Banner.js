@@ -3,16 +3,17 @@ import image1 from "../assets/images/main-slider/1.jpg"
 import "../../src/assets/css/owl.css"
 import "./banner.css"
 import OwlCarousel from 'react-owl-carousel';
-import { getProfile, getProfileImage, getSearchProfileUser, getuser } from "../Redux/Actions/ProfileActions";
+import { getProfile, getProfileImage, getSearchProfileUser, getSuccessStories, getuser } from "../Redux/Actions/ProfileActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getLocalStorage, setLocalStorage } from "../Utils/LocalStorage";
+import Stories from "./Stories";
 
 const Banner = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const data = useSelector(state => state)
-  const { Profile: { userData, profileData, profileImage } } = data
+  const { Profile: { userData, profileData, profileImage, successStoriesList } } = data
   const [profileUserData, setProfileUserData] = useState({})
   const [searchData, setSearchData] = useState({
     looking_for: "",
@@ -74,6 +75,7 @@ const Banner = () => {
     dispatch(getuser(+id))
     dispatch(getProfile(+id))
     dispatch(getProfileImage(+id))
+    dispatch(getSuccessStories())
   }, [getLocalStorage("user_id")])
 
   useEffect(() => {
@@ -299,6 +301,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
+          <Stories storiesList={successStoriesList} />
         </div>
       </section>
     </>
