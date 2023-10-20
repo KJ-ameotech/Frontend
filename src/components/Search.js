@@ -1,5 +1,5 @@
 import react, { useId, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getCustomSearchProfile } from '../Redux/Actions/ProfileActions';
 import { getLocalStorage } from '../Utils/LocalStorage';
@@ -7,6 +7,9 @@ import { getLocalStorage } from '../Utils/LocalStorage';
 const Search = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const profile = useSelector(state => state.Profile);
+    console.log("profile", profile)
+    const { searchByIdRes } = profile;
 
     const [isOpened, setIsOpened] = useState(false);
     const id = useId();
@@ -20,8 +23,8 @@ const Search = () => {
         if (val.length > 9) {
             let id = getLocalStorage("user_id")
             const quary = `?user_id=${id}&custom_id=${val}`
-            // dispatch(getCustomSearchProfile(quary))
-            navigate("/searchprofiles", { state: { searchById: quary } })
+            dispatch(getCustomSearchProfile(quary))
+            // navigate("/searchprofiles", { state: { searchById: quary } })
         }
     }
 

@@ -5,6 +5,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Payment from '../Pages/Payment';
 
 // import TestLike from '../components/LikeDislikeCard/TestLike';
+
 const Profile = lazy(() => import("../Pages/Profile"))
 const Feed = lazy(() => import("../Container/HomeContainer"))
 const SignUp = lazy(() => import("../Pages/AuthPages/SignUp"))
@@ -15,6 +16,7 @@ const ConfirmPassword = lazy(() => import("../Pages/AuthPages/ConfirmPassword"))
 const AboutUs = lazy(() => import('../Pages/About/AboutUs'))
 const Contactus = lazy(() => import('../Pages/ContactUs'))
 const ProfileUserDetail = lazy(() => import('../Pages/Profile/ProfileUserDetail'))
+const UserProfile = lazy(() => import("../Pages/Profile/UserProfile"))
 const LikeDislikeCard = lazy(() => import('../components/LikeDislikeCard'))
 const Chat = lazy(() => import('../Pages/chat'))
 const Notification = lazy(() => import('../Pages/Notification'))
@@ -78,6 +80,7 @@ const AppRoutes = ({ auth }) => {
             <Route path="/payment/:id" element={<Suspense fallback={<Loading />}><Payment /></Suspense>} />
             {/* <Route path="/payment/:id" Component={(props) => { <Suspense fallback={<Loading />}><Payment {...props} /></Suspense> }} /> */}
             <Route path="/about" element={<Suspense fallback={<Loading />}><AboutUs /></Suspense>} />
+            <Route path="/user-profile" element={<Suspense fallback={<Loading />}><UserProfile /></Suspense>} />
             <Route path="*" element={<Navigate to="/" replace />} />
             {/* public  routes end here*/}
 
