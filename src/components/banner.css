@@ -9,6 +9,15 @@
   color: white;
 }
 
+.error-msg {
+  color: white;
+}
+
+.input-msg {
+  display: inline-grid;
+  font-size: 16px;
+}
+
 /* header .item {
   height: 100vh;
   position: relative;
