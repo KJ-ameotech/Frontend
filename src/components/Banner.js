@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import image1 from "../assets/images/main-slider/1.jpg"
 import "../../src/assets/css/owl.css"
-// import "./banner.css"
+import "./banner.css"
 import OwlCarousel from 'react-owl-carousel';
 import { getProfile, getProfileImage, getSearchProfileUser, getuser } from "../Redux/Actions/ProfileActions";
 import { useDispatch, useSelector } from "react-redux";

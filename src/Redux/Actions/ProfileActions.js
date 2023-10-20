@@ -209,6 +209,19 @@ export const getSearchProfileUser = (quary) => {
     }
 }
 
+export const getCustomSearchProfile = (quary) => {
+    return async (dispatch) => {
+        dispatch(searchProfileRequest())
+        axios.get(Api.searchCustomProfile(quary))
+            .then((response) => {
+                dispatch(searchProfileSuccess(response.data))
+            })
+            .catch((error) => {
+                dispatch(searchProfileFailure(error))
+            })
+    }
+}
+
 const friendRequest = () => ({ type: FRIEND_REQUEST_REQUEST })
 
 const friendRequestSuccess = data => ({

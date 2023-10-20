@@ -1,3 +1,14 @@
+.search-text {
+  font-size: 16px;
+  margin: 0px 8px 0px -1px;
+  padding: 0 10px;
+  /* color: black; */
+}
+
+.flaticon-search {
+  color: white;
+}
+
 /* header .item {
   height: 100vh;
   position: relative;

@@ -5,7 +5,7 @@ import { BsFillChatRightDotsFill } from "react-icons/bs"
 import { useDispatch } from "react-redux";
 import { getAllNotification } from "../Redux/Actions/ProfileActions";
 import Notification from "../Pages/Notification";
-
+import Search from "./Search";
 
 const Navbar = ({ auth }) => {
 
@@ -54,7 +54,7 @@ const Navbar = ({ auth }) => {
               </div>
             </nav>
             <div className="outer-box">
-              <div className="search-box-btn"><span className="flaticon-search"></span></div>
+              <Search />
               {!auth ?
                 <> <div className="btn-box">
                   <Link to="/login" className="theme-btn btn btn-style-one"><span className="btn-title">Login</span></Link>
