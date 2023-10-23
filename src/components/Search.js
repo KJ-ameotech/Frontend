@@ -17,8 +17,8 @@ const Search = () => {
 
     function toggle() {
         setShowError(false)
-        setSearch("")
-        if (searchByIdRes?.length > 0) {
+        if (searchByIdRes?.length > 0 && search != '') {
+            setSearch("")
             navigate("/user-profile")
         }
         setIsOpened(wasOpened => !wasOpened);

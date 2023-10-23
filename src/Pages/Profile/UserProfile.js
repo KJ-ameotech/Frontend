@@ -3,12 +3,18 @@ import Layout from '../../Layout'
 import './Profile.css'
 import { useSelector } from 'react-redux'
 import { baseUrl } from '../../Utils/ApiUrl'
+import { useNavigate } from 'react-router-dom'
 
 const UserProfile = () => {
+    const navigate = useNavigate()
     const profile = useSelector(state => state.Profile)
     const { searchByIdRes } = profile;
 
-    console.log("test", searchByIdRes)
+    useEffect(() => {
+        if (searchByIdRes == null) {
+            navigate('/')
+        }
+    }, [searchByIdRes])
 
     return (
         <Layout>
@@ -61,7 +67,7 @@ const UserProfile = () => {
                                                     <li>Education</li>
                                                     <li>Occupation</li>
                                                     <li>Income</li>
-                                                    <li>family status</li>
+                                                    <li>Family status</li>
                                                 </ul>
                                             </div>
 
