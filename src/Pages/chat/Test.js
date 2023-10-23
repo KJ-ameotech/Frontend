@@ -39,7 +39,6 @@ const Test = () => {
             console.log("Something unexpected happened !");
         };
         chatSocket.onmessage = function (e) {
-            debugger;
             const data = JSON.parse(e.data);
             setMessages((messages) => [...messages, data]);
         }

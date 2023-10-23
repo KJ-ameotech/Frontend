@@ -17,6 +17,7 @@ export const Api = {
     allProfile: (quary) => `${baseUrl}/profiles/${quary}`,
     searchProfile: (quary) => `${baseUrl}/search/${quary}`,
     searchCustomProfile: (quary) => `${baseUrl}/api/custom_user/search_by_custom_id/${quary}`,
+    userPicturesReq: (id) => `${baseUrl}/profiles_picture/${id}/`,
     sendFriendRequest: `${baseUrl}/like/`,
     allNotification: (quary) => `${baseUrl}/user-likerequest/${quary}`,
     acceptFriendReq: (id) => `${baseUrl}/userlikes/${id}/`,

@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../../Layout'
 import './Profile.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { baseUrl } from '../../Utils/ApiUrl'
 import { useNavigate } from 'react-router-dom'
+import { getUserPictures } from '../../Redux/Actions/ProfileActions'
 
 const UserProfile = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const profile = useSelector(state => state.Profile)
-    const { searchByIdRes } = profile;
+    const { searchByIdRes, profilePicturesData } = profile;
 
     useEffect(() => {
         if (searchByIdRes == null) {
             navigate('/')
         }
+        else {
+            dispatch(getUserPictures(searchByIdRes[0].user_id))
+        }
     }, [searchByIdRes])
+
+    console.log("data", profilePicturesData)
 
     return (
         <Layout>
@@ -85,6 +92,20 @@ const UserProfile = () => {
                                     </div>
                                 </div>
                             </div>
+                            {/* Profile Images */}
+                            {profilePicturesData?.image &&
+                                <>
+                                    <h6 class="ml-3">Profile Images</h6>
+                                    <div class="col-lg-12 m-2">
+                                        <div class="image-gallery">
+                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
+                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
+                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
+                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
+                                        </div>
+                                    </div>
+                                </>
+                            }
                         </div>
                     </div>
                 </>
