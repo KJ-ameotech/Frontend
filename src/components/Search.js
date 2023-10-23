@@ -10,11 +10,14 @@ const Search = () => {
     const profile = useSelector(state => state.Profile);
     const { searchByIdRes } = profile;
 
+    const [search, setSearch] = useState("")
+
     const [isOpened, setIsOpened] = useState(false);
     const [showError, setShowError] = useState(false);
 
     function toggle() {
         setShowError(false)
+        setSearch("")
         if (searchByIdRes?.length > 0) {
             navigate("/user-profile")
         }
@@ -29,6 +32,7 @@ const Search = () => {
 
     const handleSearchSubmit = (val) => {
         setShowError(false)
+        setSearch(val);
         if (val.length == 10) {
             let id = getLocalStorage("user_id")
             const quary = `?user_id=${id}&custom_id=${val}`
@@ -43,7 +47,9 @@ const Search = () => {
             <div className="search-box-btn">
                 {isOpened && (
                     <div className='input-msg'>
-                        <input id="text" className='search-text' placeholder='User Id' type="text" onChange={(evt) => { handleSearchSubmit(evt.target.value); }} />
+                        <input id="text" className='search-text'
+                            placeholder='User Id' type="text" value={search}
+                            onChange={(evt) => { handleSearchSubmit(evt.target.value) }} />
                         {showError && <span className='error-msg'>Sorry! No User</span>}
                     </div>
                 )}

@@ -110,58 +110,9 @@ const Banner = () => {
                   </div>
                 )
               })}
-
-              {/* <div className="slide-item" style={{ backgroundImage: `url(${image1})` }}>
-                <div className="auto-container">
-                  <div class="content-box mt-5 text-left">
-
-                    <h2> Find Your Prefect <br />Match Here!!!</h2>
-                    <ul class="info-list">
-                      <li><span class="icon fas fa-edit"></span> Sign Up</li>
-                      <li><span class="icon fas fa-user-plus"></span> Connect</li>
-                      <li><span class="icon fas fa-comments"></span> Interact</li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div> */}
             </OwlCarousel>
           </div>
         </section>
-        {/* <section className="banner-section d-block d-lg-none d-xl-none d-md-none mobile_Hidden">
-          <div className="banner-carousel owl-carousel owl-theme banner-carousel-two">
-            <OwlCarousel classNameName="owl-theme" {...options}>
-              <div className="slide-item" style={{ backgroundImage: `url(${image1})` }}>
-                <div className="auto-container">
-                  <div className="content-box mt-5">
-
-                    <h2> Someone Special is <br />Waiting For You</h2>
-                    <ul className="info-list">
-                      <li><span className="icon fas fa-edit"></span> Sign Up</li>
-                      <li><span className="icon fas fa-user-plus"></span> Connect</li>
-                      <li><span className="icon fas fa-comments"></span> Interact</li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div>
-              <div className="slide-item" style={{ backgroundImage: `url(${image1})` }}>
-                <div className="auto-container">
-                  <div className="content-box mt-5">
-
-                    <h2> Find  Your Prefect <br />Match Here!!!</h2>
-                    <ul className="info-list">
-                      <li><span className="icon fas fa-edit"></span> Sign Up</li>
-                      <li><span className="icon fas fa-user-plus"></span> Connect</li>
-                      <li><span className="icon fas fa-comments"></span> Interact</li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div>
-            </OwlCarousel>
-          </div>
-        </section> */}
       </div>
       <section className="coming-soon-section">
         <div className="auto-container mb-5">

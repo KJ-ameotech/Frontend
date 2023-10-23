@@ -1,3 +1,16 @@
 .success-stories h2 {
     color: #800925;
 }
+
+.story {
+    display: flex;
+}
+
+.story-img {
+    width: 150px;
+    height: 150px;
+}
+
+.card {
+    border: 1px solid black;
+}
