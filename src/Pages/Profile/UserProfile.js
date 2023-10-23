@@ -93,15 +93,16 @@ const UserProfile = () => {
                                 </div>
                             </div>
                             {/* Profile Images */}
-                            {profilePicturesData?.image &&
+                            {profilePicturesData?.length > 0 &&
                                 <>
                                     <h6 class="ml-3">Profile Images</h6>
-                                    <div class="col-lg-12 m-2">
+                                    <div class="col-lg-12 mb-4 ml-1">
                                         <div class="image-gallery">
-                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
-                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
-                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
-                                            <img className='m-2' src={profilePicturesData.image} alt="Image 1" />
+                                            {profilePicturesData.map((item) => {
+                                                return <>
+                                                    <img className='m-2' style={{ width: '170px', height: '170px' }} src={item?.image ? baseUrl + item.image : "/assets/images/background/bg.jpg"} alt="" />
+                                                </>
+                                            })}
                                         </div>
                                     </div>
                                 </>

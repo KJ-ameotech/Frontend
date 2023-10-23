@@ -62,8 +62,6 @@ const Profile = () => {
         }
     }, [profileImage])
 
-
-
     return (
         <>
             <Layout>
