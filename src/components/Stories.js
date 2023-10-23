@@ -12,12 +12,12 @@ const Stories = ({ storiesList }) => {
                 {storiesList?.length > 0 && storiesList?.map((item) => {
                     return (
                         <div className="item mr-4">
-                            <div className="card pmd-card">
-                                <div className="pmd-card-media">
+                            <div className="card p-0 pmd-card">
+                                <div className="pmd-card-media text-center">
                                     <img className="story-img img-fluid" src={item?.image ? baseUrl + item.image : "/assets/images/background/bg.jpg"} alt="" />
                                 </div>
 
-                                <div className="card-body">
+                                <div className="card-body text-center p-3">
                                     <h2 className="card-title">{item.title}</h2>
                                     <p className="card-text">{item.content}</p>
                                 </div>
