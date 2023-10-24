@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createRoom, getFriendList } from "../../Redux/Actions/ProfileActions";
 import { getLocalStorage } from "../../Utils/LocalStorage";
-import { baseUrl } from "../../Utils/ApiUrl";
+import { baseUrl, chatPortUrl } from "../../Utils/ApiUrl";
 import { BiSend } from "react-icons/bi"
 
-let chatPortURL = "ws://127.0.0.1:8001/ws/";
+// let chatPortURL = "ws://127.0.0.1:8001/ws/";
 
 const Chat = () => {
     const dispatch = useDispatch();
@@ -27,8 +27,8 @@ const Chat = () => {
 
     useEffect(() => {
         if (roomName != '') {
-            let webSocket = new WebSocket(chatPortURL + roomName + '/');
-
+            let webSocket = new WebSocket(chatPortUrl + roomName + '/');
+            console.log("socket", webSocket)
             webSocket.onopen = function (e) {
                 console.log("The connection was setup successfully !");
             };
@@ -123,7 +123,6 @@ const Chat = () => {
         setRoomName(item.slug);
         setMessages([])
     }
-    console.log(messages, "messages");
     return (
         <Layout>
             <section style={{ padding: "100px 0" }}>
