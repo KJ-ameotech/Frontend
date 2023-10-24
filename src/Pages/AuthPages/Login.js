@@ -34,36 +34,39 @@ const Login = () => {
     const handleSumbit = (e) => {
         e.preventDefault()
         if (((!!loginData.text?.length) && !!loginData.password?.length)) {
-            const location = window.navigator && window.navigator.geolocation;
-            if (location) {
-                location.getCurrentPosition((position) => {
-                    if (validEmail(loginData.text)) {
-                        const obj = {
-                            email: loginData.text,
-                            password: loginData.password,
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude,
-                        }
-                        dispatch(loginUser(obj))
-                    } else if (userNameValidation(loginData.text)) {
-                        const obj = {
-                            username: loginData.text,
-                            password: loginData.password,
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude,
-                        }
-                        dispatch(loginUser(obj))
-                    } else {
-                        setError(true)
-                    }
-                }, (error) => {
-                    alert("Please allow navigation");
-                })
+            // const location = window.navigator && window.navigator.geolocation;
+            // if (location) {
+            // location.getCurrentPosition((position) => {
+            const long = "77.250473"
+            const lat = "28.675377"
+            if (validEmail(loginData.text)) {
+                const obj = {
+                    email: loginData.text,
+                    password: loginData.password,
+                    latitude: lat,
+                    longitude: long,
+                }
+                dispatch(loginUser(obj))
+            } else if (userNameValidation(loginData.text)) {
+                const obj = {
+                    username: loginData.text,
+                    password: loginData.password,
+                    latitude: lat,
+                    longitude: long,
+                }
+                dispatch(loginUser(obj))
+            } else {
+                setError(true)
             }
-        } else {
-            setError(true)
+            // }, (error) => {
+            //     alert("Please allow navigation");
+            // })
+            // }
+            // } else {
+            //     setError(true)
+            // }
+            setTimeout(() => setError(false), 5000)
         }
-        setTimeout(() => setError(false), 5000)
     }
 
     useEffect(() => {
