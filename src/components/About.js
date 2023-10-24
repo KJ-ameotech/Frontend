@@ -1,5 +1,4 @@
 import React from "react";
-// import AboutImg from "../assets/images/about-img-1.jpg";
 
 const About = () => {
   return (
@@ -42,7 +41,6 @@ const About = () => {
                 <figure className="image wow fadeIn">
                   <img
                     className="d-none d-lg-block d-xl-block d-md-block"
-                    // src={AboutImg}
                     alt=""
                     style={{ maxWidth: `100%` }}
                   />

@@ -1,8 +1,4 @@
 import React, { useRef, useState } from "react";
-// import ChatBox from "../../components/ChatBox/ChatBox";
-// import Conversation from "../../components/Coversation/Conversation";
-// import LogoSearch from "../../components/LogoSearch/LogoSearch";
-// import NavIcons from "../../components/NavIcons/NavIcons";
 import "./chat.css";
 import { useEffect } from "react";
 // import { userChats } from "../../api/ChatRequests";

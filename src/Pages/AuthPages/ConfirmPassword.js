@@ -19,7 +19,6 @@ const ConfirmPassword = () => {
                                 <div className="contact-form">
                                     <div className="sec-title text-center">
                                         <h2>Reset Password</h2>
-                                        {/* <div className="text">Please enter your email address to search for your account..</div> */}
                                     </div>
                                     <form method="post" action="login_submit.php" className="form" id="contact-form">
                                         <div className="row clearfix">

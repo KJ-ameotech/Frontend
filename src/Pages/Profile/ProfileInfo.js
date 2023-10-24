@@ -26,7 +26,6 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
                                 <li>{profileUserData?.living_in && "Living in"}</li>
                                 <li>{profileUserData?.height && "Height"}</li>
                                 <li>{profileUserData?.weight && "Weight"}</li>
-                                {/* <li>{profileUserData && !!Object.keys(profileUserData?.hobbies)?.length && "Education"}</li> */}
                             </ul>
                         </div>
 
@@ -38,7 +37,6 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
                                 <li>{profileUserData && profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name}</li>
                                 <li>{profileUserData?.gender}</li>
                                 <li>{calculateAge(profileUserData?.date_of_birth)}</li>
-                                {/* <li>{'girl'}</li> */}
                                 <li>{profileUserData?.marital_status}</li>
                                 <li>{profileUserData?.caste}</li>
                                 <li>{profileUserData?.community}</li>

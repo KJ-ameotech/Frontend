@@ -89,22 +89,15 @@
   content: "";
   background-image: url(/public//assets/images/background/heart.png);
   width: 200px;
-  /* Adjust the width as needed */
   height: 200px;
   background-size: cover;
 }
 
 .card .nope::after {
   content: "";
-  /* Clear the content property */
-  /* Set the background image and specify its path */
   background-image: url(/public//assets/images/background/cross-png-25669.png);
-  /* Set the width and height of the image */
   width: 200px;
-  /* Adjust the width as needed */
   height: 200px;
-  /* Adjust the height as needed */
-  /* Add any additional styles you want for the image */
 
   background-size: cover;
 }

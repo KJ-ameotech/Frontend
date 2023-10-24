@@ -1,7 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require("dotenv-webpack");
-const webpack = require("webpack");
 const deps = require("./package.json").dependencies;
 
 module.exports = {
@@ -51,7 +50,7 @@ module.exports = {
 
     new ModuleFederationPlugin({
       name: "abc",
-      filename: "remoteEntry.js",
+      filename: "index.js",
       remotes: {},
       exposes: {},
       shared: {
@@ -67,7 +66,7 @@ module.exports = {
       },
     }),
     new HtmlWebPackPlugin({
-      template: "publicc/index.html",
+      template: "public/index.html",
     }),
   ],
 };

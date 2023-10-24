@@ -39,18 +39,6 @@ const CheckoutForm = ({ props }) => {
             formData.append('currency', 'USD')
 
             dispatch(stripePayment(formData));
-            // axios
-            //     .post("http://localhost:5000/api/stripe/charge", {
-            //         token: token.id,
-            //         currency: "USD",
-            //         price: props, // or 10 pounds (10*100). Stripe charges with the smallest price unit allowed
-            //     })
-            //     .then((resp) => {
-            //         alert("Your payment was successful");
-            //     })
-            //     .catch((err) => {
-            //         console.log(err);
-            //     });
         } else {
             console.log(error);
         }

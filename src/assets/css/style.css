@@ -1,92 +1,4 @@
-/*-- [Master Stylesheet]
-Author:       infinity systems sangli MH
-Author URL:   http:/infinitysystems.info
-License:      Creative Commons Attribution 3.0 Unported
-License URL:  http://infinitysystems.info/licenses/by/3.0/
-Version:      7.0
-Last Change:  13/07/2021
-/* ---------------------------------------
-
-[Table of contents]
-
-1. Fonts
-2. Resources / Css Files
-3. Reset
-4. Global Settings
-5. Buttons Style
-6. Social Icons
-7. Scroll To Top style
-8. Page Title
-9. Section Title
-10. Main Header / Two / Three
-11. Mobile Menu
-12. Banner Section
-13. Banner Conference
-14. Banner MeetUp
-15. About Section / Two
-16. Coming Soon
-17. Features Section / Two / Three
-18. Fluid Section One
-19. Speakers Section / Two / Three
-20. Speker Detail
-21. schedule Section / Two / Three
-22. Event Detail
-23. Pricing Section / Two / Three
-24. Fun Fact Section
-25. FAQ's Section
-26. FAQ Form Section
-27. Fun Fact Section Two
-28. Why Choose Us
-29. App Section
-30. Gallery Section
-31. Event Info Section
-32. Testimonial Section
-33. News Section
-34. Blog Sidebar
-35. Blog Detail
-36. Styled Pagination
-37. Coming Soon
-38. Video Section
-39. Call to Action
-40. Register Section
-41. Contact Page Section
-42. Map Section
-43. Subscribe Section
-44. Newsletter Section
-45. Clients Section / Two / Three
-46. Main Footer / Two / Three
-47. Error Section
-48. Sidebar Page Container
-49. Comment Area
-50. Comment Form
-51. Social icon Colored
-52. Right to Left
-53. Boxed Layout
--------------------------------------------*/
-
-/***
-
-====================================================================
-	 Fonts
-====================================================================
-
-***/
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900|Orbitron:500,700|Ubuntu:400,500,700&display=swap');
-
-/*
-	font-family: 'Ubuntu', sans-serif;
-	font-family: 'Poppins', sans-serif;
-	font-family: 'Orbitron', sans-serif;
-*/
-
-/***
-
-====================================================================
-	 Resources / Css Files
-====================================================================
-
- ***/
 
 @import url('fontawesome-all.css');
 @import url('flaticon.css');
@@ -96,28 +8,12 @@ Last Change:  13/07/2021
 @import url('owl.css');
 @import url('jquery.fancybox.min.css');
 
-/***
-
-====================================================================
-    Reset
-====================================================================
-
- ***/
-
 * {
 	margin: 0px;
 	padding: 0px;
 	border: none;
 	outline: none;
 }
-
-/***
-
-====================================================================
-	Global Settings
-====================================================================
-
- ***/
 
 body {
 	font-size: 14px;
@@ -267,20 +163,11 @@ img {
 	color: #ffffff;
 }
 
-/***
-
-====================================================================
-	Buttons Style
-====================================================================
-
- ***/
-
 .theme-btn {
 	position: relative;
 	transition: all 300ms ease;
 }
 
-/* Button style one*/
 .btn-style-one {
 	position: relative;
 	padding: 10px 30px;
@@ -299,7 +186,6 @@ img {
 }
 
 .btn-style-one:hover {
-	/* color:#ec167f; */
 	-webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 	-moz-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 	-ms-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
@@ -341,8 +227,6 @@ img {
 	-ms-transform-origin: bottom left;
 	transform-origin: bottom left;
 }
-
-/* Button style two*/
 
 .btn-style-two {
 	position: relative;
@@ -517,12 +401,10 @@ img {
 	-moz-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
 	-o-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
 	transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-	/* easeInOutQuint */
 	-webkit-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
 	-moz-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
 	-o-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
 	transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-	/* easeInOutQuint */
 }
 
 .btn-style-four:hover:before {
@@ -716,39 +598,6 @@ img {
 	color: #d24c59;
 }
 
-/* .preloader{
-	position:fixed;
-	left:0px;
-	top:0px;
-	width:100%;
-	height:100%;
-	z-index:999999;
-	background-color: #ffffff;
-	background-position:center center;
-	background-repeat:no-repeat;
-	background-image:url(../images/icons/load.gif);
-	background-size:200px;
-} */
-
-/* .preloader:after{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	content: "loading..";
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-	margin-top: 45px;
-	font-size: 24px;
-	line-height: 1em;
-	color: #f20487;
-	text-decoration: underline;
-	font-family: "Ubuntu", sans-serif;
-	font-weight: 400;
-} */
-
 
 img {
 	display: inline-block;
@@ -763,14 +612,6 @@ img {
 .pull-right {
 	float: right;
 }
-
-/***
-
-====================================================================
-	Scroll To Top style
-====================================================================
-
-***/
 
 .scroll-to-top {
 	position: fixed;
@@ -795,11 +636,6 @@ img {
 	transition: all 300ms ease;
 }
 
-/* .scroll-to-top:hover{
-	color:#ffffff;
-	background:#4c35a9;
-} */
-
 .tabs-box {
 	position: relative;
 }
@@ -811,14 +647,6 @@ img {
 .tabs-box .tab.active-tab {
 	display: block;
 }
-
-/***
-
-====================================================================
-	Page Title
-====================================================================
-
-***/
 
 .page-title {
 	position: relative;
@@ -888,14 +716,6 @@ img {
 .page-title .bread-crumb li a:hover {
 	color: #f0c52e;
 }
-
-/***
-
-====================================================================
-	Section Title
-====================================================================
-
-***/
 
 .sec-title {
 	position: relative;
@@ -967,9 +787,6 @@ img {
 	background-position: center;
 	background-repeat: no-repeat;
 }
-
-/* animation logo name css */
-
 
 .logo h6 {
 	animation: Color 4s linear infinite;
@@ -1054,15 +871,6 @@ img {
 		color: #AC92EC;
 	}
 }
-
-/* end  */
-/***
-
-====================================================================
-	Main Header
-====================================================================
-
-***/
 
 .main-header {
 	position: fixed;
@@ -1170,10 +978,6 @@ img {
 	-o-transform: scale(-1);
 	transform: scale(-1);
 	background: #ffa8B6;
-	/* background: -moz-linear-gradient(to left, #edf756, #9df9ef);																																																																																																																																								
-	background: -webkit-linear-gradient(to left,#edf756, #9df9ef);
-	background: linear-gradient(to left, #edf756,#9df9ef); */
-	/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F70068', endColorstr='#441066',GradientType=1 ); */
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
@@ -1529,18 +1333,6 @@ img {
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
 }
-
-.main-header .search-box-btn:hover {}
-
-.main-header .search-box-btn2:hover {}
-
-.main-header .search-box-btn3:hover {}
-
-.main-header .search-box-btn4:hover {}
-
-.main-header .search-box-btn5:hover {}
-
-.main-header .search-box-btn6:hover {}
 
 .dropdown-toggle::after {
 	display: none;
@@ -3502,7 +3294,6 @@ img {
 .twist-line-1 {
 	height: 70px;
 	width: 80px;
-	/* background-image: url(../images/icons/twist-line-1.png); */
 }
 
 .twist-line-2 {
@@ -12400,7 +12191,7 @@ img {
 	border-color: #ec167f;
 }
 
-====================================================================Register Section====================================================================***/ .register-section {
+.register-section {
 	position: relative;
 	padding: 130px 0px 130px;
 }

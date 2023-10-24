@@ -7,7 +7,6 @@ const SignUpModal = ({ religionData, modalShow, handleRegister, communitiesData,
     return (
         <Modal
             show={modalShow}
-            // onHide={() => setModalShow(false)}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered

@@ -66,16 +66,13 @@ const EditProfile = ({ isEdit, profileUserData }) => {
                                 <li>Name</li>
                                 <li>Gender</li>
                                 <li>Between age</li>
-                                {/* <li>Looking for</li> */}
                                 <li>Marital Status</li>
                                 {editProfileData.caste && <li>Caste</li>}
-                                {/* <li>{profileUserData.community && "Community"}</li> */}
                                 {editProfileData.income && <li>Income</li>}
                                 {editProfileData.weight && <li>Height</li>}
                                 {editProfileData.education && <li>Education</li>}
                                 {editProfileData.occupation && <li>Occupation</li>}
                                 {hobbies && <li>Hobbies</li>}
-                                {/* <li>{profileUserData.living_in && "Living in"}</li> */}
                             </ul>
                         </div>
 

@@ -92,7 +92,6 @@ const UserProfile = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* Profile Images */}
                             {profilePicturesData?.length > 0 &&
                                 <>
                                     <h6 class="ml-3">Profile Images</h6>

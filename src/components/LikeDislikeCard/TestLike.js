@@ -4,8 +4,6 @@ import { getAllProfileUser, sendFriendRequest } from '../../Redux/Actions/Profil
 import { useDispatch, useSelector } from 'react-redux'
 import { getLocalStorage } from '../../Utils/LocalStorage'
 
-
-
 const LikeDislikeCard = () => {
     const dispatch = useDispatch()
     const profile = useSelector((state) => state.Profile
