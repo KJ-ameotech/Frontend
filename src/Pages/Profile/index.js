@@ -127,7 +127,7 @@ const Profile = () => {
                                         </button>
                                     </div>
 
-                                    <div className="side-content ">
+                                    {/* <div className="side-content ">
 
                                         <div className="dimo-wrap d-flex">
                                             <div className="dimo">
@@ -156,7 +156,7 @@ const Profile = () => {
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 
@@ -166,11 +166,11 @@ const Profile = () => {
                         <div className="auto-container">
                             <div className="info-mid ">
                                 <ul className="">
-                                    <li onClick={() => handleProfileTabs('info')}><a href='#'> <i className="fa fa-info-circle" aria-hidden="true" ></i> info</a></li>
-                                    <li onClick={() => handleProfileTabs('overview')}><a href="#"> <i className="fa fa-globe" aria-hidden="true"></i> overview 1</a></li>
+                                    <li onClick={() => handleProfileTabs('info')}><a href='#'> <i className="fa fa-info-circle" aria-hidden="true" ></i> Info</a></li>
+                                    <li onClick={() => handleProfileTabs('overview')}><a href="#"> <i className="fa fa-globe" aria-hidden="true"></i> Overview</a></li>
                                     <li onClick={() => handleProfileTabs('Media')}><a href="#"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
-                                    <li onClick={() => handleProfileTabs('activity')}><a href="#"> <i className="fa fa-address-card" aria-hidden="true"></i> activity</a></li>
-                                    <li onClick={() => handleProfileTabs('posts')}><a href="#"> <i className="fa fa-clipboard" aria-hidden="true"></i> posts</a></li>
+                                    <li onClick={() => handleProfileTabs('activity')}><a href="#"> <i className="fa fa-address-card" aria-hidden="true"></i> Activity</a></li>
+                                    <li onClick={() => handleProfileTabs('posts')}><a href="#"> <i className="fa fa-clipboard" aria-hidden="true"></i> Posts</a></li>
                                 </ul>
                             </div>
 
@@ -184,7 +184,7 @@ const Profile = () => {
                                     {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} />}
                                 </div>
                                 <div className="col-lg-4">
-                                    <div className="one-card  my-4 d-flex justify-content-between">
+                                    {/* <div className="one-card  my-4 d-flex justify-content-between">
                                         <div className="first-content d-flex">
                                             <img src="/assets/images/1.jpg" />
                                             <h6 className="text-white ml-2 mb-2 mt-2">sign in to account</h6>
@@ -192,7 +192,7 @@ const Profile = () => {
                                         <div className="second-content">
                                             <img src="/assets/images/1.jpg" />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="second-card">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
@@ -211,7 +211,7 @@ const Profile = () => {
                                             <p className="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis aperiam quod facilis consectetur, .</p>
                                         </div>
                                     </div>
-                                    <div className="third-card mb-3">
+                                    {/* <div className="third-card mb-3">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -280,7 +280,7 @@ const Profile = () => {
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                         <a href="show-all">
                                             " <h6 className="text-center mx-3 pb-2">show all friends(11)</h6></a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 

@@ -8,7 +8,7 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
             <div class="d-flex  mb-4 border-bottom-line">
                 <span class="mr-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i>
                 </span>
-                <h6 class="mb-2">profile</h6>
+                <h6 class="mb-1">Profile</h6>
             </div>
             {!isEdit ?
                 <div class="row">
@@ -26,6 +26,7 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
                                 <li>{profileUserData?.living_in && "Living in"}</li>
                                 <li>{profileUserData?.height && "Height"}</li>
                                 <li>{profileUserData?.weight && "Weight"}</li>
+                                <li>{profileUserData?.education && "Education"}</li>
                             </ul>
                         </div>
 
