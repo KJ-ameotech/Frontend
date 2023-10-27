@@ -108,7 +108,8 @@ const LikeDislikeCard = () => {
                 <span>${data.age}</span>
                 </div>
                 <div class="info">
-                ${data.distance} miles away
+                ${data.distance} miles away <br/>
+                User ID: ${data.custom_id}
                 </div>
             </div>
             `
