@@ -175,14 +175,14 @@ const Chat = () => {
                             <div className="body-chat-message-user">
                                 {!!messages?.length && messages?.map((item) => {
                                     return (
-                                        <div className={item?.id == userId ? "message-user-left" : "message-user-right"}>
-                                            <div className={item?.id == userId ? "message-user-left-img" : "message-user-right-img"}>
+                                        <div className={item?.id == userId ? "message-user-right" : "message-user-left"}>
+                                            <div className={item?.id == userId ? "message-user-right-img" : "message-user-left-img"}>
                                                 <img src={item.image ? baseUrl + item.image :
                                                     "/assets/images/background/bg.jpg"} alt="" />
                                                 <p className="mt-0 mb-0"><strong>{item.name}</strong></p>
                                                 <small>{item.date}</small>
                                             </div>
-                                            <div className={item?.id == userId ? "message-user-left-text" : "message-user-right-text"}>
+                                            <div className={item?.id == userId ? "message-user-right-text" : "message-user-left-text"}>
                                                 <strong>{item.message}</strong>
                                             </div>
                                         </div>

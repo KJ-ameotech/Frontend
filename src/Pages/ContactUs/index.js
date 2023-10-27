@@ -89,7 +89,7 @@ const Contactus = () => {
 
                                         <li>
                                             <span className="icon fa fa-clock"></span>
-                                            <p><strong>Office Time</strong></p>
+                                            <p><strong>Our Other Services</strong></p>
                                             <p>{contact?.timeing}</p>
                                         </li>
                                     </ul>
