@@ -193,7 +193,7 @@ const Profile = () => {
                                             <img src="/assets/images/1.jpg" />
                                         </div>
                                     </div> */}
-                                    <div className="second-card">
+                                    <div className="second-card my-4 px-4 py-4">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -203,12 +203,7 @@ const Profile = () => {
                                         <div className="profile-image">
                                             <img src="/assets/images/1.jpg" />
                                             <h4>{profileUserData.about_me}</h4>
-                                            <p className="m-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
-
-                                            <div className="border-line">
-
-                                            </div>
-                                            <p className="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis aperiam quod facilis consectetur, .</p>
+                                            {/* <p className="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis aperiam quod facilis consectetur, .</p> */}
                                         </div>
                                     </div>
                                     {/* <div className="third-card mb-3">
