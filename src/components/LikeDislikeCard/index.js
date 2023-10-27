@@ -222,7 +222,7 @@ const LikeDislikeCard = () => {
     const handleAdvanceSearch = (e) => {
         e.preventDefault()
         let userId = getLocalStorage('user_id');
-        let req = state;
+        let req = state.searchByFilter;
         Object.keys(advanceSearch).forEach((element, index) => {
             if (advanceSearch[element] != '') {
                 req += '&'
