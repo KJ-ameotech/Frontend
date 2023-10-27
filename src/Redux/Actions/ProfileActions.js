@@ -307,7 +307,7 @@ export const sendFriendRequest = (linked_id, isDisliked = false) => {
         formData.append('liked_user', linked_id);
         formData.append("user", getLocalStorage("user_id"))
         if (isDisliked) {
-            formData.append("is_disliked", getLocalStorage("user_id"))
+            formData.append("is_disliked", isDisliked)
         }
         const requestOptions = {
             method: 'POST',

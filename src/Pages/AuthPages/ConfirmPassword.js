@@ -35,7 +35,7 @@ const ConfirmPassword = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-9 col-md-9 col-sm-9 mt-3">
-                                                <span className=""> New Candidate Register ?<Link to="/signup" tabindex="7"> SignUp</Link></span>
+                                                <span className=""> New User Register ?<Link to="/signup" tabindex="7"> SignUp</Link></span>
                                             </div>
                                         </div>
                                     </form>

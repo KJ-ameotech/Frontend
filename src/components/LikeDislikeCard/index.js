@@ -19,7 +19,7 @@ const LikeDislikeCard = () => {
     const [advanceSearch, setAdvanceSearch] = useState({
         startheight: "",
         endheight: "",
-        caste: "",
+        education: "",
         minweight: "",
         maxweight: "",
         miniincome: "",
@@ -363,19 +363,16 @@ const LikeDislikeCard = () => {
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search">Your Caste</span></label>
+                                                        <label className="label" for="lookingfor"><span className="search">Your Education</span></label>
                                                         <select className="dropselect" id="toage"
-                                                            value={advanceSearch.caste}
-                                                            name="caste" tabindex="3"
-
+                                                            value={advanceSearch.education}
+                                                            name="education" tabindex="3"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
-                                                            <option value="Bramin">Bramin</option>
-                                                            <option value="Khatri">Khatri</option>
-                                                            <option value="Pappe">Pappe</option>
-                                                            <option value="Jaat">Jaat</option>
-                                                            <option value="Hindu">Hindu</option>
+                                                            <option value="bachelor">Bachelor's</option>
+                                                            <option value="master">Master</option>
+                                                            <option value="phd">Phd</option>
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                                                     </div>
