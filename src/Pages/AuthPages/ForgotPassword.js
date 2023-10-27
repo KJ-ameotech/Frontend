@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Layout from '../../Layout'
 import { forgetPassword } from '../../Redux/Actions/AuthAction'
 import { toastify } from '../../Utils/Function'
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [error, setError] = useState(false)
@@ -17,6 +18,7 @@ const ForgotPassword = () => {
     const handleForgetPassword = (e) => {
         e.preventDefault()
         if (validEmail(email)) {
+            navigate("/reset-password", { state: { userId: "test" } })
             dispatch(forgetPassword({ "email": email, "phone": phone }))
         } else {
             setError(true)
@@ -24,13 +26,14 @@ const ForgotPassword = () => {
     }
     useEffect(() => {
         if (forgetPasswordRes?.status === 200) {
+            navigate("/reset-password", { state: { userId: "test" } })
             toastify(toast.success, forgetPasswordRes?.message, "dark")
         }
         if (forgetPasswordRes?.response?.data?.status === 404) {
             toastify(toast.error, "Invalid Information! Please check again", "dark")
         }
     }, [forgetPasswordRes])
-    console.log(forgetPasswordRes?.response?.data, "emailState");
+
     return (
         <Layout>
             <section className="newsletter-section" style={{ padding: "150px 0" }}>

@@ -1,8 +1,65 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import Layout from '../../Layout'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { validPassword } from '../../Utils/Validation'
+import { useDispatch } from 'react-redux'
+import { resetPassword } from '../../Redux/Actions/AuthAction'
 
 const ConfirmPassword = () => {
+    const { state } = useLocation();
+    const dispatch = useDispatch();
+
+    const [register, setRegister] = useState({
+        password: "",
+        confirm_password: "",
+        userId: state.userId
+    })
+
+    const [error, setError] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
+    const handleShowPassword = (data) => {
+        if (data === "password") {
+            setShowPassword(!showPassword)
+        } else {
+            setShowConfirmPassword(!showConfirmPassword)
+        }
+    }
+    const handleRegister = (e) => {
+        const { name, value } = e.target;
+        setRegister((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (!!register.password?.length && register.confirm_password) {
+            if (!validPassword(register.password)) {
+                setError(true)
+            } else {
+                if (!validPassword(register.password)) {
+                    setError(true)
+                } else {
+                    console.log("register", register);
+                    dispatch(resetPassword(register))
+                    // .then((res) => {
+                    //     console.log(res, "resssssssss")
+                    //     toastify(toast, "Welcome, your account is successfully registered", "dark")
+                    // })
+
+                }
+            }
+        } else {
+            setError(true)
+        }
+        setTimeout(() => setError(false), 5000)
+    }
+
     return (
         <Layout>
             <section className="newsletter-section" style={{ padding: "150px 0" }}>
@@ -20,14 +77,30 @@ const ConfirmPassword = () => {
                                     <div className="sec-title text-center">
                                         <h2>Reset Password</h2>
                                     </div>
-                                    <form method="post" action="login_submit.php" className="form" id="contact-form">
+                                    <form method="post" action="#" id="contact-form" name="matri" onSubmit={(e) => handleSubmit(e)}>
                                         <div className="row clearfix">
 
                                             <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-                                                <input type="password" name="txtpassword" placeholder="New Password" maxlength="35" id="pass" tabindex="2" required value="" />
+                                                <input type={showPassword ? "text" : "password"} name="password" placeholder="Password"
+                                                    className='position-relative' maxlength="35" value={register.password}
+                                                    onChange={(e) => handleRegister(e)} />
+                                                {!!register.password?.length ? showPassword ?
+                                                    <AiOutlineEyeInvisible onClick={() => handleShowPassword("password")}
+                                                        className="input_eyes_icon" size={20} />
+                                                    : <AiOutlineEye onClick={() => handleShowPassword("password")} className="input_eyes_icon" size={20} /> : null}
+                                                <p className="form-text " style={{ color: "red" }}>{(!register.password.length && error)
+                                                    ? " Password is Required" : (error && !validPassword(register.password)) ?
+                                                        "Input accepts a combination of one uppercase & lowercase letter, number, special characters & minimum characters length 8. Even It will not accept any white spaces." : ""}</p>
+                                                <div className="mt-2 " style={{ display: "none" }}>Password is too weak</div>
                                             </div>
                                             <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-                                                <input type="password" name="txtpassword" placeholder="confirm Password" maxlength="35" id="pass" tabindex="2" required value="" />
+                                                <input type={showConfirmPassword ? "text" : "password"} name="confirm_password" placeholder=" Confirm password" maxlength="35" value={register.confirm_password} onChange={(e) => handleRegister(e)} />
+                                                {!!register.confirm_password?.length ? showPassword ? <AiOutlineEyeInvisible onClick={handleShowPassword} className="input_eyes_icon" size={20} /> : <AiOutlineEye onClick={handleShowPassword} className="input_eyes_icon" size={20} /> : null}
+                                                <p className="form-text " style={{ color: "red" }}>{(!register.confirm_password.length && error) ? " Confirm Password is Required" : (error && register.password != register.confirm_password) ? "Input Field must be matched with the values of password input Field" : ""}</p>
+
+
+
+                                                <div className="mt-2 " style={{ display: "none" }}>Password is too weak</div>
                                             </div>
                                             <div className="col-lg-12 col-md-12 col-sm-12 mt-3 ">
                                                 <div className="btn-box">

@@ -7,6 +7,7 @@ export let chatPortUrl = "ws://139.84.144.57:8001/ws/";
 
 export const Api = {
     register: `${baseUrl}/register/`,
+    resetPasswordURL: `${baseUrl}/password-change/`,
     login: `${baseUrl}/login/`,
     forgetPassword: `${baseUrl}/forget-password/`,
     religions: `${baseUrl}/religions/`,

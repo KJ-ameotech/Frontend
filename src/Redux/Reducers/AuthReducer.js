@@ -1,9 +1,11 @@
 import { setLocalStorage } from "../../Utils/LocalStorage"
-import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
+import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS, RESET_PASSWORD_FAILURE, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS } from "../Constants"
 
 let initialState = {
     registrationRequest: "",
     registerLoading: false,
+    resetPasswordRequest: "",
+    resetPasswordLoading: false,
     loginRequest: "",
     loginLoading: false,
     religionData: "",
@@ -34,6 +36,24 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 registerLoading: false,
                 registrationRequest: action.payload,
+            }
+        case RESET_PASSWORD_REQUEST:
+            return {
+                ...state,
+                resetPasswordLoading: true,
+            }
+        case RESET_PASSWORD_SUCCESS:
+
+            return {
+                ...state,
+                resetPasswordLoading: false,
+                resetPasswordRequest: action.payload,
+            }
+        case RESET_PASSWORD_FAILURE:
+            return {
+                ...state,
+                resetPasswordLoading: false,
+                resetPasswordRequest: action.payload,
             }
         case LOGIN_REQUEST:
             return {

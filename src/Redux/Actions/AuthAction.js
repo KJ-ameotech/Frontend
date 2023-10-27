@@ -1,24 +1,19 @@
 import axios from "axios"
 import { Api } from "../../Utils/ApiUrl"
 import { header } from "../../Utils/Function"
-import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS } from "../Constants"
-const registerRequest = () => ({ type: REGISTER_REQUEST })
+import { COMMUNITIES_FAILURE, COMMUNITIES_REQUEST, COMMUNITIES_SUCCESS, FAMILYNAME_FAILURE, FAMILYNAME_REQUEST, FAMILYNAME_SUCCESS, FORGOTPASSWORD_FAILURE, FORGOTPASSWORD_REQUEST, FORGOTPASSWORD_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS, RELIGION_FAILURE, RELIGION_REQUEST, RELIGION_SUCCESS, RESET_PASSWORD_FAILURE, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS } from "../Constants"
 
+const registerRequest = () => ({ type: REGISTER_REQUEST })
 const registerSuccess = posts => ({
     type: REGISTER_SUCCESS,
     payload: posts,
 })
-
 const registerFailure = error => ({
     type: REGISTER_FAILURE,
     payload: error,
     error: true,
 })
-
-
-
 export const registerUser = (register) => {
-
     return async (dispatch) => {
         dispatch(registerRequest())
         axios(Api.register, header("POST", register))
@@ -27,6 +22,29 @@ export const registerUser = (register) => {
             })
             .catch((error) => {
                 dispatch(registerFailure(error))
+            })
+    }
+}
+
+const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST })
+const resetPasswordSuccess = posts => ({
+    type: RESET_PASSWORD_SUCCESS,
+    payload: posts,
+})
+const resetPasswordFailure = error => ({
+    type: RESET_PASSWORD_FAILURE,
+    payload: error,
+    error: true,
+})
+export const resetPassword = (request) => {
+    return async (dispatch) => {
+        dispatch(resetPasswordRequest())
+        axios(Api.resetPasswordURL, header("POST", request))
+            .then((response) => {
+                dispatch(resetPasswordSuccess(response.data))
+            })
+            .catch((error) => {
+                dispatch(resetPasswordFailure(error))
             })
     }
 }
