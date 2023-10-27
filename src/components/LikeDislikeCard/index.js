@@ -442,6 +442,13 @@ const LikeDislikeCard = () => {
                             </div>
                         </section>
                         <div class="col-lg-3 mx-auto">
+                            {allProfilesData?.length == 0 &&
+                                <>
+                                    <div>
+                                        <b>Sorry No Data at the moment <br />
+                                            Please try again later</b>
+                                    </div>
+                                </>}
                             <div class="frame"></div>
                             {allProfilesData?.length > 0 ?
                                 <>
