@@ -258,10 +258,9 @@ const LikeDislikeCard = () => {
                                                 //    onSubmit={handleSearchSubmit}
                                                 >
                                                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search">Start Height</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search">Start Height</span></label>
                                                         <select className="dropselect" name="startheight"
                                                             value={advanceSearch.startheight}
-                                                            selected tabindex="1"
                                                             onChange={handleSearch}
                                                         >
                                                             <option value="150">150</option>
@@ -271,7 +270,6 @@ const LikeDislikeCard = () => {
                                                             <option value="154">154</option>
                                                             <option value="155">155</option>
                                                             <option value="156">156</option>
-
                                                             <option value="157">157</option>
                                                             <option value="158">158</option>
                                                             <option value="159">159</option>
@@ -310,11 +308,11 @@ const LikeDislikeCard = () => {
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search">End Height</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search">End Height</span></label>
                                                         <select className="dropselect" id="fromage"
                                                             onChange={handleSearch}
                                                             value={advanceSearch.endheight}
-                                                            name="endheight" tabindex="2"
+                                                            name="endheight"
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
                                                             <option value="150">150</option>
@@ -363,10 +361,10 @@ const LikeDislikeCard = () => {
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search">Your Education</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search">Your Education</span></label>
                                                         <select className="dropselect" id="toage"
                                                             value={advanceSearch.education}
-                                                            name="education" tabindex="3"
+                                                            name="education"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
@@ -377,56 +375,56 @@ const LikeDislikeCard = () => {
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search" >Min Weight</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search" >Min Weight</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.minweight}
-                                                            name="minweight" id="weight" tabindex="4"
+                                                            name="minweight" id="weight"
                                                             onChange={handleSearch}
                                                             required>
-                                                            {!!weight.length && weight.map((item) => {
-                                                                return <option value={item}>{item}</option>
+                                                            {!!weight.length && weight.map((item, index) => {
+                                                                return <option value={item} key={index}>{item}</option>
                                                             })}
 
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search" >max Weight</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search" >Max Weight</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.maxweight}
-                                                            name="maxweight" id="weight" tabindex="4"
+                                                            name="maxweight" id="weight"
                                                             onChange={handleSearch}
                                                             required>
-                                                            {!!weight.length && weight.map((item) => {
-                                                                return <option value={item}>{item}</option>
+                                                            {!!weight.length && weight.map((item, index) => {
+                                                                return <option value={item} key={index}>{item}</option>
                                                             })}
 
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search" >Minimum Income</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search" >Minimum Income</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.miniincome}
-                                                            name="miniincome" id="weight" tabindex="4"
+                                                            name="miniincome" id="weight"
                                                             onChange={handleSearch}
                                                             required>
-                                                            {!!income.length && income.map((item) => {
-                                                                return <option value={item}>{item}</option>
+                                                            {!!income.length && income.map((item, index) => {
+                                                                return <option value={item} key={index}>{item}</option>
                                                             })}
 
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
                                                     <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                                                        <label className="label" for="lookingfor"><span className="search" >Maximum Income</span></label>
+                                                        <label className="label" htmlFor="lookingfor"><span className="search" >Maximum Income</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.maxincome}
-                                                            name="maxincome" id="weight" tabindex="4"
+                                                            name="maxincome" id="weight"
                                                             onChange={handleSearch}
                                                             required>
-                                                            {!!income.length && income.map((item) => {
-                                                                return <option value={item}>{item}</option>
+                                                            {!!income.length && income.map((item, index) => {
+                                                                return <option value={item} key={index}>{item}</option>
                                                             })}
 
                                                         </select>

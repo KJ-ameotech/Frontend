@@ -94,18 +94,18 @@ const Banner = () => {
       <div className="mainBannerSection">
         <section className="banner-section d-none d-lg-block d-xl-block d-md-block mobile_Hidden">
           <div className="banner-carousel owl-carousel owl-theme ">
-            <OwlCarousel classNameName="owl-theme" {...options}>
-              {bannerList && bannerList.map((item) => {
+            <OwlCarousel className="owl-theme" {...options}>
+              {bannerList && bannerList.map((item, index) => {
                 return (
-                  <div className="slide-item" style={{ backgroundImage: `url(${image})` }}>
+                  <div className="slide-item" style={{ backgroundImage: `url(${image})` }} key={index}>
                     <div className="auto-container">
-                      <div class="content-box mt-5 text-left">
+                      <div className="content-box mt-5 text-left">
 
                         <h2> {item.heading} <br />{item.subheading}</h2>
-                        <ul class="info-list">
-                          <li><span class="icon fas fa-edit"></span> Sign Up</li>
-                          <li><span class="icon fas fa-user-plus"></span> Connect</li>
-                          <li><span class="icon fas fa-comments"></span> Interact</li>
+                        <ul className="info-list">
+                          <li><span className="icon fas fa-edit"></span> Sign Up</li>
+                          <li><span className="icon fas fa-user-plus"></span> Connect</li>
+                          <li><span className="icon fas fa-comments"></span> Interact</li>
                         </ul>
 
                       </div>
@@ -120,14 +120,14 @@ const Banner = () => {
       <section className="coming-soon-section">
         <div className="auto-container mb-5">
           <div className="outer-box">
-            <div class="inner-border">
+            <div className="inner-border">
               <div className="time-counter">
                 <div className="col-md-12">
                   <div className="row">
                     <form className="form-inline" onSubmit={handleSearchSubmit}>
                       <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                        <label className="label" for="lookingfor"><span className="search">I'm looking for a</span></label>
-                        <select className="dropselect" name="looking_for" value={searchData.looking_for} selected tabindex="1" onChange={handleSearch} >
+                        <label className="label" htmlFor="lookingfor"><span className="search">I'm looking for a</span></label>
+                        <select className="dropselect" name="looking_for" value={searchData.looking_for} selected onChange={handleSearch} >
                           <option value="" disabled selected>Please Select</option>
                           <option value="Male">Groom</option>
                           <option value="Female">Bride</option>
@@ -135,8 +135,8 @@ const Banner = () => {
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
                       </div>
                       <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                        <label className="label" for="lookingfor"><span className="search">From Age</span></label>
-                        <select className="dropselect" id="fromage" onChange={handleSearch} value={searchData.from_age} name="from_age" tabindex="2" required>
+                        <label className="label" htmlFor="lookingfor"><span className="search">From Age</span></label>
+                        <select className="dropselect" id="fromage" onChange={handleSearch} value={searchData.from_age} name="from_age" required>
                           <option value="" selected>Select</option>
                           <option value="18">18</option>
                           <option value="19">19</option>
@@ -190,8 +190,8 @@ const Banner = () => {
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
                       </div>
                       <div className="col-lg-2 col-md-2 col-sm-2 form-group">
-                        <label className="label" for="lookingfor"><span className="search">To Age</span></label>
-                        <select className="dropselect" id="toage" value={searchData.to_age} name="to_age" tabindex="3" onChange={handleSearch} required>
+                        <label className="label" htmlFor="lookingfor"><span className="search">To Age</span></label>
+                        <select className="dropselect" id="toage" value={searchData.to_age} name="to_age" onChange={handleSearch} required>
                           <option value="" selected>Select</option>
                           <option value="18">18</option>
                           <option value="19">19</option>
@@ -245,8 +245,8 @@ const Banner = () => {
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                       </div>
                       <div className="col-lg-3 col-md-3 col-sm-3 form-group">
-                        <label className="label" for="lookingfor"><span className="search" >Community</span></label>
-                        <select className="dropselect" value={searchData.religion} name="religion" id="religion" tabindex="4" onChange={handleSearch} required>
+                        <label className="label" htmlFor="lookingfor"><span className="search" >Community</span></label>
+                        <select className="dropselect" value={searchData.religion} name="religion" id="religion" onChange={handleSearch} required>
                           <option value="Any" selected>Any</option>
                           <option value="Christian">Christian</option>
                           <option value="Hindu">Hindu</option>

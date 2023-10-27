@@ -3,16 +3,15 @@ import './Stories.css'
 import { baseUrl } from "../Utils/ApiUrl";
 
 const Stories = ({ storiesList }) => {
-    console.log("test", storiesList);
 
     return (
         <>
             <h3 className="mt-4">Success Stories</h3>
             <div className="story">
-                {storiesList?.length > 0 && storiesList?.map((item) => {
+                {storiesList?.length > 0 && storiesList?.map((item, index) => {
                     return (
-                        <div className="item mr-4">
-                            <div className="card p-0 pmd-card">
+                        <div className="item mr-4" key={index}>
+                            <div className="card p-0 pmd-card" style={{ position: "relative" }}>
                                 <div className="pmd-card-media text-center">
                                     <img className="story-img img-fluid" src={item?.image ? baseUrl + item.image : "/assets/images/background/bg.jpg"} alt="" />
                                 </div>

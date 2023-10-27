@@ -21,6 +21,7 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
                                 <li>{profileUserData?.looking_for ? "Looking for" : ""}</li>
                                 <li>{profileUserData?.marital_status ? "Marital Status" : ""}</li>
                                 <li>{profileUserData?.caste ? "Caste" : ""}</li>
+                                <li>{profileUserData?.family_name ? "Family Name" : ""}</li>
                                 <li>{profileUserData?.community ? "Community" : ""}</li>
                                 <li>{profileUserData?.income ? "Income" : ""}</li>
                                 <li>{profileUserData?.living_in && "Living in"}</li>
@@ -40,6 +41,7 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
                                 <li>{calculateAge(profileUserData?.date_of_birth)}</li>
                                 <li>{profileUserData?.marital_status}</li>
                                 <li>{profileUserData?.caste}</li>
+                                <li>{profileUserData?.family_name}</li>
                                 <li>{profileUserData?.community}</li>
                                 <li>{profileUserData?.income}</li>
                                 <li>{profileUserData?.living_in}</li>

@@ -66,14 +66,14 @@ const Profile = () => {
         <>
             <Layout>
                 <div style={{ padding: "90px 0 0 0 " }}>
-                    <div className="mainBannerSection"  >
+                    <div className="mainBannerSection">
 
                         <div className="auto-container" >
                             <div className="row">
                                 <div className="col-lg-6">
 
                                     <div className="main-content d-flex">
-                                        <div className="img-content">
+                                        <div className="img-content mb-3">
                                             <img type='file'
                                                 id="imageUpload"
                                                 accept="image/*"
@@ -90,8 +90,8 @@ const Profile = () => {
                                             <div className="text-content d-flex">
                                                 <h6 className="mr-2"> {profileUserData && profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name}</h6>
                                                 <span className="mr-2 mt-2"><i className="fa fa-check-circle" style={{ fontSize: 20, color: "#e6d7da" }}></i></span>
-                                                <span className="status mr-2 mt-2"> offline
-                                                </span>
+                                                {/* <span className="status mr-2 mt-2"> offline
+                                                </span> */}
                                             </div>
                                             <div className="text-star d-flex">
                                                 <ul >

@@ -27,7 +27,8 @@ const ProfileUserDetail = () => {
         occupation: "",
         user: +getLocalStorage("user_id"),
         income: "",
-        education: ""
+        education: "",
+        family_name: ""
 
     })
     const [profileImage, setProfileImage] = useState(null)
