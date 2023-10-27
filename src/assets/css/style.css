@@ -12694,7 +12694,7 @@ input[type=number] {
 .input_eyes_icon {
 	position: absolute;
 	right: 30px;
-	top: 40%;
+	top: 23px;
 	transform: translateY(-50%);
 	cursor: pointer;
 }

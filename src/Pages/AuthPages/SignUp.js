@@ -287,11 +287,20 @@ const SignUp = () => {
 
                                                     </div>
                                                     <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-                                                        <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className='position-relative' maxlength="35" value={register.password} onChange={(e) => handleRegister(e)} />
-                                                        {!!register.password?.length ? showPassword ? <AiOutlineEyeInvisible onClick={() => handleShowPassword("password")} className="input_eyes_icon" size={20} /> : <AiOutlineEye onClick={() => handleShowPassword("password")} className="input_eyes_icon" size={20} /> : null}
-                                                        <p className="form-text " style={{ color: "red" }}>{(!register.password.length && error) ? " Password is Required" : (error && !validPassword(register.password)) ? "Input accepts a combination of one uppercase & lowercase letter, number, special characters & minimum characters length 8. Even It will not accept any white spaces." : ""}</p>
 
+                                                        <input type={showPassword ? "text" : "password"} name="password" placeholder="Password"
+                                                            className='position-relative' maxlength="35" value={register.password}
+                                                            onChange={(e) => handleRegister(e)} />
+                                                        {!!register.password?.length ? showPassword ?
+                                                            <AiOutlineEyeInvisible onClick={() => handleShowPassword("password")}
+                                                                className="input_eyes_icon" size={20} />
+                                                            : <AiOutlineEye onClick={() => handleShowPassword("password")} className="input_eyes_icon" size={20} /> : null}
+                                                        <p className="form-text " style={{ color: "red" }}>{(!register.password.length && error)
+                                                            ? " Password is Required" : (error && !validPassword(register.password)) ?
+                                                                "Input accepts a combination of one uppercase & lowercase letter, number, special characters & minimum characters length 8. Even It will not accept any white spaces." : ""}</p>
                                                         <div className="mt-2 " style={{ display: "none" }}>Password is too weak</div>
+
+
                                                     </div>
                                                     <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                                                         <input type={showConfirmPassword ? "text" : "password"} name="confirm_password" placeholder=" Confirm password" maxlength="35" value={register.confirm_password} onChange={(e) => handleRegister(e)} />
