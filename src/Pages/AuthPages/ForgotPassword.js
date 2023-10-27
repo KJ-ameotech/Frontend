@@ -10,13 +10,14 @@ import { toast } from 'react-toastify';
 const ForgotPassword = () => {
     const dispatch = useDispatch()
     const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
     const [error, setError] = useState(false)
     const emailState = useSelector(state => state)
     const { Auth: { forgetPasswordRes } } = emailState
     const handleForgetPassword = (e) => {
         e.preventDefault()
         if (validEmail(email)) {
-            dispatch(forgetPassword({ "email": email }))
+            dispatch(forgetPassword({ "email": email, "phone": phone }))
         } else {
             setError(true)
         }
@@ -26,7 +27,7 @@ const ForgotPassword = () => {
             toastify(toast.success, forgetPasswordRes?.message, "dark")
         }
         if (forgetPasswordRes?.response?.data?.status === 404) {
-            toastify(toast.error, "The email does not exist.", "dark")
+            toastify(toast.error, "Invalid Information! Please check again", "dark")
         }
     }, [forgetPasswordRes])
     console.log(forgetPasswordRes?.response?.data, "emailState");
@@ -53,9 +54,15 @@ const ForgotPassword = () => {
                                         <div className="row clearfix">
 
                                             <div className="col-lg-12 col-md-12 col-sm-12 form-group" id="emailerror">
-                                                <input type="text" autofocus name="txtusername" placeholder="Email ID " tabindex="1" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                <input type="text" autofocus name="txtusername" placeholder="Email ID" required value={email} onChange={(e) => setEmail(e.target.value)} />
                                                 <p className="form-text " style={{ color: "red" }}>{(!email.length && error) ? "Email is Required" : (!validEmail(email) && error) ? "Input Field accepts only valid email format string with @ symbol" : ""}</p>
                                             </div>
+
+                                            <div className="col-lg-12 col-md-12 col-sm-12 form-group" id="emailerror">
+                                                <input type="number" autofocus name="txtusername" placeholder="Phone" required value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                <p className="form-text " style={{ color: "red" }}>{(!email.length && error) ? "Email is Required" : ""}</p>
+                                            </div>
+
                                             <div className="col-lg-12 col-md-12 col-sm-12 mt-3 ">
                                                 <div className="btn-box">
                                                     <a href="confirm-password" ><button className="theme-btn btn btn-style-one " tabindex="6" type="submit" name="submit" style={{ width: "100%" }}><span className="btn-title">submit</span></button></a>
