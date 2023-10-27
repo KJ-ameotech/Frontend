@@ -13,7 +13,7 @@ const ConfirmPassword = () => {
     const [register, setRegister] = useState({
         password: "",
         confirm_password: "",
-        userId: state.userId
+        email: state.email
     })
 
     const [error, setError] = useState(false)

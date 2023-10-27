@@ -18,15 +18,14 @@ const ForgotPassword = () => {
     const handleForgetPassword = (e) => {
         e.preventDefault()
         if (validEmail(email)) {
-            navigate("/reset-password", { state: { userId: "test" } })
-            dispatch(forgetPassword({ "email": email, "phone": phone }))
+            dispatch(forgetPassword({ "email": email, "phone_number": phone }))
         } else {
             setError(true)
         }
     }
     useEffect(() => {
         if (forgetPasswordRes?.status === 200) {
-            navigate("/reset-password", { state: { userId: "test" } })
+            navigate("/reset-password", { state: { email: email } })
             toastify(toast.success, forgetPasswordRes?.message, "dark")
         }
         if (forgetPasswordRes?.response?.data?.status === 404) {
