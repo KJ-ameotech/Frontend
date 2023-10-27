@@ -151,7 +151,7 @@ const Chat = () => {
                                         <div className="user-chat-img">
                                             <img src={item?.profile_image ? baseUrl + item?.profile_image :
                                                 "/assets/images/background/bg.jpg"} alt="user_image" />
-                                            <div className="offline"></div>
+                                            <div className="online"></div>
                                         </div>
 
                                         <div className="user-chat-text">
@@ -169,7 +169,7 @@ const Chat = () => {
                                 <img src={selectedFriend?.profile_image ? baseUrl + selectedFriend?.profile_image : "/assets/images/background/bg.jpg"} alt="" />
                                 <div className="message-user-profile">
                                     <p className="mt-0 mb-0 text-white"><strong>{selectedFriend?.first_name?.charAt(0).toUpperCase() + selectedFriend?.first_name?.slice(1) + " " + selectedFriend?.last_name?.charAt(0).toUpperCase() + selectedFriend?.last_name?.slice(1)}</strong></p>
-                                    <small className="text-white"><p className="offline  mt-0 mb-0"></p>Offline</small>
+                                    <small className="text-white"><p className="online mt-0 mb-0"></p>Online</small>
                                 </div>
                             </div>
                             <div className="body-chat-message-user">

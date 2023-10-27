@@ -62,6 +62,9 @@ const Banner = () => {
       navigate("/profile-info")
     }
     else if (!!profileData && !!userData) {
+      if (userData?.gender) {
+        setSearchData({ ...searchData, looking_for: userData?.gender == 'Male' ? "Female" : "Male" })
+      }
       setProfileUserData({ ...profileData, ...userData })
     }
   }, [userData, profileData])
