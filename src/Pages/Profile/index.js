@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../Layout';
-import { getProfile, getProfileImage, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
+import { getLikedUser, getProfile, getProfileImage, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
 import { getLocalStorage, setLocalStorage } from '../../Utils/LocalStorage';
 import Media from './Media';
 import "./Profile.css";
@@ -17,7 +17,7 @@ const Profile = () => {
     const inputRef = useRef(null)
     const data = useSelector(state => state)
     const { Profile: { userData, profileData
-        , profileImage } } = data
+        , profileImage, likedUserList } } = data
     const dispatch = useDispatch()
     const [profileTabs, setProfileTabs] = useState("info")
     const [profileUserData, setProfileUserData] = useState({})
@@ -51,6 +51,7 @@ const Profile = () => {
         dispatch(getuser(+id))
         dispatch(getProfile(+id))
         dispatch(getProfileImage(+id))
+        dispatch(getLikedUser(id))
     }, [getLocalStorage("user_id")])
     useEffect(() => {
         if (!!profileData && !!userData) {
@@ -209,7 +210,7 @@ const Profile = () => {
 
                                         </div>
                                         <div className="border-bottom-line mx-4 my-3"></div>
-                                        <FriendInfo />
+                                        <FriendInfo likedUserList={likedUserList} />
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                     </div>
                                 </div>
