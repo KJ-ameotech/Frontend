@@ -20,8 +20,14 @@ const FriendInfo = ({ likedUserList }) => {
 
     return (
         <>
+            <div className='m-4'>
+                {likedUserList?.subscription_name != 'Diamond' && <div>
+                    Please upgrade your premium to show the likes user list
+                </div>
+                }
+            </div>
             <ul>
-                {likedUserList?.length > 0 && likedUserList.map((item, index) => {
+                {likedUserList?.subscription_name == 'Diamond' && likedUserList?.liked_users?.length > 0 && likedUserList.liked_users.map((item, index) => {
                     return (
                         <>
                             <li key={index}>
