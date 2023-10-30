@@ -140,27 +140,31 @@ const Chat = () => {
                         </div>
 
                         <div className="list-search-user-chat mt-20">
-                            {friendListData && friendListData.map((item, index) => {
-                                return (
-                                    <div className="user-chat" key={index}
-                                        data-username={item?.first_name.charAt(0).toUpperCase() +
-                                            item?.first_name.slice(1) + " " +
-                                            item?.last_name.charAt(0).toUpperCase() +
-                                            item?.last_name.slice(1)}
-                                        onClick={() => handleCurrentChatUser(item)}>
-                                        <div className="user-chat-img">
-                                            <img src={item?.profile_image ? baseUrl + item?.profile_image :
-                                                "/assets/images/background/bg.jpg"} alt="user_image" />
-                                            <div className="online"></div>
-                                        </div>
+                            {friendListData?.subscription_name != "Diamond" &&
+                                <div>Please upgrade you plan to chat with the user</div>
+                            }
+                            {friendListData?.subscription_name == "Diamond" &&
+                                friendListData?.user_data?.length > 0 && friendListData.user_data.map((item, index) => {
+                                    return (
+                                        <div className="user-chat" key={index}
+                                            data-username={item?.first_name.charAt(0).toUpperCase() +
+                                                item?.first_name.slice(1) + " " +
+                                                item?.last_name.charAt(0).toUpperCase() +
+                                                item?.last_name.slice(1)}
+                                            onClick={() => handleCurrentChatUser(item)}>
+                                            <div className="user-chat-img">
+                                                <img src={item?.profile_image ? baseUrl + item?.profile_image :
+                                                    "/assets/images/background/bg.jpg"} alt="user_image" />
+                                                <div className="online"></div>
+                                            </div>
 
-                                        <div className="user-chat-text">
-                                            <p className="mt-0 mb-0"><strong>{item?.first_name.charAt(0).toUpperCase() + item?.first_name.slice(1) + " " + item?.last_name.charAt(0).toUpperCase() + item?.last_name.slice(1)}</strong></p>
-                                            <small>Hi, how are you?</small>
+                                            <div className="user-chat-text">
+                                                <p className="mt-0 mb-0"><strong>{item?.first_name.charAt(0).toUpperCase() + item?.first_name.slice(1) + " " + item?.last_name.charAt(0).toUpperCase() + item?.last_name.slice(1)}</strong></p>
+                                                <small>Hi, how are you?</small>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            })}
+                                    )
+                                })}
                         </div>
                     </div>
                     {selectedFriend?.first_name ?
