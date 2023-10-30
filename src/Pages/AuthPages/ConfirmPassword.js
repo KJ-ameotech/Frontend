@@ -46,7 +46,11 @@ const ConfirmPassword = () => {
                     setError(true)
                 } else {
                     console.log("register", register);
-                    dispatch(resetPassword(register))
+                    const req = {
+                        username_or_email: register.email,
+                        new_password: register.password
+                    }
+                    dispatch(resetPassword(req))
                     // .then((res) => {
                     //     console.log(res, "resssssssss")
                     //     toastify(toast, "Welcome, your account is successfully registered", "dark")
