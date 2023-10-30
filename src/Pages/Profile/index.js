@@ -11,6 +11,7 @@ import { BiPencil } from "react-icons/bi"
 import { toastify } from '../../Utils/Function';
 import { toast } from 'react-toastify';
 import defaultImage from "../../assets/images/background/bg.jpg"
+import FriendInfo from './FriendInfo';
 
 const Profile = () => {
     const inputRef = useRef(null)
@@ -184,15 +185,6 @@ const Profile = () => {
                                     {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} />}
                                 </div>
                                 <div className="col-lg-4">
-                                    {/* <div className="one-card  my-4 d-flex justify-content-between">
-                                        <div className="first-content d-flex">
-                                            <img src="/assets/images/1.jpg" />
-                                            <h6 className="text-white ml-2 mb-2 mt-2">sign in to account</h6>
-                                        </div>
-                                        <div className="second-content">
-                                            <img src="/assets/images/1.jpg" />
-                                        </div>
-                                    </div> */}
                                     <div className="second-card my-4 px-4 py-4">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
@@ -203,10 +195,13 @@ const Profile = () => {
                                         <div className="profile-image">
                                             <img src="/assets/images/1.jpg" />
                                             <h4>{profileUserData.about_me}</h4>
-                                            {/* <p className="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis aperiam quod facilis consectetur, .</p> */}
                                         </div>
                                     </div>
-                                    {/* <div className="third-card mb-3">
+
+                                    {/* <div className="second-card my-4 px-4 py-4">
+                                        <FriendInfo />
+                                    </div> */}
+                                    <div className="third-card mb-3">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -214,68 +209,9 @@ const Profile = () => {
 
                                         </div>
                                         <div className="border-bottom-line mx-4 my-3"></div>
-                                        <ul>
-                                            <li>
-                                                <div className="third-image-content d-flex pb-3">
-                                                    <div className="third-image">
-                                                        <img src="/assets/images/1.jpg" />
-                                                    </div>
-                                                    <div className="third-content">
-                                                        <h5>Lorem ipsum dolor  </h5>
-                                                        <h6>loreum ipsum</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="third-image-content d-flex pb-3">
-                                                    <div className="third-image">
-                                                        <img src="/assets/images/background/bg.jpg" />
-                                                    </div>
-                                                    <div className="third-content">
-                                                        <h5>Lorem ipsum dolor  <span>    <i className="fa fa-check-circle" aria-hidden="true"></i></span></h5>
-                                                        <h6>loreum ipsum</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="third-image-content d-flex pb-3">
-                                                    <div className="third-image">
-                                                        <img src="/assets/images/1.jpg" />
-                                                    </div>
-                                                    <div className="third-content">
-                                                        <h5>Lorem ipsum dolor  <span>    <i className="fa fa-check-circle" aria-hidden="true"></i></span></h5>
-                                                        <h6>loreum ipsum</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="third-image-content d-flex pb-3">
-                                                    <div className="third-image">
-                                                        <img src="/assets/images/1.jpg" />
-                                                    </div>
-                                                    <div className="third-content">
-                                                        <h5>Lorem ipsum dolor  <span>    <i className="fa fa-check-circle" aria-hidden="true"></i></span></h5>
-                                                        <h6>loreum ipsum</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="third-image-content d-flex pb-3">
-                                                    <div className="third-image">
-                                                        <img src="/assets/images/1.jpg" />
-                                                    </div>
-                                                    <div className="third-content">
-                                                        <h5>Lorem ipsum dolor  </h5>
-                                                        <h6>loreum ipsum</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-
+                                        <FriendInfo />
                                         <div className="border-bottom-line mx-4 my-4"></div>
-                                        <a href="show-all">
-                                            " <h6 className="text-center mx-3 pb-2">show all friends(11)</h6></a>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
 
