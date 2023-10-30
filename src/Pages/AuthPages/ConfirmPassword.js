@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Layout from '../../Layout'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { validPassword } from '../../Utils/Validation'
 import { useDispatch } from 'react-redux'
 import { resetPassword } from '../../Redux/Actions/AuthAction'
+import { toastify } from '../../Utils/Function'
+import { toast } from 'react-toastify'
 
 const ConfirmPassword = () => {
     const { state } = useLocation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [register, setRegister] = useState({
         password: "",
@@ -51,10 +54,11 @@ const ConfirmPassword = () => {
                         new_password: register.password
                     }
                     dispatch(resetPassword(req))
-                    // .then((res) => {
-                    //     console.log(res, "resssssssss")
-                    //     toastify(toast, "Welcome, your account is successfully registered", "dark")
-                    // })
+                        .then((res) => {
+                            toastify(toast.success, "Your password is successfully changed", "dark")
+                            console.log(res, "resssssssss")
+                            navigate('/login');
+                        })
 
                 }
             }
