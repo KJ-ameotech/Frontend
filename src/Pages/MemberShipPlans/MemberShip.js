@@ -13,7 +13,16 @@ const MemberShip = () => {
     const [membershipList, setMembershipList] = useState([])
 
     const handlePayment = (e) => {
-        navigate('/payment/' + e);
+        if (e.subscription_name == "Gold") {
+            openInNewTab("https://buy.stripe.com/test_14kbJh6EV1w6esg5kl")
+        } else {
+            openInNewTab("https://buy.stripe.com/test_fZe5kTaVbgr097WaEG")
+        }
+    }
+
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
     }
 
     useEffect(() => {
@@ -41,7 +50,7 @@ const MemberShip = () => {
                                             {item.description}
                                         </div>
                                         <div className="last-button">
-                                            <button type="button" onClick={() => handlePayment(item.price)}> All Promises</button>
+                                            <button type="button" onClick={() => handlePayment(item)}> All Promises</button>
                                         </div>
                                     </div>
                                 </div>

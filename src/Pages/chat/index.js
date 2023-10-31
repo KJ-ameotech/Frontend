@@ -140,7 +140,7 @@ const Chat = () => {
                         </div>
 
                         <div className="list-search-user-chat mt-20">
-                            {friendListData?.subscription_name != "Diamond" &&
+                            {friendListData?.subscription_name == "Gold" &&
                                 <div>Please upgrade you plan to chat with the user</div>
                             }
                             {friendListData?.subscription_name == "Diamond" &&
