@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AddFeedback, getContact } from '../../Redux/Actions/ProfileActions'
 import { toastify } from '../../Utils/Function'
 import { toast } from 'react-toastify'
+import { validEmail, userNameValidation } from '../../Utils/Validation';
 import './contact.css'
 
 const Contactus = () => {
@@ -48,7 +49,14 @@ const Contactus = () => {
 
     const handleSubmit = (ev) => {
         ev.preventDefault()
-        dispatch(AddFeedback(feedback));
+        if (feedback.phoneNumber.length == 10 &&
+            userNameValidation(feedback.name) &&
+            validEmail(feedback.email)) {
+            dispatch(AddFeedback(feedback));
+        }
+        else {
+            toastify(toast.error, "Please add valid information", "dark");
+        }
     }
 
     return (
