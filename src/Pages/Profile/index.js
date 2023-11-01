@@ -193,7 +193,7 @@ const Profile = () => {
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
-                                            <h6 className="ml-3">About me</h6>
+                                            <h6 className="ml-3 mt-2">About me</h6>
                                         </div>
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                         <div className="profile-image">
@@ -209,7 +209,7 @@ const Profile = () => {
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
-                                            <h6 className="ml-3">Interest Expressed</h6>
+                                            <h6 className="ml-3 mt-2">Interest Expressed</h6>
                                         </div>
                                         <div className="border-bottom-line mx-4 my-3"></div>
                                         <FriendInfo likedUserList={likedUserList} />
