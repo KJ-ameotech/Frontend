@@ -2,6 +2,7 @@ import React from 'react'
 import "./Modal1.css"
 import Modal from 'react-bootstrap/Modal';
 import { countries } from '../../Utils/lists';
+import { Link } from 'react-router-dom';
 
 const SignUpModal = ({ religionData, modalShow, handleRegister, communitiesData, familyNameData }) => {
     return (
@@ -13,6 +14,7 @@ const SignUpModal = ({ religionData, modalShow, handleRegister, communitiesData,
         >
             <Modal.Header />
             <Modal.Body>
+                <div className='ml-3 mb-3'><Link to="/login">Go back to Login</Link></div>
                 <div className="contact-form">
                     <div className="col-lg-12 col-md-12 col-sm-6 form-group ">
                         <select className="custom-select-box" name="religion" tabindex="7" required id="" onChange={(e) => handleRegister(e)}>

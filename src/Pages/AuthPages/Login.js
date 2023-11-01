@@ -86,6 +86,10 @@ const Login = () => {
                 toastify(toast.warning, loginResponse?.response?.data?.detail, "dark")
                 setLoginData({ ...loginData, text: "", password: "" })
             }
+            else if (loginResponse?.response?.data?.status_code == 403) {
+                toastify(toast.warning, loginResponse?.response?.data?.detail, "dark")
+                setLoginData({ ...loginData, text: "", password: "" })
+            }
         }
     }, [loginResponse, getLocalStorage("access_token")])
 

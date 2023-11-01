@@ -3,6 +3,7 @@ import "./Modal1.css"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { lookingFor } from '../../Utils/lists';
+import { Link } from 'react-router-dom';
 const LookingForModal = ({ setModalShow, modalShow, handleLookingFor, selectedId, handleGender }) => {
     return (
         <>
@@ -15,6 +16,7 @@ const LookingForModal = ({ setModalShow, modalShow, handleLookingFor, selectedId
             >
                 <Modal.Header />
                 <Modal.Body>
+                    <div className='ml-3 mb-3'><Link to="/login">Go back to Login</Link></div>
                     <div className="modal-body">
                         <div className="text my-4">
                             <h6>This Profile is used for</h6>
