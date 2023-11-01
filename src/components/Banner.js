@@ -128,7 +128,6 @@ const Banner = () => {
                       <div className="col-lg-3 col-md-3 col-sm-3 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search">I'm looking for a</span></label>
                         <select className="dropselect" name="looking_for" value={searchData.looking_for} selected onChange={handleSearch} >
-                          <option value="" disabled selected>Please Select</option>
                           <option value="Male">Groom</option>
                           <option value="Female">Bride</option>
                         </select>
