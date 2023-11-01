@@ -13,11 +13,7 @@ const MemberShip = () => {
     const [membershipList, setMembershipList] = useState([])
 
     const handlePayment = (e) => {
-        if (e.subscription_name == "Gold") {
-            openInNewTab("https://buy.stripe.com/test_14kbJh6EV1w6esg5kl")
-        } else {
-            openInNewTab("https://buy.stripe.com/test_fZe5kTaVbgr097WaEG")
-        }
+        openInNewTab(e.payment_url)
     }
 
     function openInNewTab(url) {
