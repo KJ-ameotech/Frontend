@@ -246,13 +246,9 @@ const Banner = () => {
                       <div className="col-lg-3 col-md-3 col-sm-3 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search" >Community</span></label>
                         <select className="dropselect" value={searchData.religion} name="religion" id="religion" onChange={handleSearch} required>
-                          <option value="Any" selected>Any</option>
-                          <option value="Christian">Christian</option>
-                          <option value="Hindu">Hindu</option>
-                          <option value="Inter-Religion">Inter-Religion</option>
-                          <option value="Jain">Jain</option>
-                          <option value="Muslim">Muslim</option>
-                          <option value="Sikh">Sikh</option>
+                          <option value="" selected disabled>Please Select</option>
+                          <option value="Hindu">Kodava</option>
+                          <option value="Hindu">Other</option>
                         </select>
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                       </div>
