@@ -91,12 +91,15 @@ const Profile = () => {
                                         <div className="text-wrap ml-2">
                                             <div className="text-content d-flex">
                                                 <h6 className="mr-2"> {profileUserData && profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name}</h6>
-                                                <span className="mr-2 mt-2"><i className="fa fa-check-circle" style={{ fontSize: 20, color: "#e6d7da" }}></i></span>
+                                                <span className="mt-2" style={{ fontSize: 18, color: "#07c6ff" }}>Verified <i className="fa fa-check-circle" style={{ fontSize: 20, color: "#07c6ff" }}></i></span>
                                                 {/* <span className="status mr-2 mt-2"> offline
                                                 </span> */}
                                             </div>
                                             <div className="text-star d-flex">
                                                 <ul >
+                                                    <li>
+                                                        <i className="fa fa-star" aria-hidden="true"></i>
+                                                    </li>
                                                     <li>
                                                         <i className="fa fa-star" aria-hidden="true"></i>
                                                     </li>
