@@ -17,7 +17,7 @@ const Contactus = () => {
 
     const initialState = {
         name: "",
-        phoneNumber: null,
+        phoneNumber: "",
         email: "",
         subject: "",
         message: "",
@@ -34,7 +34,7 @@ const Contactus = () => {
     }, [contactRes])
 
     useEffect(() => {
-        if (feedbackRes?.id) {
+        if (feedbackRes?.id && feedback.name) {
             toastify(toast.success, "Thanks for the FeedBack!", "dark");
             setFeedBack(initialState);
         }
@@ -68,7 +68,6 @@ const Contactus = () => {
                         <ul className="bread-crumb clearfix">
                             <li><Link to="/">Home</Link></li>
                             <li>Contact Us</li>
-
                         </ul>
                     </div>
                 </section>
