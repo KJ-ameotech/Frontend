@@ -19,7 +19,7 @@ const AboutUs = () => {
                 <section className="about-section">
                     <div className="auto-container">
                         <div className="row">
-                            <div className="anim-icons full-width">
+                            <div>
                                 <span className="icon icon-circle-blue wow fadeIn"></span>
 
                                 <span className="icon icon-circle-1 wow zoomIn"></span>
