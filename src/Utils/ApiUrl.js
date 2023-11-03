@@ -35,5 +35,6 @@ export const Api = {
     stripePaymentAPI: `${baseUrl}/stripe/payment/`,
     getSubscriptionAPI: `${baseUrl}/api/subscriptions/`,
     getContactAPI: `${baseUrl}/api/contact-details/`,
+    getUserImagesAPI: (id) => `${baseUrl}/api/user-images/${id}/`,
     feedbackAPI: `${baseUrl}/api/contacts/`,
 }

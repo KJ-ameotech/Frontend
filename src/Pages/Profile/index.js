@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../Layout';
-import { getLikedUser, getProfile, getProfileImage, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
+import { getLikedUser, getProfile, getProfileImage, getUserImages, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
 import { getLocalStorage, setLocalStorage } from '../../Utils/LocalStorage';
 import Media from './Media';
 import "./Profile.css";
@@ -56,6 +56,7 @@ const Profile = () => {
         dispatch(getProfile(+id))
         dispatch(getProfileImage(+id))
         dispatch(getLikedUser(id))
+        dispatch(getUserImages(id))
     }, [getLocalStorage("user_id")])
     useEffect(() => {
         if (!!profileData && !!userData) {
@@ -118,8 +119,8 @@ const Profile = () => {
                         <div className="auto-container">
                             <div className="info-mid ">
                                 <ul className="">
-                                    <li onClick={() => handleProfileTabs('info')}><a href='#'> <i className="fa fa-info-circle" aria-hidden="true" ></i> Info</a></li>
-                                    <li onClick={() => handleProfileTabs('Media')}><a href="#"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
+                                    <li onClick={() => handleProfileTabs('info')}><a href="javascript:void(0)"> <i className="fa fa-info-circle" aria-hidden="true" ></i> Info</a></li>
+                                    <li onClick={() => handleProfileTabs('Media')}><a href="javascript:void(0)"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
                                 </ul>
                             </div>
                         </div>
