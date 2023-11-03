@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { getLocalStorage } from '../../Utils/LocalStorage';
 import { useDispatch } from 'react-redux';
 import { updateProfileData } from '../../Redux/Actions/ProfileActions';
-const EditProfile = ({ isEdit, profileUserData }) => {
+const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
     const dispatch = useDispatch()
     const [editProfileData, setEditProfileData] = useState({
         name: "",
@@ -48,12 +48,15 @@ const EditProfile = ({ isEdit, profileUserData }) => {
             setStartDate(moment(profileUserData.date_of_birth).utc()._d)
         }
     }, [profileUserData, hobbiesList])
+
     useEffect(() => {
         setEditProfileData({ ...editProfileData, date_of_birth: moment(startDate).utc().format('YYYY-MM-DD') })
     }, [startDate])
+
     const handleSaveEditProfileData = () => {
         dispatch(updateProfileData(getLocalStorage("user_id"), editProfileData))
         console.log(editProfileData, "editProfileData");
+        cancelEdit();
     }
 
     return (
@@ -69,7 +72,8 @@ const EditProfile = ({ isEdit, profileUserData }) => {
                                 <li>Marital Status</li>
                                 {editProfileData.caste && <li>Caste</li>}
                                 {editProfileData.income && <li>Income</li>}
-                                {editProfileData.weight && <li>Height</li>}
+                                {editProfileData.height && <li>Height</li>}
+                                {editProfileData.weight && <li>Weight</li>}
                                 {editProfileData.education && <li>Education</li>}
                                 {editProfileData.occupation && <li>Occupation</li>}
                                 {hobbies && <li>Hobbies</li>}
@@ -104,18 +108,15 @@ const EditProfile = ({ isEdit, profileUserData }) => {
                                 {editProfileData.weight && <li><input type='number' name="weight" value={editProfileData.weight} onChange={(e) => handleEditProfile(e)} /></li>}
                                 {editProfileData.education && <li><input type='text' name="education" value={editProfileData.education} onChange={(e) => handleEditProfile(e)} /></li>}
                                 {editProfileData.occupation && <li><input type='text' name="occupation" value={editProfileData.occupation} onChange={(e) => handleEditProfile(e)} /></li>}
-
                                 {hobbies && <li><input type="text" name="hobbies" maxlength="70" tabindex="4" value={hobbies} onChange={(e) => setHobbies(e.target.value)} />
                                     <input type="button" value="Add Hobbies" onClick={(e) => handleHobbies(e)} />
                                 </li>}
-
                             </ul>
                         </div>
-
                     </div>
                     <div className='border border-warning text-center'>
                         <button className='mx-2' onClick={handleSaveEditProfileData}>Save</button>
-                        <button className='mx-2'>Cancel</button>
+                        <button className='mx-2' onClick={() => cancelEdit()}>Cancel</button>
                     </div>
                 </div> : ""}
         </div>

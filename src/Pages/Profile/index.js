@@ -46,6 +46,10 @@ const Profile = () => {
 
     }
 
+    const cancelEdit = (item) => {
+        setIsEdit(false);
+    }
+
     useEffect(() => {
         let id = getLocalStorage("user_id")
         dispatch(getuser(+id))
@@ -88,36 +92,10 @@ const Profile = () => {
                                             </div>}
 
                                         </div>
-                                        <div className="text-wrap ml-2">
+                                        <div className="text-wrap ml-2 mt-3">
                                             <div className="text-content d-flex">
                                                 <h6 className="mr-2"> {profileUserData && profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name}</h6>
                                                 <span className="mt-2" style={{ fontSize: 18, color: "#07c6ff" }}>Verified <i className="fa fa-check-circle" style={{ fontSize: 20, color: "#07c6ff" }}></i></span>
-                                                {/* <span className="status mr-2 mt-2"> offline
-                                                </span> */}
-                                            </div>
-                                            <div className="text-star d-flex">
-                                                <ul >
-                                                    <li>
-                                                        <i className="fa fa-star" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i className="fa fa-star" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i className="fa fa-star" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i className="fa fa-star" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i className="fa fa-star" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                                <span className="dott"></span>
-                                                <h6 className="text-white">5 out of 5</h6>
-                                                <span className="dott"></span>
-                                                <h6 className="text-white">9 out of 9</h6>
-
                                             </div>
                                             <div className="third-content">
                                                 <h6 className="text-white">{profileData?.occupation}</h6>
@@ -131,37 +109,6 @@ const Profile = () => {
                                             Edit Profile
                                         </button>
                                     </div>
-
-                                    {/* <div className="side-content ">
-
-                                        <div className="dimo-wrap d-flex">
-                                            <div className="dimo">
-                                                <div className="dimo-one">
-                                                    10
-                                                </div>
-                                                <div className="dimo-two">
-                                                    views
-                                                </div>
-                                            </div>
-                                            <div className="dimo">
-                                                <div className="dimo-one">
-                                                    10
-                                                </div>
-                                                <div className="dimo-two">
-                                                    comments
-                                                </div>
-                                            </div>
-                                            <div className="dimo">
-                                                <div className="dimo-one">
-                                                    10
-                                                </div>
-                                                <div className="dimo-two">
-                                                    likes
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> */}
                                 </div>
                             </div>
 
@@ -172,13 +119,9 @@ const Profile = () => {
                             <div className="info-mid ">
                                 <ul className="">
                                     <li onClick={() => handleProfileTabs('info')}><a href='#'> <i className="fa fa-info-circle" aria-hidden="true" ></i> Info</a></li>
-                                    <li onClick={() => handleProfileTabs('overview')}><a href="#"> <i className="fa fa-globe" aria-hidden="true"></i> Overview</a></li>
                                     <li onClick={() => handleProfileTabs('Media')}><a href="#"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
-                                    <li onClick={() => handleProfileTabs('activity')}><a href="#"> <i className="fa fa-address-card" aria-hidden="true"></i> Activity</a></li>
-                                    <li onClick={() => handleProfileTabs('posts')}><a href="#"> <i className="fa fa-clipboard" aria-hidden="true"></i> Posts</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </section>
                     {profileTabs == "Media" && <Media />}
@@ -186,7 +129,7 @@ const Profile = () => {
                         <div className="auto-container">
                             <div className="row">
                                 <div className="col-lg-8">
-                                    {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} />}
+                                    {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} cancelEdit={cancelEdit} />}
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="second-card my-4 px-4 py-4">
@@ -202,9 +145,6 @@ const Profile = () => {
                                         </div>
                                     </div>
 
-                                    {/* <div className="second-card my-4 px-4 py-4">
-                                        <FriendInfo />
-                                    </div> */}
                                     <div className="third-card mb-3">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>

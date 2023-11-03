@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { calculateAge } from '../../Utils/Function'
 
 import EditProfile from './EditProfile';
-const ProfileInfo = ({ profileUserData, isEdit }) => {
+const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
     return (
         <div class="information-card my-4 px-4 py-4">
             <div class="d-flex  mb-4 border-bottom-line">
@@ -53,7 +53,7 @@ const ProfileInfo = ({ profileUserData, isEdit }) => {
 
                     </div>
                 </div> : ""}
-            <EditProfile isEdit={isEdit} profileUserData={profileUserData} />
+            <EditProfile isEdit={isEdit} profileUserData={profileUserData} cancelEdit={cancelEdit} />
         </div>
     )
 }
