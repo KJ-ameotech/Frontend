@@ -63,7 +63,7 @@ const Notification = () => {
                                         src={item?.user_like?.profile_picture_image ?
                                             baseUrl + item?.user_like?.profile_picture_image :
                                             "/assets/images/background/bg.jpg"} alt="" />
-                                    <span>{item.user_like?.first_name} {item.user_like?.last_name} wants to be your friend</span>
+                                    <span>{item.user_like?.first_name} {item.user_like?.last_name} shown interest in you.</span>
                                 </div>
                                 <div class="request-btn-row">
                                     <button class="friend-request accept-request" onClick={() => handleAccept(item?.user_like)}>Accept</button>

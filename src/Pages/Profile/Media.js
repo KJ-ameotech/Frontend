@@ -12,7 +12,7 @@ const Media = () => {
             <div className="auto-container">
                 <div className="row">
                     <div className="col-lg-8">
-                        <div>Add Images
+                        <div>
                             <AddImages />
                         </div>
                         <div className="media-content-images">
@@ -30,8 +30,6 @@ const Media = () => {
                             </ul>
 
                         </div>
-                    </div>
-                    <div className="col-lg-4">
                     </div>
                 </div>
 

@@ -126,7 +126,7 @@ const Profile = () => {
                         </div>
                     </section>
                     {profileTabs == "Media" && <Media />}
-                    <section className="second-section">
+                    {profileTabs != "Media" && <section className="second-section">
                         <div className="auto-container">
                             <div className="row">
                                 <div className="col-lg-8">
@@ -158,10 +158,9 @@ const Profile = () => {
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </section>
+                    }
                 </div>
             </Layout>
         </>

@@ -37,4 +37,5 @@ export const Api = {
     getContactAPI: `${baseUrl}/api/contact-details/`,
     getUserImagesAPI: (id) => `${baseUrl}/api/user-images/${id}/`,
     feedbackAPI: `${baseUrl}/api/contacts/`,
+    uploadImageAPI: `${baseUrl}/uploaded_images/`,
 }
