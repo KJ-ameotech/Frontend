@@ -72,20 +72,20 @@ const PartnerPreference = ({ userPreferencesList }) => {
                 <div class="col-lg-4">
                     <div class="info-profile-one">
                         <ul>
-                            <li>Min Age</li>
-                            <li>Min Height</li>
-                            <li>Religion Preference</li>
-                            <li>Marital Status</li>
-                            <li>Occupation Preference</li>
-                            <li>Drinking Habits</li>
-                            <li>Country Of Residence</li>
-                            <li>Personal Value</li>
-                            <li>Any Disabblity</li>
-                            <li>Family Value</li>
-                            <li>Prefered State</li>
-                            <li>Smoking Habits</li>
-                            <li>Manglik</li>
-                            <li>Mother Tongue</li>
+                            <li>{userPreference?.min_age || isEdit ? "Min Age" : ""}</li>
+                            <li>{userPreference?.min_height || isEdit ? "Min Height" : ""}</li>
+                            <li>{userPreference?.religion_preference || isEdit ? "Religion Preference" : ""}</li>
+                            <li>{userPreference?.marital_status_preference || isEdit ? "Marital Status" : ""}</li>
+                            <li>{userPreference?.occupation_preference || isEdit ? "Occupation Preference" : ""}</li>
+                            <li>{userPreference?.drinking_habits || isEdit ? "Drinking Habits" : ""}</li>
+                            <li>{userPreference?.country_of_residence || isEdit ? "Country Of Residence" : ""}</li>
+                            <li>{userPreference?.personal_value || isEdit ? "Personal Value" : ""}</li>
+                            <li>{userPreference?.any_disabblity || isEdit ? "Any Disablity" : ""}</li>
+                            <li>{userPreference?.family_value || isEdit ? "Family Value" : ""}</li>
+                            <li>{userPreference?.prefered_state || isEdit ? "Prefered State" : ""}</li>
+                            <li>{userPreference?.smoking_habits || isEdit ? "Smoking Habits" : ""}</li>
+                            <li>{userPreference?.manglik || isEdit ? "Manglik" : ""}</li>
+                            <li>{userPreference?.mother_tongue || isEdit ? "Mother Tongue" : ""}</li>
                         </ul>
                     </div>
                 </div>
@@ -154,11 +154,11 @@ const PartnerPreference = ({ userPreferencesList }) => {
                 <div class="col-lg-2">
                     <div class="info-profile-one">
                         <ul>
-                            <li>Max Age</li>
-                            <li>Max Height</li>
-                            <li>Caste</li>
-                            <li>Education</li>
-                            <li>Diet</li>
+                            <li>{userPreference?.max_age || isEdit ? "Max Age" : ""}</li>
+                            <li>{userPreference?.max_height || isEdit ? "Max Height" : ""}</li>
+                            <li>{userPreference?.caste_preference || isEdit ? "Caste" : ""}</li>
+                            <li>{userPreference?.education_preference || isEdit ? "Education" : ""}</li>
+                            <li>{userPreference?.diet || isEdit ? "Diet" : ""}</li>
                         </ul>
                     </div>
                 </div>
