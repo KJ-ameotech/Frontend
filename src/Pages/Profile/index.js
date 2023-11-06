@@ -48,6 +48,11 @@ const Profile = () => {
 
     const cancelEdit = (item) => {
         setIsEdit(false);
+        setTimeout(() => {
+            let id = getLocalStorage("user_id")
+            dispatch(getuser(+id))
+            dispatch(getProfile(+id))
+        }, 800);
     }
 
     useEffect(() => {

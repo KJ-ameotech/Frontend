@@ -524,16 +524,18 @@ export const updateProfileData = (id, editProfileData) => {
         const formData = new FormData();
         formData.append('first_name', editProfileData?.name.split(" ")[0])
         formData.append('last_name', editProfileData?.name.split(" ")[1]);
-        formData.append('date_of_birth', editProfileData.date_of_birth)
+        formData.append('username', editProfileData.username)
         formData.append('email', editProfileData.email)
-        formData.append('gender', editProfileData.gender)
+        formData.append('profile_for', editProfileData.profile_for)
+        formData.append('date_of_birth', editProfileData.date_of_birth)
+        formData.append('religion', editProfileData.religion)
+        formData.append('community', editProfileData.community)
         formData.append('living_in', editProfileData.living_in)
         formData.append('mobile_number', editProfileData.mobile_number)
-        formData.append('profile_for', editProfileData.profile_for)
-        formData.append('religion', editProfileData.religion)
-        formData.append('username', editProfileData.username)
+        formData.append('gender', editProfileData.gender)
+        formData.append('family_name', editProfileData.family_name)
         try {
-            const response = await axios.put(Api.profileDataUpdate(id), formData);
+            const response = await axios.patch(Api.profileDataUpdate(id), formData);
             dispatch(profileUpdateSuccess(response.data));
         } catch (error) {
             dispatch(profileUpdateFailure(error));

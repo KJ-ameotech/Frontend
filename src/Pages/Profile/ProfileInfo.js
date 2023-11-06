@@ -3,6 +3,7 @@ import { calculateAge } from '../../Utils/Function'
 import EditProfile from './EditProfile';
 
 const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
+    console.log("profile", profileUserData)
     return (
         <div class="information-card my-4 px-4 py-4">
             <div class="d-flex  mb-4 border-bottom-line">
@@ -16,18 +17,16 @@ const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
                         <div class="info-profile-one">
                             <ul>
                                 <li>{profileUserData?.first_name && profileUserData?.last_name ? "Name" : ""}</li>
-                                <li>{profileUserData?.gender ? "Gender" : ""}</li>
+                                <li>{profileUserData?.username ? "Username" : ""}</li>
+                                <li>{profileUserData?.email ? "Email" : ""}</li>
+                                <li>{profileUserData?.profile_for ? "Profile for" : ""}</li>
                                 <li>{profileUserData?.date_of_birth ? "Between age" : ""}</li>
-                                <li>{profileUserData?.looking_for ? "Looking for" : ""}</li>
-                                <li>{profileUserData?.marital_status ? "Marital Status" : ""}</li>
-                                {/* <li>{profileUserData?.caste ? "Caste" : ""}</li> */}
-                                <li>{profileUserData?.family_name ? "Family Name" : ""}</li>
+                                <li>{profileUserData?.religion ? "Religion" : ""}</li>
                                 <li>{profileUserData?.community ? "Community / Caste" : ""}</li>
-                                <li>{profileUserData?.income ? "Income" : ""}</li>
                                 <li>{profileUserData?.living_in && "Living in"}</li>
-                                <li>{profileUserData?.height && "Height"}</li>
-                                <li>{profileUserData?.weight && "Weight"}</li>
-                                <li>{profileUserData?.education && "Education"}</li>
+                                <li>{profileUserData?.mobile_number && "Mobile Number"}</li>
+                                <li>{profileUserData?.gender && "Gender"}</li>
+                                <li>{profileUserData?.family_name ? "Family Name" : ""}</li>
                             </ul>
                         </div>
 
@@ -37,17 +36,16 @@ const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
                         <div class="info-profile-one">
                             <ul>
                                 <li>{profileUserData && profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name}</li>
-                                <li>{profileUserData?.gender}</li>
+                                <li>{profileUserData?.username}</li>
+                                <li>{profileUserData?.email}</li>
+                                <li>{profileUserData?.profile_for}</li>
                                 <li>{calculateAge(profileUserData?.date_of_birth)}</li>
-                                <li>{profileUserData?.marital_status}</li>
-                                {/* <li>{profileUserData?.caste}</li> */}
-                                <li>{profileUserData?.family_name}</li>
+                                <li>{profileUserData?.religion}</li>
                                 <li>{profileUserData?.community}</li>
-                                <li>{profileUserData?.income}</li>
                                 <li>{profileUserData?.living_in}</li>
-                                <li>{profileUserData?.height}</li>
-                                <li>{profileUserData?.weight}</li>
-                                <li>{profileUserData?.education}</li>
+                                <li>{profileUserData?.mobile_number}</li>
+                                <li>{profileUserData?.gender}</li>
+                                <li>{profileUserData?.family_name}</li>
                             </ul>
                         </div>
 
