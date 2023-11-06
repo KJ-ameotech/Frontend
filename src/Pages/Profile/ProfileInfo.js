@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { calculateAge } from '../../Utils/Function'
-
 import EditProfile from './EditProfile';
+
 const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
     return (
         <div class="information-card my-4 px-4 py-4">
