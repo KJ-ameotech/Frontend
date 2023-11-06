@@ -22,9 +22,6 @@ const UserProfile = () => {
         }
     }, [searchByIdRes])
 
-    console.log("userPreferencesList", userPreferencesList)
-    console.log("searchByIdRes", searchByIdRes)
-
     return (
         <Layout>
             {searchByIdRes?.length > 0 &&
@@ -34,7 +31,6 @@ const UserProfile = () => {
                             <img id="myImg" width="500" height="300" className="story-img img-fluid image-wrap" src={searchByIdRes[0].profile_picture ? baseUrl + searchByIdRes[0].profile_picture : "/assets/images/background/bg.jpg"} alt="" />
                         </div>
                     </div>
-
 
                     <div class="auto-container">
                         <div class="row">
@@ -46,7 +42,7 @@ const UserProfile = () => {
                                         <h6 class="mb-2">Profile</h6>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes[0].first_name && 'Name'}</li>
@@ -56,7 +52,7 @@ const UserProfile = () => {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes[0].first_name} {searchByIdRes[0].last_name}</li>
@@ -66,23 +62,32 @@ const UserProfile = () => {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                    </div>
+                                    <div className='row'>
+                                        <h4>Preferences</h4>
+                                        <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>Education</li>
-                                                    <li>Occupation</li>
-                                                    <li>Income</li>
-                                                    <li>Family status</li>
+                                                    <li>{userPreferencesList[0]?.min_age && 'Age'}</li>
+                                                    <li>{userPreferencesList[0]?.min_height && 'Height'}</li>
+                                                    <li>{userPreferencesList[0]?.smoking_habits && 'Smoking Habits'}</li>
+                                                    <li>{userPreferencesList[0]?.drinking_habits && 'Drinking Habits'}</li>
+                                                    <li>{userPreferencesList[0]?.caste_preference && 'Caste'}</li>
+                                                    <li>{userPreferencesList[0]?.education_preference && 'Education'}</li>
+                                                    <li>{userPreferencesList[0]?.body_type && 'Body Type'}</li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>MCA</li>
-                                                    <li>Developer</li>
-                                                    <li>11(l.p.a)</li>
-                                                    <li>Joint</li>
+                                                    <li>{userPreferencesList[0]?.min_age} - {userPreferencesList[0]?.max_age}</li>
+                                                    <li>{userPreferencesList[0]?.min_height} - {userPreferencesList[0]?.max_height}</li>
+                                                    <li>{userPreferencesList[0]?.smoking_habit}</li>
+                                                    <li>{userPreferencesList[0]?.drinking_habits}</li>
+                                                    <li>{userPreferencesList[0]?.caste_preference}</li>
+                                                    <li>{userPreferencesList[0]?.education_preference}</li>
+                                                    <li>{userPreferencesList[0]?.body_type}</li>
                                                 </ul>
                                             </div>
                                         </div>
