@@ -9,6 +9,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { toastify } from '../../Utils/Function';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { setLocalStorage } from '../../Utils/LocalStorage';
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -79,11 +80,6 @@ const SignUp = () => {
                     setError(true)
                 } else {
                     dispatch(registerUser(register))
-                    // .then((res) => {
-                    //     console.log(res, "resssssssss")
-                    //     toastify(toast, "Welcome, your account is successfully registered", "dark")
-                    // })
-
                 }
             }
         } else {
@@ -138,7 +134,6 @@ const SignUp = () => {
         dispatch(getReligion())
     }, [])
 
-
     /*make a year array based on gender legal age*/
     useEffect(() => {
         let legalAge = register.gender === "Male" ? 21 : 18
@@ -150,35 +145,41 @@ const SignUp = () => {
         setYears(years)
     }, [register.gender])
     useEffect(() => {
-        let res = registrationRequest?.response?.data;
-        if (res) {
+        let res = registrationRequest;
+        if (register.email != "") {
             if (res?.status_code === 400) {
                 toastify(toast.error, res?.error, "dark")
             }
-        }
-        else if (registrationRequest?.status_code === 201) {
-            toastify(toast.success, registrationRequest?.message, "dark")
-            setRegister({
-                profile_for: "",
-                dob: "",
-                dobYear: "",
-                dobMonth: "",
-                religion: "",
-                community: "",
-                living_in: "",
-                username: "",
-                email: "",
-                password: "",
-                confirm_password: "",
-                mobile_number: "",
-                gender: ""
-            })
-            setDateOfBirth({
-                dob: "",
-                dobYear: "",
-                dobMonth: "",
-            })
-            navigate('/login')
+            else if (registrationRequest?.status_code === 201) {
+                const { access_token, refresh_token, user_id } = res
+                setLocalStorage("access_token", access_token)
+                setLocalStorage("refresh_token", refresh_token)
+                setLocalStorage("user_id", user_id)
+                toastify(toast.success, registrationRequest?.message, "dark")
+                setRegister({
+                    profile_for: "",
+                    dob: "",
+                    dobYear: "",
+                    dobMonth: "",
+                    religion: "",
+                    community: "",
+                    living_in: "",
+                    username: "",
+                    email: "",
+                    password: "",
+                    confirm_password: "",
+                    mobile_number: "",
+                    gender: ""
+                })
+                setDateOfBirth({
+                    dob: "",
+                    dobYear: "",
+                    dobMonth: "",
+                })
+                setTimeout(() => {
+                    window.location.href = "/profile-info"
+                }, 1000);
+            }
         }
 
     }, [registrationRequest])
@@ -300,15 +301,11 @@ const SignUp = () => {
                                                                 "Input accepts a combination of one uppercase & lowercase letter, number, special characters & minimum characters length 8. Even It will not accept any white spaces." : ""}</p>
                                                         <div className="mt-2 " style={{ display: "none" }}>Password is too weak</div>
 
-
                                                     </div>
                                                     <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                                                         <input type={showConfirmPassword ? "text" : "password"} name="confirm_password" placeholder=" Confirm password" maxlength="35" value={register.confirm_password} onChange={(e) => handleRegister(e)} />
                                                         {!!register.confirm_password?.length ? showPassword ? <AiOutlineEyeInvisible onClick={handleShowPassword} className="input_eyes_icon" size={20} /> : <AiOutlineEye onClick={handleShowPassword} className="input_eyes_icon" size={20} /> : null}
                                                         <p className="form-text " style={{ color: "red" }}>{(!register.confirm_password.length && error) ? " Confirm Password is Required" : (error && register.password != register.confirm_password) ? "Input Field must be matched with the values of password input Field" : ""}</p>
-
-
-
                                                         <div className="mt-2 " style={{ display: "none" }}>Password is too weak</div>
                                                     </div>
 

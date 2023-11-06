@@ -43,7 +43,6 @@ const Profile = () => {
         } else {
             toastify(toast.info, 'Please select valid image.')
         }
-
     }
 
     const cancelEdit = (item) => {

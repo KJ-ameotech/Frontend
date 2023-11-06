@@ -5,7 +5,7 @@ import { firstNameAndLastNameValidation } from '../../Utils/Validation';
 import defaultImage from "../../assets/images/background/bg.jpg"
 import { IoIosAlert } from "react-icons/io"
 import { useDispatch, useSelector } from 'react-redux';
-import { getLocalStorage } from '../../Utils/LocalStorage';
+import { getLocalStorage, removeLocalStorage } from '../../Utils/LocalStorage';
 import { ProfilePost, getProfile, getProfileImage, getuser, uploadProfileImage } from '../../Redux/Actions/ProfileActions';
 import { toast } from 'react-toastify';
 import { toastify } from '../../Utils/Function';
@@ -41,7 +41,11 @@ const ProfileUserDetail = () => {
             dispatch(getProfile(postProfileData?.user))
             dispatch(getProfileImage(postProfileData?.user))
             setTimeout(() => {
-                navigate("/");
+                // navigate("/");
+                removeLocalStorage('access_token')
+                removeLocalStorage('refresh_token')
+                removeLocalStorage('user_id')
+                window.location.href = "/login"
             }, 1000)
         }
     }, [postProfileData])

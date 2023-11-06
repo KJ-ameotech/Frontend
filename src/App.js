@@ -17,7 +17,6 @@ import io from 'socket.io-client';
 
 function App() {
   const [auth, setAuth] = useState(!!getLocalStorage("access_token"))
-  console.log(auth, "authauth");
   return (
     <div className="App">
       <ToastContainer />
