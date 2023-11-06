@@ -4,13 +4,13 @@ import './Profile.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { baseUrl } from '../../Utils/ApiUrl'
 import { useNavigate } from 'react-router-dom'
-import { getUserPictures } from '../../Redux/Actions/ProfileActions'
+import { getUserPictures, getUserPreferences } from '../../Redux/Actions/ProfileActions'
 
 const UserProfile = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const profile = useSelector(state => state.Profile)
-    const { searchByIdRes, profilePicturesData } = profile;
+    const { searchByIdRes, profilePicturesData, userPreferencesList } = profile;
 
     useEffect(() => {
         if (searchByIdRes == null) {
@@ -18,10 +18,12 @@ const UserProfile = () => {
         }
         else {
             dispatch(getUserPictures(searchByIdRes[0].user_id))
+            dispatch(getUserPreferences(searchByIdRes[0].user_id))
         }
     }, [searchByIdRes])
 
-    console.log("data", profilePicturesData)
+    console.log("userPreferencesList", userPreferencesList)
+    console.log("searchByIdRes", searchByIdRes)
 
     return (
         <Layout>
@@ -47,14 +49,12 @@ const UserProfile = () => {
                                         <div class="col-lg-3">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>Name</li>
-                                                    <li>Email</li>
-                                                    <li>Age</li>
-                                                    <li>Distance</li>
+                                                    <li>{searchByIdRes[0].first_name && 'Name'}</li>
+                                                    <li>{searchByIdRes[0].email && 'Email'}</li>
+                                                    <li>{searchByIdRes[0].age && 'Age'}</li>
+                                                    <li>{searchByIdRes[0].distance && 'Distance'}</li>
                                                 </ul>
-
                                             </div>
-
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="info-profile-one">
@@ -63,10 +63,8 @@ const UserProfile = () => {
                                                     <li>{searchByIdRes[0].email}</li>
                                                     <li>{searchByIdRes[0].age}</li>
                                                     <li>{searchByIdRes[0].distance}</li>
-
                                                 </ul>
                                             </div>
-
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="info-profile-one">
@@ -77,7 +75,6 @@ const UserProfile = () => {
                                                     <li>Family status</li>
                                                 </ul>
                                             </div>
-
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="info-profile-one">
