@@ -38,5 +38,6 @@ export const Api = {
     getUserImagesAPI: (id) => `${baseUrl}/api/user-images/${id}/`,
     feedbackAPI: `${baseUrl}/api/contacts/`,
     uploadImageAPI: `${baseUrl}/uploaded_images/`,
-    getUserPrefernceAPI: (quary) => `${baseUrl}/preferences/${quary}/`,
+    getUserPrefernceAPI: (quary) => `${baseUrl}/api/preferences/${quary}`,
+    addUserPrefernceAPI: `${baseUrl}/preferences/`,
 }

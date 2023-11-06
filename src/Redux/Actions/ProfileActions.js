@@ -752,3 +752,35 @@ export const getUserPreferences = (id) => {
     }
 }
 
+
+//Preferences
+const addPreferenceRequest = () => ({ type: USER_PREFERENCES_REQUEST })
+
+const addPreferenceSuccess = data => ({
+    type: USER_PREFERENCES_SUCCESS,
+    payload: data,
+})
+
+const addPreferenceFailure = error => ({
+    type: USER_PREFERENCES_FAILURE,
+    payload: error,
+    error: true,
+})
+export const addUserPreferences = (id, formData, isUpdate = false) => {
+    return async (dispatch) => {
+        dispatch(addPreferenceRequest);
+        try {
+            let response;
+            if (isUpdate) {
+                let quary = `?user_id=${id}`
+                response = await axios.put(Api.getUserPrefernceAPI(quary), formData);
+            }
+            else {
+                response = await axios.post(Api.addUserPrefernceAPI, formData);
+            }
+            dispatch(addPreferenceSuccess(response.data));
+        } catch (error) {
+            dispatch(addPreferenceFailure(error));
+        }
+    }
+}

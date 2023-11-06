@@ -40,7 +40,6 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
         }
     }
 
-
     useEffect(() => {
         if (profileUserData) {
             const obj = { ...hobbiesList }

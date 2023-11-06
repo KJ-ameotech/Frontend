@@ -79,7 +79,6 @@ const Profile = () => {
                         <div className="auto-container" >
                             <div className="row">
                                 <div className="col-lg-6">
-
                                     <div className="main-content d-flex">
                                         <div className="img-content mb-3">
                                             <img type='file'
@@ -131,7 +130,12 @@ const Profile = () => {
                         <div className="auto-container">
                             <div className="row">
                                 <div className="col-lg-8">
-                                    {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} cancelEdit={cancelEdit} />}
+                                    <div>
+                                        {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} cancelEdit={cancelEdit} />}
+                                    </div>
+                                    <div>
+                                        {profileTabs == "info" && <PartnerPreference userPreferencesList={userPreferencesList} />}
+                                    </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="second-card my-4 px-4 py-4">
@@ -159,11 +163,11 @@ const Profile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className="col-lg-8">
                                     {profileTabs == "info" && <PartnerPreference userPreferencesList={userPreferencesList} />}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </section>
                     }
