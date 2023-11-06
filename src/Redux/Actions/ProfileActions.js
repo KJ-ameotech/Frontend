@@ -773,7 +773,7 @@ export const addUserPreferences = (id, formData, isUpdate = false) => {
             let response;
             if (isUpdate) {
                 let quary = `?user_id=${id}`
-                response = await axios.put(Api.getUserPrefernceAPI(quary), formData);
+                response = await axios.patch(Api.getUserPrefernceAPI(quary), formData);
             }
             else {
                 response = await axios.post(Api.addUserPrefernceAPI, formData);

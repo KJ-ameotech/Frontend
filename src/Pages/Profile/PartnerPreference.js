@@ -49,7 +49,9 @@ const PartnerPreference = ({ userPreferencesList }) => {
         console.log("test", userPreference, isUpdate)
         setIsEdit(false);
         dispatch(addUserPreferences(id, userPreference, isUpdate))
-        dispatch(getUserPreferences(id));
+        setTimeout(() => {
+            dispatch(getUserPreferences(id));
+        }, 800);
     }
 
     useEffect(() => {
@@ -92,59 +94,59 @@ const PartnerPreference = ({ userPreferencesList }) => {
                         <ul>
                             <li>{isEdit ?
                                 <>
-                                    <input type="number" name="min_age" placeholder='Enter Min Age' value={userPreference?.min_age} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="number" name="min_age" placeholder='Min Age' value={userPreference?.min_age} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.min_age}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="number" name="min_height" placeholder='Enter Min Height' value={userPreference?.min_height} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="number" name="min_height" placeholder='Min Height' value={userPreference?.min_height} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.min_height}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="religion_preference" placeholder='Enter Religion Preference' value={userPreference?.religion_preference} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="religion_preference" placeholder='Religion Preference' value={userPreference?.religion_preference} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.religion_preference}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="marital_status_preference" placeholder='Enter Martial Status' value={userPreference?.marital_status_preference} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="marital_status_preference" placeholder='Martial Status' value={userPreference?.marital_status_preference} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.marital_status_preference}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="occupation_preference" placeholder='Enter Occupation' value={userPreference?.occupation_preference} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="occupation_preference" placeholder='Occupation' value={userPreference?.occupation_preference} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.occupation_preference}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="drinking_habits" placeholder='Enter Drinking Habits' value={userPreference?.drinking_habits} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="drinking_habits" placeholder='Drinking Habits' value={userPreference?.drinking_habits} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.drinking_habits}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="country_of_residence" value={userPreference?.country_of_residence} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="country_of_residence" placeholder='Country Of Residence' value={userPreference?.country_of_residence} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.country_of_residence}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="personal_value" value={userPreference?.personal_value} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="personal_value" placeholder='Personal Value' value={userPreference?.personal_value} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.personal_value}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="any_disabblity" value={userPreference?.any_disabblity} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="any_disabblity" placeholder='Any Disablity' value={userPreference?.any_disabblity} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.any_disabblity}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="family_value" value={userPreference?.family_value} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="family_value" placeholder='Family Value' value={userPreference?.family_value} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.family_value}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="prefered_state" value={userPreference?.prefered_state} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="prefered_state" placeholder='Prefered State' value={userPreference?.prefered_state} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.prefered_state}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="smoking_habits" value={userPreference?.smoking_habits} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="smoking_habits" placeholder='Smoking Habits' value={userPreference?.smoking_habits} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.smoking_habits}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="manglik" value={userPreference?.manglik} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="manglik" placeholder='Manglik' value={userPreference?.manglik} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.manglik}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="mother_tongue" value={userPreference?.mother_tongue} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="mother_tongue" placeholder='Mother Tongue' value={userPreference?.mother_tongue} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.mother_tongue}</>}</li>
                         </ul>
                     </div>
@@ -165,23 +167,23 @@ const PartnerPreference = ({ userPreferencesList }) => {
                         <ul>
                             <li>{isEdit ?
                                 <>
-                                    <input type="number" name="max_age" value={userPreference?.max_age} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="number" name="max_age" placeholder='Max Age' value={userPreference?.max_age} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.max_age}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="number" name="max_height" value={userPreference?.max_height} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="number" name="max_height" placeholder='Max Height' value={userPreference?.max_height} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.max_height}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="caste_preference" value={userPreference?.caste_preference} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="caste_preference" placeholder='Caste Preference' value={userPreference?.caste_preference} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.caste_preference}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="education_preference" value={userPreference?.education_preference} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="education_preference" placeholder='Education' value={userPreference?.education_preference} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.education_preference}</>}</li>
                             <li>{isEdit ?
                                 <>
-                                    <input type="text" name="diet" value={userPreference?.diet} onChange={(e) => handleUserPreferences(e)} />
+                                    <input type="text" name="diet" placeholder='Diet' value={userPreference?.diet} onChange={(e) => handleUserPreferences(e)} />
                                 </> : <>{userPreference?.diet}</>}</li>
                         </ul>
                     </div>
