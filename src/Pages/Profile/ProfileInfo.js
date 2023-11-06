@@ -20,9 +20,9 @@ const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
                                 <li>{profileUserData?.date_of_birth ? "Between age" : ""}</li>
                                 <li>{profileUserData?.looking_for ? "Looking for" : ""}</li>
                                 <li>{profileUserData?.marital_status ? "Marital Status" : ""}</li>
-                                <li>{profileUserData?.caste ? "Caste" : ""}</li>
+                                {/* <li>{profileUserData?.caste ? "Caste" : ""}</li> */}
                                 <li>{profileUserData?.family_name ? "Family Name" : ""}</li>
-                                <li>{profileUserData?.community ? "Community" : ""}</li>
+                                <li>{profileUserData?.community ? "Community / Caste" : ""}</li>
                                 <li>{profileUserData?.income ? "Income" : ""}</li>
                                 <li>{profileUserData?.living_in && "Living in"}</li>
                                 <li>{profileUserData?.height && "Height"}</li>
@@ -40,7 +40,7 @@ const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
                                 <li>{profileUserData?.gender}</li>
                                 <li>{calculateAge(profileUserData?.date_of_birth)}</li>
                                 <li>{profileUserData?.marital_status}</li>
-                                <li>{profileUserData?.caste}</li>
+                                {/* <li>{profileUserData?.caste}</li> */}
                                 <li>{profileUserData?.family_name}</li>
                                 <li>{profileUserData?.community}</li>
                                 <li>{profileUserData?.income}</li>

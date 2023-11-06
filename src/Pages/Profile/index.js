@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../Layout';
-import { getLikedUser, getProfile, getProfileImage, getUserImages, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
+import { getLikedUser, getProfile, getProfileImage, getUserImages, getUserPreferences, getuser, updateProfileImage } from '../../Redux/Actions/ProfileActions';
 import { getLocalStorage, setLocalStorage } from '../../Utils/LocalStorage';
 import Media from './Media';
 import "./Profile.css";
@@ -12,12 +12,13 @@ import { toastify } from '../../Utils/Function';
 import { toast } from 'react-toastify';
 import defaultImage from "../../assets/images/background/bg.jpg"
 import FriendInfo from './FriendInfo';
+import PartnerPreference from './PartnerPreference';
 
 const Profile = () => {
     const inputRef = useRef(null)
     const data = useSelector(state => state)
     const { Profile: { userData, profileData
-        , profileImage, likedUserList } } = data
+        , profileImage, likedUserList, userPreferencesList } } = data
     const dispatch = useDispatch()
     const [profileTabs, setProfileTabs] = useState("info")
     const [profileUserData, setProfileUserData] = useState({})
@@ -56,6 +57,7 @@ const Profile = () => {
         dispatch(getProfileImage(+id))
         dispatch(getLikedUser(id))
         dispatch(getUserImages(id))
+        dispatch(getUserPreferences(id))
     }, [getLocalStorage("user_id")])
     useEffect(() => {
         if (!!profileData && !!userData) {
@@ -155,6 +157,11 @@ const Profile = () => {
                                         <FriendInfo likedUserList={likedUserList} />
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                     </div>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-lg-8">
+                                    {profileTabs == "info" && <PartnerPreference userPreferencesList={userPreferencesList} />}
                                 </div>
                             </div>
                         </div>

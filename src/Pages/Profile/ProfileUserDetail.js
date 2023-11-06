@@ -171,13 +171,13 @@ const ProfileUserDetail = () => {
                                     {/* <p className="form-text " style={{ color: "red" }}>{(!profileData.occupation.length && error) ? "Occupation is Required" : (profileData.occupation.length < 5 && error) ? "Invalid Occupation." : ""}</p> */}
                                 </div>
                                 <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <select className="custom-select-box" name="education" tabindex="7" id="education" onChange={(e) => handleProfilePersonalInfo(e)}>
+                                    {/* <select className="custom-select-box" name="education" tabindex="7" id="education" onChange={(e) => handleProfilePersonalInfo(e)}>
                                         <option value="" disabled selected hidden>Education (Optional)</option>
                                         <option value="bachelor">Bachelor's</option>
                                         <option value="master">Master</option>
                                         <option value="phd">Phd</option>
-                                    </select>
-                                    {/* <input type="text" name="education" maxlength="70" placeholder="Education (Optional)" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} /> */}
+                                    </select> */}
+                                    <input type="text" name="education" maxlength="70" placeholder="Education (Optional)" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} />
                                     {/* <p className="form-text " style={{ color: "red" }}>{(!profileData.education.length && error) ? "education is Required" : ""}</p> */}
                                 </div>
                                 <div className="col-lg-12 col-md-12 col-sm-12 form-group">
