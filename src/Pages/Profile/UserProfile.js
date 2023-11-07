@@ -11,7 +11,6 @@ const UserProfile = () => {
     const dispatch = useDispatch()
     const profile = useSelector(state => state.Profile)
     const { searchByIdRes, profilePicturesData, userPreferencesList } = profile;
-
     useEffect(() => {
         if (searchByIdRes == null) {
             navigate('/')
@@ -46,8 +45,13 @@ const UserProfile = () => {
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes[0].first_name && 'Name'}</li>
+                                                    <li>{searchByIdRes[0].username && 'Username'}</li>
                                                     <li>{searchByIdRes[0].email && 'Email'}</li>
+                                                    {/* <li>{searchByIdRes[0].profile_for && 'Profile for'}</li> */}
                                                     <li>{searchByIdRes[0].age && 'Age'}</li>
+                                                    <li>{searchByIdRes[0].relegion && 'Religion'}</li>
+                                                    <li>{searchByIdRes[0].living_in && 'Living in'}</li>
+                                                    <li>{searchByIdRes[0].gender && 'Gender'}</li>
                                                     <li>{searchByIdRes[0].distance && 'Distance'}</li>
                                                 </ul>
                                             </div>
@@ -56,8 +60,13 @@ const UserProfile = () => {
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes[0].first_name} {searchByIdRes[0].last_name}</li>
+                                                    <li>{searchByIdRes[0].username}</li>
                                                     <li>{searchByIdRes[0].email}</li>
+                                                    {/* <li>{searchByIdRes[0].profile_for}</li> */}
                                                     <li>{searchByIdRes[0].age}</li>
+                                                    <li>{searchByIdRes[0].relegion}</li>
+                                                    <li>{searchByIdRes[0].living_in}</li>
+                                                    <li>{searchByIdRes[0].gender}</li>
                                                     <li>{searchByIdRes[0].distance}</li>
                                                 </ul>
                                             </div>
@@ -70,8 +79,18 @@ const UserProfile = () => {
                                                 <ul>
                                                     <li>{userPreferencesList[0]?.min_age && 'Age'}</li>
                                                     <li>{userPreferencesList[0]?.min_height && 'Height'}</li>
-                                                    <li>{userPreferencesList[0]?.smoking_habits && 'Smoking Habits'}</li>
+                                                    <li>{userPreferencesList[0]?.religion_preference && 'Religion Preference'}</li>
+                                                    <li>{userPreferencesList[0]?.marital_status_preference && 'Marital Status'}</li>
+                                                    <li>{userPreferencesList[0]?.occupation_preference && 'Occupation Preference'}</li>
                                                     <li>{userPreferencesList[0]?.drinking_habits && 'Drinking Habits'}</li>
+                                                    <li>{userPreferencesList[0]?.country_of_residence && 'Country Of Residence'}</li>
+                                                    <li>{userPreferencesList[0]?.personal_value && 'Personal Value'}</li>
+                                                    <li>{userPreferencesList[0]?.any_disabblity && 'Any Disablity'}</li>
+                                                    <li>{userPreferencesList[0]?.family_value && 'Family Value'}</li>
+                                                    <li>{userPreferencesList[0]?.prefered_state && 'Prefered State'}</li>
+                                                    <li>{userPreferencesList[0]?.smoking_habits && 'Smoking Habits'}</li>
+                                                    <li>{userPreferencesList[0]?.manglik && 'Manglik'}</li>
+                                                    <li>{userPreferencesList[0]?.mother_tongue && 'Mother Tongue'}</li>
                                                     <li>{userPreferencesList[0]?.caste_preference && 'Caste'}</li>
                                                     <li>{userPreferencesList[0]?.education_preference && 'Education'}</li>
                                                     <li>{userPreferencesList[0]?.body_type && 'Body Type'}</li>
@@ -83,8 +102,18 @@ const UserProfile = () => {
                                                 <ul>
                                                     <li>{userPreferencesList[0]?.min_age} - {userPreferencesList[0]?.max_age}</li>
                                                     <li>{userPreferencesList[0]?.min_height} - {userPreferencesList[0]?.max_height}</li>
-                                                    <li>{userPreferencesList[0]?.smoking_habit}</li>
+                                                    <li>{userPreferencesList[0]?.religion_preference}</li>
+                                                    <li>{userPreferencesList[0]?.marital_status_preference}</li>
+                                                    <li>{userPreferencesList[0]?.occupation_preference}</li>
                                                     <li>{userPreferencesList[0]?.drinking_habits}</li>
+                                                    <li>{userPreferencesList[0]?.country_of_residence}</li>
+                                                    <li>{userPreferencesList[0]?.personal_value}</li>
+                                                    <li>{userPreferencesList[0]?.any_disabblity}</li>
+                                                    <li>{userPreferencesList[0]?.family_value}</li>
+                                                    <li>{userPreferencesList[0]?.prefered_state}</li>
+                                                    <li>{userPreferencesList[0]?.smoking_habits}</li>
+                                                    <li>{userPreferencesList[0]?.manglik}</li>
+                                                    <li>{userPreferencesList[0]?.mother_tongue}</li>
                                                     <li>{userPreferencesList[0]?.caste_preference}</li>
                                                     <li>{userPreferencesList[0]?.education_preference}</li>
                                                     <li>{userPreferencesList[0]?.body_type}</li>
