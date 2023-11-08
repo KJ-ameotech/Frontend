@@ -40,4 +40,5 @@ export const Api = {
     uploadImageAPI: `${baseUrl}/uploaded_images/`,
     getUserPrefernceAPI: (quary) => `${baseUrl}/api/preferences/${quary}`,
     addUserPrefernceAPI: `${baseUrl}/preferences/`,
+    deletePicturesReq: (user_id, pic_id) => `${baseUrl}/delete-image/${user_id}/${pic_id}/`,
 }

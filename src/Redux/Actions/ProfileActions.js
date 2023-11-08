@@ -315,6 +315,19 @@ export const getUserPictures = (id) => {
     }
 }
 
+export const deletePictures = (user_id, pic_id) => {
+    return async (dispatch) => {
+        dispatch(userPicturesRequest())
+        axios.delete(Api.deletePicturesReq(user_id, pic_id))
+            .then((response) => {
+                dispatch(getUserPictures(user_id))
+            })
+            .catch((error) => {
+                // dispatch(userPicturesFailure(error))
+            })
+    }
+}
+
 const friendRequest = () => ({ type: FRIEND_REQUEST_REQUEST })
 
 const friendRequestSuccess = data => ({

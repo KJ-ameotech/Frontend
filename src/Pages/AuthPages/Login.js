@@ -151,7 +151,7 @@ const Login = () => {
 
                                                 <div className="col-lg-9 col-md-9 col-sm-9 mb-2 AcknowledgeSection">
                                                     <label
-                                                        className="labelcss"
+                                                        className="labelcss mr-2"
                                                         style={{ verticalAlign: `middle` }}
                                                     >
                                                         <input
@@ -179,7 +179,7 @@ const Login = () => {
                                                         </a>
                                                     </span>
                                                 </div>
-                                                <div className="col-lg-9 col-md-9 col-sm-9 mt-2 keepin_Sign">
+                                                <div className="col-lg-6 col-md-6 col-sm-6 mt-2 keepin_Sign">
                                                     <li className="switch-agileits float-left"></li>
                                                     <label
                                                         className="labelcss"
@@ -197,7 +197,7 @@ const Login = () => {
                                                     </label>
                                                 </div>
 
-                                                <div className="col-lg-3 col-md-3 col-sm-3 mt-2 troubleSection">
+                                                <div className="col-lg-6 col-md-6 col-sm-6 text-right mt-2 troubleSection">
                                                     <Link to="/forgot-password"
                                                         href="#"
                                                         className="ml-4"
@@ -210,13 +210,13 @@ const Login = () => {
                                                 <div className="col-lg-12 col-md-12 col-sm-12 mt-3">
                                                     <div className="btn-box">
                                                         <button
-                                                            className="theme-btn btn btn-style-one"
+                                                            className="btn btn-primary"
                                                             tabindex="6"
                                                             type="submit"
                                                             name="submit"
                                                             style={{ width: `100%` }}
                                                         >
-                                                            <span className="btn-title">Log In</span>
+                                                            <span className="">Log In</span>
                                                         </button>
                                                     </div>
                                                 </div>

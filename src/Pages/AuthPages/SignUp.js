@@ -313,7 +313,7 @@ const SignUp = () => {
                                                         <div className="btn-box">
                                                             <div className="text"><input type="checkbox" checked tabindex="10" style={{ verticalAlign: "text-bottom" }} />  I have read and agree to the <a href="#" target={"_blank"}><u>terms, conditions</u></a> and <a href="#" target={"_blank"}><u>  privacy policy.</u> </a></div>
                                                         </div>
-                                                        <a><button className="theme-btn btn btn-style-one mt-4 mb-4" type="submit" name="submit" style={{ width: "100%" }}> <span tabindex="11" className="btn-title">Register  </span></button></a>
+                                                        <a><button className="btn btn-primary mt-4 mb-4" type="submit" name="submit" style={{ width: "100%" }}> <span tabindex="11" className="btn-title">Register  </span></button></a>
                                                     </div>
                                                 </div>
                                             </form>

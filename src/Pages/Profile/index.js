@@ -78,12 +78,13 @@ const Profile = () => {
     return (
         <>
             <Layout>
-                <div style={{ padding: "90px 0 0 0 " }}>
+                {/* <div style={{ padding: "90px 0 0 0 " }}> */}
+                <div>
                     <div className="mainBannerSection">
 
                         <div className="auto-container" >
                             <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-12">
                                     <div className="main-content d-flex">
                                         <div className="img-content mb-3">
                                             <img type='file'
@@ -94,7 +95,7 @@ const Profile = () => {
                                             />
                                             {isEdit && <div class="avatar-edit">
                                                 <input type='file' id="imageUpload" className='d-none' ref={inputRef} accept="image/*" onChange={handleProfileImage} />
-                                                <label for="imageUpload" onClick={() => inputRef.current.click()}> <BiPencil className='pensil' /></label>
+                                                <label className='load-img' for="imageUpload" onClick={() => inputRef.current.click()}> <i class="fa fa-camera " aria-hidden="true"></i></label>
                                             </div>}
 
                                         </div>
@@ -109,24 +110,27 @@ const Profile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
+                                {/* <div className="col-lg-6">
                                     <div className='text-end mt-4'>
-                                        <button className='theme-btn btn btn-style-one' onClick={() => setIsEdit(true)}>
-                                            Edit Profile
-                                        </button>
+                                     
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
                         </div>
                     </div>
                     <section className="mid-sectiuon">
-                        <div className="auto-container">
+                        <div className="auto-container d-flex align-items-center justify-content-between">
                             <div className="info-mid ">
                                 <ul className="">
                                     <li onClick={() => handleProfileTabs('info')}><a href="javascript:void(0)"> <i className="fa fa-info-circle" aria-hidden="true" ></i> Info</a></li>
                                     <li onClick={() => handleProfileTabs('Media')}><a href="javascript:void(0)"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
                                 </ul>
+                            </div>
+                            <div>
+                                <button className='btn btn-primary' onClick={() => setIsEdit(true)}>
+                                    Edit Profile
+                                </button>
                             </div>
                         </div>
                     </section>
@@ -141,8 +145,6 @@ const Profile = () => {
                                     <div>
                                         {profileTabs == "info" && <PartnerPreference userPreferencesList={userPreferencesList} />}
                                     </div>
-                                </div>
-                                <div className="col-lg-4">
                                     <div className="second-card my-4 px-4 py-4">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
@@ -151,12 +153,15 @@ const Profile = () => {
                                         </div>
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                         <div className="profile-image">
-                                            <img src="/assets/images/1.jpg" />
-                                            <h4>{profileUserData.about_me}</h4>
+                                            {/* <img src="/assets/images/1.jpg" /> */}
+                                            <p className='desh'>{profileUserData.about_me}</p>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="col-lg-4">
 
-                                    <div className="third-card mb-3">
+
+                                    <div className="information-card my-4 px-4 py-4">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>

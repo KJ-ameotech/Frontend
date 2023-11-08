@@ -112,7 +112,7 @@ const ConfirmPassword = () => {
                                             </div>
                                             <div className="col-lg-12 col-md-12 col-sm-12 mt-3 ">
                                                 <div className="btn-box">
-                                                    <a href="login" ><button className="theme-btn btn btn-style-one " tabindex="6" type="submit" name="submit" style={{ width: "100%" }}><span className="btn-title">Submit</span></button></a>
+                                                    <a href="login" ><button className="btn btn-primary " tabindex="6" type="submit" name="submit" style={{ width: "100%" }}><span className="btn-title">Submit</span></button></a>
                                                 </div>
                                             </div>
                                             <div className="col-lg-9 col-md-9 col-sm-9 mt-3">

@@ -47,7 +47,7 @@ const Search = () => {
             <div className="search-box-btn">
                 {isOpened && (
                     <div className='input-msg'>
-                        <input id="text" className='search-text'
+                        <input id="text" className='search-text set-input'
                             placeholder='User Id' type="text" value={search}
                             onChange={(evt) => { handleSearchSubmit(evt.target.value) }} />
                         {showError && <span className='error-msg'>Sorry! No User</span>}

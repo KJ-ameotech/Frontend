@@ -20,7 +20,7 @@ const UserProfile = () => {
             dispatch(getUserPreferences(searchByIdRes[0].user_id))
         }
     }, [searchByIdRes])
-
+    console.log('searchByIdRes>>>>', searchByIdRes);
     return (
         <Layout>
             {searchByIdRes?.length > 0 &&
@@ -47,12 +47,12 @@ const UserProfile = () => {
                                                     <li>{searchByIdRes[0].first_name && 'Name'}</li>
                                                     <li>{searchByIdRes[0].username && 'Username'}</li>
                                                     <li>{searchByIdRes[0].email && 'Email'}</li>
-                                                    {/* <li>{searchByIdRes[0].profile_for && 'Profile for'}</li> */}
-                                                    <li>{searchByIdRes[0].age && 'Age'}</li>
+                                                    <li>{searchByIdRes[0].profile_for && 'Profile for'}</li>
+                                                    <li>{searchByIdRes[0].age >= 0 && 'Age'}</li>
                                                     <li>{searchByIdRes[0].relegion && 'Religion'}</li>
                                                     <li>{searchByIdRes[0].living_in && 'Living in'}</li>
                                                     <li>{searchByIdRes[0].gender && 'Gender'}</li>
-                                                    <li>{searchByIdRes[0].distance && 'Distance'}</li>
+                                                    <li>{searchByIdRes[0].distance >= 0 && 'Distance'}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@ const UserProfile = () => {
                                                     <li>{searchByIdRes[0].first_name} {searchByIdRes[0].last_name}</li>
                                                     <li>{searchByIdRes[0].username}</li>
                                                     <li>{searchByIdRes[0].email}</li>
-                                                    {/* <li>{searchByIdRes[0].profile_for}</li> */}
+                                                    <li>{searchByIdRes[0].profile_for}</li>
                                                     <li>{searchByIdRes[0].age}</li>
                                                     <li>{searchByIdRes[0].relegion}</li>
                                                     <li>{searchByIdRes[0].living_in}</li>

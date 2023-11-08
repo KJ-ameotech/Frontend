@@ -121,9 +121,9 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
                             </ul>
                         </div>
                     </div>
-                    <div className='border border-warning text-center'>
-                        <button className='mx-2' onClick={handleSaveEditProfileData}>Save</button>
-                        <button className='mx-2' onClick={() => cancelEdit()}>Cancel</button>
+                    <div className='btn-box text-right'>
+                        <button className='btn btn-primary mx-2' onClick={handleSaveEditProfileData}>Save</button>
+                        <button className='btn btn-secondary mx-2' onClick={() => cancelEdit()}>Cancel</button>
                     </div>
                 </div> : ""}
         </div>

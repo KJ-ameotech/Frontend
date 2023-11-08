@@ -67,7 +67,7 @@ const ForgotPassword = () => {
 
                                             <div className="col-lg-12 col-md-12 col-sm-12 mt-3 ">
                                                 <div className="btn-box">
-                                                    <a href="confirm-password" ><button className="theme-btn btn btn-style-one " tabindex="6" type="submit" name="submit" style={{ width: "100%" }}><span className="btn-title">submit</span></button></a>
+                                                    <a href="confirm-password" ><button className="btn btn-primary " tabindex="6" type="submit" name="submit" style={{ width: "100%" }}><span className="btn-title">submit</span></button></a>
 
                                                 </div>
                                             </div>

@@ -189,7 +189,7 @@ const ProfileUserDetail = () => {
                                     {/* <p className="form-text " style={{ color: "red" }}>{(!profileData.about_me.length && error) ? "About Me is Required" : (profileData.about_me.length < 5 && error) ? "Invalid About Me." : ""}</p> */}
                                 </div>
                                 <div className="col-lg-12 col-md-12 col-sm-12">
-                                    <a><button className="theme-btn btn btn-style-one mt-4 mb-4" type="submit" name="submit" style={{ width: "100%" }}> <span tabindex="11" className="btn-title">Submit  </span></button></a>
+                                    <a><button className="btn btn-primary mt-4 mb-4" type="submit" name="submit" style={{ width: "100%" }}> <span tabindex="11" className="btn-title">Submit  </span></button></a>
                                 </div>
                             </div>
                         </form>

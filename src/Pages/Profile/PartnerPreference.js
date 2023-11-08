@@ -189,9 +189,9 @@ const PartnerPreference = ({ userPreferencesList }) => {
                     </div>
                 </div>
             </div>
-            {isEdit && <div className='border border-warning text-center'>
-                <button className='mx-2' onClick={handleSavePreferences}>Save</button>
-                <button className='mx-2' onClick={() => { setIsEdit(false) }}>Cancel</button>
+            {isEdit && <div className='text-right'>
+                <button className='btn btn-primary mr-2' onClick={handleSavePreferences}>Save</button>
+                <button className='btn btn-secondary' onClick={() => { setIsEdit(false) }}>Cancel</button>
             </div>}
         </div>
     )

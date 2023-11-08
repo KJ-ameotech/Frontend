@@ -1,7 +1,10 @@
 .mainBannerSection {
-  background-image: url('../../../public/assets/images/2.jpg');
-  /* height: 280px; */
+  background-image: url('./../../assets/images/main-slider/2.jpg');
   width: 100%;
+  background-size: 100%;
+  height: 380px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main-content {
@@ -13,7 +16,9 @@
   height: 150px;
   width: 150px;
   border-radius: 100px;
-  border: 10px solid #bfbfbf;
+  border: 8px solid #890025;
+  object-fit: cover;
+
 }
 
 .text-content {
@@ -250,6 +255,51 @@
   right: 17px;
   z-index: 1;
   top: 135px;
+}
+
+.img-content {
+  position: relative;
+}
+
+label.load-img {
+  margin: 0px !important;
+}
+
+/* button.btn.btn-primary:hover {
+  background-color: white;
+  color: #890025;
+  border: 1px solid #890025;
+} */
+
+.btn.btn-primary {
+  background-color: #890025;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 6px 18px;
+}
+
+.btn.btn-secondary {
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 6px 18px;
+}
+
+.avatar-edit {
+  position: absolute;
+  right: 2px;
+  background-color: #b5aeae;
+  padding: 3px 9px;
+  border-radius: 50px;
+  bottom: 21px;
+  border: 2px solid #fff;
+}
+
+.avatar-edit svg {
+  color: black;
 }
 
 .image-container .avatar-upload .avatar-edit input {

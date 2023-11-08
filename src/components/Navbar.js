@@ -30,16 +30,16 @@ const Navbar = ({ auth }) => {
             <div class="logo"><img src="/assets/images/mainlogo.png" /></div>
           </div>
           <div className="nav-outer clearfix">
-            <div className="mobileapp_Icon1">
+            {/* <div className="mobileapp_Icon1">
               <a href="" target="_blank"><img src="images/app-ic.png" /></a>
-            </div>
-            <div className="mobile-nav-toggler"><span className="icon flaticon-menu"></span></div>
+            </div> */}
+            {/* <div className="mobile-nav-toggler"><span className="icon flaticon-menu"></span></div> */}
             <nav className="main-menu navbar-expand-md navbar-light">
-              <div className="navbar-header">
+              {/* <div className="navbar-header">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="icon flaticon-menu-button"></span>
                 </button>
-              </div>
+              </div> */}
               <div className="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                 <ul className="navigation clearfix">
                   <li className={`${pathname === "/" ? 'current' : ""} dropdown`}><Link to="/">Home</Link></li>
@@ -57,13 +57,13 @@ const Navbar = ({ auth }) => {
               <Search />
               {!auth ?
                 <> <div className="btn-box">
-                  <Link to="/login" className="theme-btn btn btn-style-one"><span className="btn-title">Login</span></Link>
+                  <Link to="/login" className="btn btn-primary"><span>Login</span></Link>
                 </div>
                   <div className="btn-box">
-                    <Link to="/signup" className="theme-btn btn btn-style-one"><span className="btn-title">SignUp</span></Link>
+                    <Link to="/signup" className="btn btn-primary"><span>SignUp</span></Link>
                   </div></> :
                 <div className="btn-box" onClick={(e) => handleLogout(e)}>
-                  <a href="#" className="theme-btn btn btn-style-one"><span className="btn-title">Logout</span></a>
+                  <a href="#" className="btn btn-primary"><span>Logout</span></a>
                 </div>}
             </div>
           </div>

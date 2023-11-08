@@ -40,15 +40,24 @@ const AddImages = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div>
-                            <input type="file" id="img" name="img" accept="image/*"
-                                multiple onChange={(event) => handleSelectedImages(event)} value='' />
-                            <button className='btn' onClick={handleUpload}>Upload</button>
-                            <button className='btn' onClick={() => setImageList([])}>Clear</button>
+                            <lable className="btn btn-primary liks mr-2">
+                                <input className='clikcxs' title="" type="file" id="img" name="img" accept="image/*"
+                                    multiple onChange={(event) => handleSelectedImages(event)} value='' />
+                                <i class="fa fa-upload mr-2" aria-hidden="true"></i>
+                                Upload Image
+                            </lable>
+
+                            <button className='btn btn-primary' onClick={handleUpload}>Save</button>
+                            <button className='btn btn-primary ml-2' onClick={() => setImageList([])}>Clear</button>
                         </div>
-                        <div>
+                        <div className='d-flex mt-3'>
                             {imageList?.length > 0 && imageList.map((item, index) => {
                                 return <>
-                                    <img src={item.url} style={{ width: '100px' }} />
+                                    <div className='set-logo-images ml-3'>
+                                        <img className='set-images mt-2' src={item.url} style={{ width: '100px' }} />
+                                        {/* <i class="fa fa-times time-set" aria-hidden="true"></i> */}
+
+                                    </div>
                                 </>
                             })}
                         </div>
