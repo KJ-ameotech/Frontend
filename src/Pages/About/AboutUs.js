@@ -6,7 +6,7 @@ import image from "../../assets/images/background/5.jpg"
 const AboutUs = () => {
     return (
         <Layout>
-            <div style={{ paddingTop: "80px" }}>
+            <div >
                 <section class="page-title" style={{ backgroundImage: `url(${image})` }} >
                     <div class="auto-container">
                         <h1 class="d-none d-lg-block d-xl-block d-md-block">About Us</h1>

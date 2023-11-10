@@ -61,7 +61,7 @@ const Contactus = () => {
 
     return (
         <Layout >
-            <div style={{ paddingTop: "80px" }}>
+            <div >
                 <section className="page-title" style={{ backgroundImage: `url(${image})` }} >
                     <div className="auto-container">
                         <h1 className="d-none d-lg-block d-xl-block d-md-block">Contact Us</h1>
@@ -76,7 +76,7 @@ const Contactus = () => {
                         <div className="row clearfix mt-3">
 
                             <div className="contact-column col-lg-3 col-md-12 col-sm-12 order-2 coninfo" >
-                                <div className="inner-column">
+                                <div className="inner-column contact-width">
                                     <div className="sec-title">
                                         <h2>Contact Us</h2>
                                     </div>
@@ -139,7 +139,7 @@ const Contactus = () => {
                                                         <textarea name="message" maxLength="250" placeholder="Message" value={feedback?.message} onChange={(e) => handleFeedBack(e)} tabIndex="5"></textarea>
                                                     </div>
                                                     <div className='sub-div'>
-                                                        <button className='sub-btn' onClick={handleSubmit}>Submit</button>
+                                                        <button className='sub-btn ' onClick={handleSubmit}>Submit</button>
                                                     </div>
                                                 </div>
                                             </form>

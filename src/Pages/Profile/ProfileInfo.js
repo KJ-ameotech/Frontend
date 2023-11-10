@@ -2,14 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { calculateAge } from '../../Utils/Function'
 import EditProfile from './EditProfile';
 
-const ProfileInfo = ({ profileUserData, isEdit, cancelEdit }) => {
-    console.log("profile", profileUserData)
+const ProfileInfo = ({ profileUserData, isEdit, setIsEdit, cancelEdit }) => {
     return (
-        <div class="information-card my-4 px-4 py-4">
-            <div class="d-flex  mb-4 border-bottom-line">
-                <span class="mr-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i>
+        <div class="information-card my-4 px-4 py-4 hhhh">
+            <div class="d-flex align-items-center  justify-content-between mb-4 border-bottom-line">
+                <div className='d-flex align-items-center mb-3'>
+                <span class="mr-3 "><i class="fa fa-info-circle" aria-hidden="true"></i>
                 </span>
-                <h6 class="mb-1">Profile</h6>
+                <h6 class="">Profile</h6>
+                </div>
+             
+                <div className='mb-3'> 
+                    <button className='btn btn-primary' onClick={() => setIsEdit(true)}>
+                        Edit Profile
+                    </button>
+                </div>
             </div>
             {!isEdit ?
                 <div class="row">

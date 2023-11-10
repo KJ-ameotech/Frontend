@@ -63,13 +63,19 @@ const PartnerPreference = ({ userPreferencesList }) => {
 
     return (
         <div class="information-card my-4 px-4 py-4">
-            <div class="d-flex mb-4 border-bottom-line">
-                <span class="mr-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i>
+            <div class="d-flex align-items-center justify-content-between mb-4 border-bottom-line">
+                <div className='d-flex align-items-center mb-3'>
+                <span class="mr-3 "><i class="fa fa-info-circle" aria-hidden="true"></i>
                 </span>
-                <h6 class="mb-1">Partner Preferences <button style={{ fontSize: '14px', marginLeft: '5px' }} onClick={() => { setIsEdit(!isEdit) }}>Edit Preference</button></h6>
+                <h6 class="mb-1">Partner Preferences </h6>
+                </div>
+               <div className='mb-3'>
+            <button className='btn btn-primary' onClick={() => { setIsEdit(!isEdit) }}>Edit Preference</button>
+
+                </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="info-profile-one">
                         <ul>
                             <li>{userPreference?.min_age || isEdit ? "Min Age" : ""}</li>
@@ -89,7 +95,7 @@ const PartnerPreference = ({ userPreferencesList }) => {
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="info-profile-one">
                         <ul>
                             <li>{isEdit ?

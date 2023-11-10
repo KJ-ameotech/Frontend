@@ -247,18 +247,19 @@ const LikeDislikeCard = () => {
     return (
         <Layout>
             <section>
-                <div class="auto-container">
-                    <div class="row">
-                        <section className="coming-soon-section" style={{ marginTop: "175px" }}>
+                <div class="auto-container ">
+                    <div class="row align-items-center mt-5">
+                        <div className='col-md-5'>
+                        <section className="coming-soon-section mt-5" >
                             <div className="auto-container mb-5">
-                                <div className="outer-box">
+                                <div className="outer-box ">
                                     <div className="time-counter">
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <form className="form-inline"
                                                 //    onSubmit={handleSearchSubmit}
                                                 >
-                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search">Start Height</span></label>
                                                         <select className="dropselect" name="startheight"
                                                             value={advanceSearch.startheight}
@@ -308,7 +309,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search">End Height</span></label>
                                                         <select className="dropselect" id="fromage"
                                                             onChange={handleSearch}
@@ -361,7 +362,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-2 col-md-2 col-sm-2 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search">Your Education</span></label>
                                                         <select className="dropselect" id="toage"
                                                             value={advanceSearch.education}
@@ -375,7 +376,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Min Weight</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.minweight}
@@ -389,7 +390,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Max Weight</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.maxweight}
@@ -403,7 +404,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Minimum Income</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.miniincome}
@@ -417,7 +418,7 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                                                    <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Maximum Income</span></label>
                                                         <select className="dropselect"
                                                             value={advanceSearch.maxincome}
@@ -431,8 +432,8 @@ const LikeDislikeCard = () => {
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                                                     </div>
-                                                    <div className="btn-box col-md-2 mt-3 ">
-                                                        <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin" onClick={handleAdvanceSearch}>
+                                                    <div className="btn-box col-md-12 text-center mt-3 ">
+                                                        <button value="Lets's Begin" className="btn btn-primary" onClick={handleAdvanceSearch}>
                                                             <span className="btn-title">Lets's Begin </span></button>
                                                     </div>
                                                 </form>
@@ -442,7 +443,8 @@ const LikeDislikeCard = () => {
                                 </div>
                             </div>
                         </section>
-                        <div class="col-lg-3 mx-auto">
+                        </div>
+                        <div class="col-md-7 m-auto">
                             {allProfilesData?.length == 0 &&
                                 <>
                                     <div>

@@ -34,7 +34,7 @@ const UserProfile = () => {
                     <div class="auto-container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="information-card my-4 px-4 py-4">
+                                <div class="information-card my-4 px-4 py-4 jjj" >
                                     <div class="d-flex  mb-4 border-bottom-line">
                                         <span class="mr-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i>
                                         </span>

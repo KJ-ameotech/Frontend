@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 import defaultImage from "../../assets/images/background/bg.jpg"
 import FriendInfo from './FriendInfo';
 import PartnerPreference from './PartnerPreference';
+import AboutMe from './AboutMe';
 
 const Profile = () => {
     const inputRef = useRef(null)
@@ -23,6 +24,7 @@ const Profile = () => {
     const [profileTabs, setProfileTabs] = useState("info")
     const [profileUserData, setProfileUserData] = useState({})
     const [isEdit, setIsEdit] = useState(false)
+    const [isEditAbout, setIsEditAbout] = useState(false)
     const [imageUpdateCount, setImageUpdateCount] = useState(0)
 
     const handleProfileTabs = (data) => {
@@ -127,11 +129,11 @@ const Profile = () => {
                                     <li onClick={() => handleProfileTabs('Media')}><a href="javascript:void(0)"> <i className="fa fa-camera" aria-hidden="true"></i> Media </a></li>
                                 </ul>
                             </div>
-                            <div>
+                            {/* <div>
                                 <button className='btn btn-primary' onClick={() => setIsEdit(true)}>
                                     Edit Profile
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </section>
                     {profileTabs == "Media" && <Media />}
@@ -140,23 +142,31 @@ const Profile = () => {
                             <div className="row">
                                 <div className="col-lg-8">
                                     <div>
-                                        {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} cancelEdit={cancelEdit} />}
+                                        {profileTabs == "info" && <ProfileInfo profileUserData={profileUserData} isEdit={isEdit} setIsEdit={setIsEdit} cancelEdit={cancelEdit} />}
                                     </div>
                                     <div>
                                         {profileTabs == "info" && <PartnerPreference userPreferencesList={userPreferencesList} />}
                                     </div>
-                                    <div className="second-card my-4 px-4 py-4">
+                                    <div>
+                                        {profileTabs == "info" && <AboutMe profileUserData={profileUserData} />}
+                                    </div>
+                                    {/* <div className="second-card my-4 px-4 py-4">
                                         <div className="d-flex mx-4 mt-2 mb-2 pt-3">
                                             <span className="user-profile" > <i className="fa fa-user" aria-hidden="true"></i>
                                             </span>
                                             <h6 className="ml-3 mt-2">About me</h6>
+                                            <div>
+                                                <button className='btn btn-primary' onClick={() => setIsEditAbout(true)}>
+                                                    Edit About
+                                                </button>
+                                            </div>
                                         </div>
                                         <div className="border-bottom-line mx-4 my-4"></div>
                                         <div className="profile-image">
-                                            {/* <img src="/assets/images/1.jpg" /> */}
+                                            <img src="/assets/images/1.jpg" />
                                             <p className='desh'>{profileUserData.about_me}</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="col-lg-4">
 

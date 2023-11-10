@@ -117,7 +117,7 @@ const Banner = () => {
           </div>
         </section>
       </div>
-      <section className="coming-soon-section">
+      <section className="coming-soon-section ">
         <div className="auto-container mb-5">
           <div className="outer-box">
             <div className="inner-border">
@@ -253,7 +253,7 @@ const Banner = () => {
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
                       </div>
                       <div className="btn-box col-md-2 mt-3 ">
-                        <button value="Lets's Begin" className="theme-btn btn btn-style-two btn-style-letsbegin">
+                        <button value="Lets's Begin" className="btn btn-primary">
                           <span className="btn-title">Lets's Begin </span></button>
                       </div>
                     </form>

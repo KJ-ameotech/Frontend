@@ -556,6 +556,20 @@ export const updateProfileData = (id, editProfileData) => {
     };
 }
 
+export const updateAboutData = (id, editAboutData) => {
+    return async (dispatch) => {
+        dispatch(profileUpdateRequest())
+        const formData = new FormData();
+        formData.append('about_me', editAboutData)
+        try {
+            const response = await axios.patch(Api.profile(id), formData);
+            dispatch(profileUpdateSuccess(response.data));
+        } catch (error) {
+            dispatch(profileUpdateFailure(error));
+        }
+    };
+}
+
 const advanceSearchRequest = () => ({ type: ADVANCE_SEARCH_PROFILE_REQUEST })
 
 const advanceSearchSuccess = data => ({
