@@ -309,7 +309,7 @@ const ProfileUserDetail = () => {
                                     <input type="number" name="income" maxlength="70" placeholder="Income" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} />
                                     <p className="form-text " style={{ color: "red" }}>{(!profileData.income.length && error) ? "income is Required" : ""}</p>
                                 </div>
-                                <div className="col-md-3 form-group">
+                                <div className="col-md-6 form-group date-time">
                                     <label htmlFor="time_of_birth">Date of Birth:</label>
                                     <input type="datetime-local" name="time_of_birth" id="time_of_birth" maxlength="70" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} />
                                     <p className="form-text " style={{ color: "red" }}>{(!profileData.time_of_birth.length && error) ? "date of birth is Required" : ""}</p>

@@ -16,6 +16,7 @@
 }
 
 body {
+	overflow-x:hidden;
 	font-size: 14px;
 	color: #777777;
 	line-height: 1.7em;
@@ -86,10 +87,10 @@ img.set-images {
 .inner-column {
 	width: 522px;
 	margin: auto;
-	box-shadow: 2px 4px 12px 5px #d5d3d3;
+	/* box-shadow: 2px 4px 12px 5px #d5d3d3; */
 	padding: 20px;
-	border-radius: 28px;
-	border: 0.3px solid #cc003726;
+	/* border-radius: 28px;
+	border: 0.3px solid #cc003726; */
 }
 
 .btn.btn-primary {
@@ -12832,5 +12833,19 @@ div.document-verified{
 	color: green;
 }
 
-
+.date-time label {
+   
+    align-items: center;
+    display: flex;
+}
+.date-time {
+    font-size: 14px;
+    border: 1px solid #a1a7a1;
+    border-radius: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+	max-width: 367px;
+    margin-left: 15px
+}
 

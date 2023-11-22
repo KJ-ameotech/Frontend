@@ -103,11 +103,11 @@ const Banner = () => {
                       <div className="content-box mt-5 text-left">
 
                         <h2> {item.heading} <br />{item.subheading}</h2>
-                        <ul className="info-list">
+                        {/* <ul className="info-list">
                           <li><span className="icon fas fa-edit"></span> Sign Up</li>
                           <li><span className="icon fas fa-user-plus"></span> Connect</li>
                           <li><span className="icon fas fa-comments"></span> Interact</li>
-                        </ul>
+                        </ul> */}
 
                       </div>
                     </div>

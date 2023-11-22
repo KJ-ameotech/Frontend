@@ -453,8 +453,12 @@ const LikeDislikeCard = () => {
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
-                                                            <option value="skin">fair</option>
-                                                            <option value="tone">Brown</option>
+                                                            <option value="extremely">Extremely Fair Skin</option>
+                                                            <option value="fair">Fair Skin</option>
+                                                            <option value="medium">Medium Skin</option>
+                                                            <option value="light_brown">Light Brown Skin</option>
+                                                            <option value="brown">Brown Skin</option>
+                                                            <option value="black">Black Skin</option>
 
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.religion && error) ? "Religion is Required" : ""}</p> */}
