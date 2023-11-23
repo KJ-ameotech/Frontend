@@ -251,7 +251,7 @@ const LikeDislikeCard = () => {
         setIncome(income)
         setWeight(weightCount)
     }, [])
-
+    const incomeS = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, '10 Lacs +']
     return (
         <Layout>
             <section>
@@ -261,7 +261,7 @@ const LikeDislikeCard = () => {
                         <section className="coming-soon-section mt-5" >
                             <div className="auto-container mb-5">
                                 <div className="outer-box ">
-                                    <div className="time-counter">
+                                    <div className="time-counter ">
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <form className="form-inline"
@@ -438,7 +438,7 @@ const LikeDislikeCard = () => {
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
-                                                            {!!income.length && income.map((item, index) => {
+                                                            {!!incomeS.length && incomeS.map((item, index) => {
                                                                 return <option value={item} key={index}>{item}</option>
                                                             })}
 

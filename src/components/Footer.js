@@ -2,7 +2,7 @@ import React from "react";
 // import AmeotechLogo from '../assets/images/ameotech-logo-11.png'
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <div id="sticky-footer"className="footer-container">
       <footer className="main-footer style-two">
         <div className="auto-container">
           <div className="footer-content" style={{ padding: `25px 0 10px` }}>

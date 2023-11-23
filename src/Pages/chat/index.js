@@ -126,11 +126,31 @@ const Chat = () => {
         setRoomName(item.slug);
         setMessages([])
     }
+    function stickFooter() {
+        console .log("hello")
+        const body = document.body;
+        const footer = document.getElementById('sticky-footer');
+        const bodyHeight = body.clientHeight;
+        const windowHeight = window.innerHeight;
+  
+        if (bodyHeight < windowHeight) {
+          footer.style.position = 'fixed';
+          footer.style.bottom = '0';
+          footer.style.width = '100%';
+        } else {
+          footer.style.position = 'static';
+        }
+    }
+    useEffect(()=>{
+        // Call the function initially and on window resize
+        stickFooter();
+        window.addEventListener('resize', stickFooter);
+    })
     return (
         <Layout>
             <section style={{ }}>
                 {friendListData?.subscription_name !== "Diamond" ?
-                <div className="not-upgraded">
+                <div className="not-upgraded my-5 text-center">
                     <div>Please upgrade you plan to chat with the user</div>
                     <div className="upgrade-btn">
                         <Link to="/membership">Upgrade</Link>

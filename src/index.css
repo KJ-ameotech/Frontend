@@ -264,3 +264,10 @@ p.card-text {
   flex-direction: column;
 }
 
+div.info-profile-one input::placeholder{
+  color: #777777;
+}
+
+div.info-profile-one ul li{
+  color: black;
+}

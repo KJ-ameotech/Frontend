@@ -93,7 +93,7 @@ const Banner = () => {
   return (
     <>
       <div className="mainBannerSection">
-        <section className="banner-section d-none d-lg-block d-xl-block d-md-block mobile_Hidden">
+        <section className="banner-section ">
           <div className="banner-carousel owl-carousel owl-theme ">
             <OwlCarousel className="owl-theme" {...options}>
               {bannerList && bannerList.map((item, index) => {
@@ -121,19 +121,19 @@ const Banner = () => {
         <div className="auto-container mb-5">
           <div className="outer-box">
             <div className="inner-border">
-              <div className="time-counter">
+              <div className="time-counter ">
                 <div className="col-md-12">
                   <div className="row">
                     <form className="form-inline" onSubmit={handleSearchSubmit}>
-                      <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                      <div className="col-lg-3 col-md-6 col-sm-12 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search">I'm looking for a</span></label>
-                        <select className="dropselect" name="looking_for" value={searchData.looking_for} selected onChange={handleSearch} >
+                        <select className="dropselect" disabled name="looking_for" value={searchData.looking_for} selected onChange={handleSearch} >
                           <option value="Male">Groom</option>
                           <option value="Female">Bride</option>
                         </select>
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.looking_for && error) ? "Looking for is Required" : ""}</p> */}
                       </div>
-                      <div className="col-lg-3 col-md-3 col-sm-2 form-group">
+                      <div className="col-lg-3 col-md-6 col-sm-12 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search">From Age</span></label>
                         <select className="dropselect" id="fromage" onChange={handleSearch} value={searchData.from_age} name="from_age" required>
                           <option value="" selected>Select</option>
@@ -188,7 +188,7 @@ const Banner = () => {
                         </select>
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.from_age && error) ? "From age is Required" : ""}</p> */}
                       </div>
-                      <div className="col-lg-3 col-md-3 col-sm-2 form-group">
+                      <div className="col-lg-3 col-md-6 col-sm-12 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search">To Age</span></label>
                         <select className="dropselect" id="toage" value={searchData.to_age} name="to_age" onChange={handleSearch} required>
                           <option value="" selected>Select</option>
@@ -243,7 +243,7 @@ const Banner = () => {
                         </select>
                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                       </div>
-                      <div className="col-lg-3 col-md-3 col-sm-3 form-group">
+                      <div className="col-lg-3 col-md-6 col-sm-12 form-group">
                         <label className="label" htmlFor="lookingfor"><span className="search" >Community</span></label>
                         <select className="dropselect" value={searchData.religion} name="religion" id="religion" onChange={handleSearch} required>
                           <option value="" selected disabled>Please Select</option>
