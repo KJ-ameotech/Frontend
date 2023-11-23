@@ -29,7 +29,7 @@ const Banner = () => {
     nav: true,
     mouseDrag: false,
     autoplay: true,
-    animateOut: 'slideOutUp',
+    animateOut: 'slideOutLeft',
     responsive: {
       0: {
         items: 1
@@ -108,7 +108,6 @@ const Banner = () => {
                           <li><span className="icon fas fa-user-plus"></span> Connect</li>
                           <li><span className="icon fas fa-comments"></span> Interact</li>
                         </ul> */}
-
                       </div>
                     </div>
                   </div>

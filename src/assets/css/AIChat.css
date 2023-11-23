@@ -188,9 +188,6 @@
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
-
-
-
 .chat-bot {
   position: fixed;
   bottom: 40px;
@@ -203,7 +200,6 @@
   cursor: pointer;
   padding: 2px;
 }
-
 button.chat-btn {
   min-width: 50px;
   position: absolute;
@@ -218,27 +214,21 @@ img.chat-bot-img {
   width: 100%;
   overflow: hidden;
 }
-
-
-
-
 /* Adjust message alignment based on sender */
+
 .message-user-right {
-  display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
   position: relative;
-  
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 .message-user-right strong ,.message-user-left strong {
   font-size: 12px;
 }
 
-.message-user-right-img {
-  position: absolute;
-  top: -20px;
-  right: 0px;
-}
+
 .message-user-left {
   display: flex;
   justify-content: flex-start;
@@ -251,6 +241,8 @@ img.chat-bot-img {
 .message-user-left .message-user-left-img {
   /* Styles for message sender's image/avatar */
   /* Adjust styles as needed */
+  display: flex;
+  align-items: flex-end;
 }
 
 .message-user-right .message-user-right-text,

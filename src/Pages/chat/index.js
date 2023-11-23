@@ -7,6 +7,7 @@ import { createRoom, getFriendList } from "../../Redux/Actions/ProfileActions";
 import { getLocalStorage } from "../../Utils/LocalStorage";
 import { baseUrl, chatPortUrl } from "../../Utils/ApiUrl";
 import { BiSend } from "react-icons/bi"
+import { Link } from "react-router-dom";
 
 // let chatPortURL = "ws://127.0.0.1:8001/ws/";
 
@@ -92,7 +93,9 @@ const Chat = () => {
 
     useEffect(() => {
         let objDiv = document.getElementsByClassName("body-chat-message-user")[0];
-        objDiv.scrollTop = objDiv.scrollHeight;
+        if (objDiv){
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }
     }, [messages]);
 
     const handleSendMessage = (e) => {
@@ -126,6 +129,14 @@ const Chat = () => {
     return (
         <Layout>
             <section style={{ padding: "100px 0" }}>
+                {friendListData?.subscription_name !== "Diamond" ?
+                <div className="not-upgraded">
+                    <div>Please upgrade you plan to chat with the user</div>
+                    <div className="upgrade-btn">
+                        <Link to="/membership">Upgrade</Link>
+                    </div>
+                </div>
+                :
                 <div className="content-chat mt-20">
                     <div className="content-chat-user">
                         <div className="head-search-chat">
@@ -140,9 +151,9 @@ const Chat = () => {
                         </div>
 
                         <div className="list-search-user-chat mt-20">
-                            {friendListData?.subscription_name == "Gold" &&
+                            {/* {friendListData?.subscription_name == "Gold" &&
                                 <div>Please upgrade you plan to chat with the user</div>
-                            }
+                            } */}
                             {friendListData?.subscription_name == "Diamond" &&
                                 friendListData?.user_data?.length > 0 && friendListData.user_data.map((item, index) => {
                                     return (
@@ -209,7 +220,7 @@ const Chat = () => {
                             </div>
                         </div>
                     }
-                </div>
+                </div>}
             </section>
         </Layout>
     );
