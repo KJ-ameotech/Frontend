@@ -18,7 +18,7 @@ const Stories = ({ storiesList }) => {
     }
 
     const handleNextClick = () => {
-        setActiveItemIndex(storiesList.length > activeItemIndex ? Number(activeItemIndex) + 1 : activeItemIndex);
+        setActiveItemIndex(storiesList.length - 2  > activeItemIndex ? Number(activeItemIndex) + 1 : activeItemIndex);
     };
     const settings = {
         dots: true,

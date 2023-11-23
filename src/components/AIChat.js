@@ -26,6 +26,12 @@ const AIChat = () => {
     setShowBox(!showBox);
   };
 
+  const handleKeyPress = (e)=>{
+    if (e.key === 'Enter'){
+      document.getElementsByClassName('send__button')[0].click();
+    }
+  }
+
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (sendMessage != "") {
@@ -100,6 +106,7 @@ const AIChat = () => {
                   placeholder="Write a message..."
                   value={sendMessage}
                   onChange={(e) => setSendMessage(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
                 <button
                   class="chatbox__send--footer send__button"

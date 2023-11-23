@@ -128,7 +128,7 @@ const Chat = () => {
     }
     return (
         <Layout>
-            <section style={{ padding: "100px 0" }}>
+            <section style={{ }}>
                 {friendListData?.subscription_name !== "Diamond" ?
                 <div className="not-upgraded">
                     <div>Please upgrade you plan to chat with the user</div>

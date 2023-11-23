@@ -31,7 +31,7 @@ const MemberShip = () => {
 
     return (
         <Layout>
-            <section className="cards-wrapper" style={{ padding: "150px 0" }}>
+            <section className="cards-wrapper" style={{  }}>
                 <div className="container">
                     <div className="row">
                         {membershipList && membershipList.map((item, index) => {

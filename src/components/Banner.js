@@ -268,6 +268,7 @@ const Banner = () => {
           <AIChat />
         </div>
       </section>
+      
     </>
   );
 };
