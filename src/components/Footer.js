@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
             <ul className="social-icon-one">
               <li>
-                <a href="#">
+                <a href="https://www.facebook.com/coorgimangala">
                   <span className="fab fa-facebook-f"></span>
                 </a>
               </li>
@@ -62,7 +62,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://www.instagram.com/kodavasocial/">
                   <span className="fab fa-instagram"></span>
                 </a>
               </li>

@@ -286,9 +286,12 @@ const ProfileUserDetail = () => {
                                 <div className="col-md-6 form-group">
                                     <select className="custom-select-box" name="education" tabindex="7" id="education" onChange={(e) => handleProfilePersonalInfo(e)}>
                                         <option value="" disabled selected hidden>Education</option>
-                                        <option value="bachelor">Bachelor's</option>
-                                        <option value="master">Master</option>
-                                        <option value="phd">Phd</option>
+                                        <option value="associat">Associate's Degree in Education</option>
+                                        <option value="bachelor">Bachelor's Degree in Education (B.Ed., B.A. in Education)</option>
+                                        <option value="master">Master's Degree in Education (M.Ed., M.A. in Education)</option>
+                                        <option value="doctor">Doctorate in Education (Ed.D., Ph.D. in Education)</option>
+                                        <option value="teacher">Teaching Credential/Certification</option>
+                                        <option value="special_certificate">Specialized Certificates or Endorsements</option>
                                     </select>
                                     {/* <input type="text" name="education" maxlength="70" placeholder="Education" tabindex="4" onChange={(e) => handleProfilePersonalInfo(e)} /> */}
                                     <p className="form-text " style={{ color: "red" }}>{(!profileData.education.length && error) ? "education is Required" : ""}</p>

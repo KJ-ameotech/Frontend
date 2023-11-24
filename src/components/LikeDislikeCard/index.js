@@ -379,9 +379,12 @@ const LikeDislikeCard = () => {
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
-                                                            <option value="bachelor">Bachelor's</option>
-                                                            <option value="master">Master</option>
-                                                            <option value="phd">Phd</option>
+                                                            <option value="associat">Associate's Degree in Education</option>
+                                                            <option value="bachelor">Bachelor's Degree in Education (B.Ed., B.A. in Education)</option>
+                                                            <option value="master">Master's Degree in Education (M.Ed., M.A. in Education)</option>
+                                                            <option value="doctor">Doctorate in Education (Ed.D., Ph.D. in Education)</option>
+                                                            <option value="teacher">Teaching Credential/Certification</option>
+                                                            <option value="special_certificate">Specialized Certificates or Endorsements</option>
                                                         </select>
                                                         {/* <p className="form-text " style={{ color: "red" }}>{(!searchData.to_age && error) ? "To age is Required" : ""}</p> */}
                                                     </div>

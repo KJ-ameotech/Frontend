@@ -157,9 +157,10 @@ const SignUp = () => {
     }, [register.gender])
     useEffect(() => {
         let res = registrationRequest;
+        console.log('res>>>>', res)
         if (register.email != "") {
-            if (res?.status_code === 400) {
-                toastify(toast.error, res?.error, "dark")
+            if (res?.response?.status === 400) {
+                toastify(toast.error, res?.response?.data?.error, "dark")
             }
             else if (registrationRequest?.status_code === 201) {
                 const { access_token, refresh_token, user_id } = res

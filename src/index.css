@@ -271,3 +271,72 @@ div.info-profile-one input::placeholder{
 div.info-profile-one ul li{
   color: black;
 }
+
+/* div.edit-profile-data ul li input{
+  border: 1px solid #00000042;
+  padding: 2px 2px 0px 10px;
+} */
+
+div.edit-partner-data input{
+  border: 1px solid #00000042;
+   width: 100%;
+    padding: 2px 2px 0px 10px;
+}
+.edit-profile-data select {
+  border: 1px solid #00000042;
+  max-width: 284px;
+  width: 100%;
+ 
+  background: none;
+}
+.profile-edit-two li, .profile-data-two li{
+  display: flex;
+  flex-direction: column;
+}
+.profile-edit-two input, .profile-edit-two select{
+  border: 2px solid #00000042;
+  padding: 0px 3px;
+  margin-left: 4px;
+  border-radius: 5px;
+}
+.profile-data-two input{
+  padding: 0px 3px;
+  margin-left: 4px;
+  border-radius: 5px;
+}
+.profile-edit-two label , .profile-data-two label{
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 500;
+
+}
+.profile-page-input label{
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.profile-page-input input{
+  border: 2px solid #00000042;
+  padding: 0px 3px;
+  margin-left: 4px;
+  border-radius: 5px;
+}
+.info-profile-data .profile-page-input input{
+  padding: 0px 3px;
+  margin-left: 4px;
+  border-radius: 5px;
+  border: none;
+}
+.info-height {
+  min-height: 425px;
+}
+.ifo-bg {
+  background: #800925;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.ifo-bg  i {
+  color: #fff;
+}

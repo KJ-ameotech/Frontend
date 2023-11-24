@@ -93,7 +93,7 @@ const Login = () => {
                 window.location.href = "/";
             }, 1000)
         } else {
-            if (loginResponse?.response?.data?.status_code === 404 || loginResponse?.response?.data?.status_code === 401 || loginResponse?.response?.data?.status_code === 403) {
+            if (loginResponse?.response?.data?.status_code === 404 || loginResponse?.response?.data?.status_code === 401 || loginResponse?.response?.data?.status_code === 403 || loginResponse?.response?.data?.status_code === 400) {
                 toastify(toast.error, loginResponse?.response?.data?.detail, "dark")
                 setLoginData({ ...loginData, text: "", password: "" })
             }

@@ -12825,8 +12825,13 @@ p.desh {
 	text-align: start;
     word-break: break-all;
 }
-textarea.about-me{
-	width: 100%;
+
+textarea.about-me {
+    width: 100%;
+    border: 1px solid  #00000042;
+    padding: 0px 7px;
+	min-height: 215px;
+    overflow-y: auto;
 }
 div.document-verified{
 	padding: 13px;

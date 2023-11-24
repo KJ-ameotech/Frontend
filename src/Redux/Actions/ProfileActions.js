@@ -575,14 +575,21 @@ export const updateProfileData = (id, editProfileData) => {
         formData.append('last_name', editProfileData?.name.split(" ")[1]);
         formData.append('username', editProfileData.username)
         formData.append('email', editProfileData.email)
-        formData.append('profile_for', editProfileData.profile_for)
-        formData.append('date_of_birth', editProfileData.date_of_birth)
+        formData.append('education', editProfileData.education)
         formData.append('religion', editProfileData.religion)
+        formData.append('hobbies', editProfileData.hobbies)
         formData.append('community', editProfileData.community)
         formData.append('living_in', editProfileData.living_in)
         formData.append('mobile_number', editProfileData.mobile_number)
         formData.append('gender', editProfileData.gender)
         formData.append('family_name', editProfileData.family_name)
+        formData.append('time_of_birth', editProfileData.time_of_birth)
+        formData.append('caste', editProfileData.caste)
+        formData.append('income', editProfileData.income)
+        formData.append('height', editProfileData.height)
+        formData.append('marital_status', editProfileData.marital_status)
+        formData.append('weight', editProfileData.weight)
+        formData.append('occupation', editProfileData.occupation)
         try {
             const response = await axios.patch(Api.profileDataUpdate(id), formData);
             dispatch(profileUpdateSuccess(response.data));
