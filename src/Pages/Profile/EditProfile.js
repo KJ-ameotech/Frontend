@@ -4,7 +4,7 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { getLocalStorage } from '../../Utils/LocalStorage';
 import { useDispatch } from 'react-redux';
-import { getProfile, getuser, updateProfileData } from '../../Redux/Actions/ProfileActions';
+import { getProfile, getuser, updateProfileData, updateProfilesData } from '../../Redux/Actions/ProfileActions';
 const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
     const dispatch = useDispatch()
     const [editProfileData, setEditProfileData] = useState({
@@ -54,6 +54,7 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
     const handleSaveEditProfileData = () => {
         console.log('editProfileData>>>', editProfileData)
         dispatch(updateProfileData(getLocalStorage("user_id"), editProfileData))
+        dispatch(updateProfilesData(getLocalStorage("user_id"), editProfileData))
         cancelEdit();
     }
 

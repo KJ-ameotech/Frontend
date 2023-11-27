@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getLocalStorage } from "../../Utils/LocalStorage";
-import { updateAboutData } from "../../Redux/Actions/ProfileActions";
+import { updateProfilesData } from "../../Redux/Actions/ProfileActions";
 
 const AboutMe = ({ profileUserData }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const AboutMe = ({ profileUserData }) => {
   };
 
   const handleSaveEditAboutData = () => {
-    dispatch(updateAboutData(getLocalStorage("user_id"), aboutData));
+    dispatch(updateProfilesData(getLocalStorage("user_id"), aboutData));
     setIsEdit(false);
   };
 

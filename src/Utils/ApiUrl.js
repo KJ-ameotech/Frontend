@@ -1,10 +1,10 @@
 // export let baseUrl = "http://127.0.0.1:8000";
 // export let chatBaseUrl = "http://127.0.0.1:8001";
 
-export let baseUrl = "http://127.0.0.1:8000";
-export let chatBaseUrl = "http://139.84.144.57";
-export let chatPortUrl = "ws://139.84.144.57:8001/ws/";
-export let aiChatPortUrl = "http://139.84.135.154:8080/predict";
+export let baseUrl = "http://15.235.193.118:9000";
+export let chatBaseUrl = "http://15.235.193.118:8001";
+export let chatPortUrl = "ws://15.235.193.118:8001/ws/";
+export let aiChatPortUrl = "http://15.235.193.118:8080/predict";
 
 export const Api = {
     register: `${baseUrl}/register/`,

@@ -599,11 +599,32 @@ export const updateProfileData = (id, editProfileData) => {
     };
 }
 
-export const updateAboutData = (id, editAboutData) => {
+export const updateProfilesData = (id, editAboutData) => {
     return async (dispatch) => {
         dispatch(profileUpdateRequest())
         const formData = new FormData();
-        formData.append('about_me', editAboutData)
+        if(typeof(editAboutData) === 'string'){
+            formData.append('about_me', editAboutData)
+        }
+        else{
+            formData.append('username', editAboutData.username)
+            formData.append('email', editAboutData.email)
+            formData.append('education', editAboutData.education)
+            formData.append('religion', editAboutData.religion)
+            formData.append('hobbies', editAboutData.hobbies)
+            formData.append('community', editAboutData.community)
+            formData.append('living_in', editAboutData.living_in)
+            formData.append('mobile_number', editAboutData.mobile_number)
+            formData.append('gender', editAboutData.gender)
+            formData.append('family_name', editAboutData.family_name)
+            formData.append('time_of_birth', editAboutData.time_of_birth)
+            formData.append('caste', editAboutData.caste)
+            formData.append('income', editAboutData.income)
+            formData.append('height', editAboutData.height)
+            formData.append('marital_status', editAboutData.marital_status)
+            formData.append('weight', editAboutData.weight)
+            formData.append('occupation', editAboutData.occupation)
+        }
         try {
             const response = await axios.patch(Api.profile(id), formData);
             dispatch(profileUpdateSuccess(response.data));
