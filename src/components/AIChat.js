@@ -7,7 +7,7 @@ import { getLocalStorage } from "../Utils/LocalStorage";
 
 const AIChat = () => {
   const dispatch = useDispatch();
-  const profileData = JSON.parse(getLocalStorage("profileData") || {});
+  const profileData = JSON.parse(getLocalStorage("profileData"));
   const authState = useSelector((state) => state.Auth);
   const { aiMessageData, aiMessageLoading } = authState;
   const [showBox, setShowBox] = useState(false);
