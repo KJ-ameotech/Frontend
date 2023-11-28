@@ -136,8 +136,8 @@ const PartnerPreference = ({ userPreferencesList }) => {
           <div class="info-profile-one ">
             <ul>
               <div className="profile-page-input">
-                <label>Family Value</label>
-                <input type="text" name="family_value" placeholder='Family Value' value={userPreference?.family_value} onChange={(e) => handleUserPreferences(e)}></input>
+                <label>Mother Tongue</label>
+                <input type="text" name="mother_tongue" placeholder='Mother Tongue' value={userPreference?.mother_tongue} onChange={(e) => handleUserPreferences(e)}></input>
               </div>
               <div className="profile-page-input">
                 <label>Prefered State</label>
@@ -152,11 +152,11 @@ const PartnerPreference = ({ userPreferencesList }) => {
                 <input type="text" name="manglik" placeholder='Manglik' value={userPreference?.manglik} onChange={(e) => handleUserPreferences(e)}></input>
               </div>
               <div className="profile-page-input">
-                <label>Mother Tongue</label>
-                <input type="text" name="mother_tongue" placeholder='Mother Tongue' value={userPreference?.mother_tongue} onChange={(e) => handleUserPreferences(e)}></input>
+                <label>Min-Height(Cm)</label>
+                <input type="text" name="min_height" placeholder='Min Height' value={userPreference?.min_height} onChange={(e) => handleUserPreferences(e)}></input>
               </div>
               <div className="profile-page-input">
-                <label>Max-height</label>
+                <label>Max-height(Cm)</label>
                 <input type="text" name="max_height" placeholder='Max Height' value={userPreference?.max_height} onChange={(e) => handleUserPreferences(e)}></input>
               </div>
               <div className="profile-page-input">
@@ -227,8 +227,8 @@ const PartnerPreference = ({ userPreferencesList }) => {
           <div class="info-profile-one info-profile-data">
             <ul>
               <div className="profile-page-input">
-                <label>Family Value</label>
-                <input type="text" disabled value={userPreference?.family_value}></input>
+                <label>Mother Tongue</label>
+                <input type="text" disabled value={userPreference?.mother_tongue}></input>
               </div>
               <div className="profile-page-input">
                 <label>Prefered State</label>
@@ -239,8 +239,8 @@ const PartnerPreference = ({ userPreferencesList }) => {
                 <input type="text" disabled value={userPreference?.smoking_habits}></input>
               </div>
               <div className="profile-page-input">
-                <label>Mother Tongue</label>
-                <input type="text" disabled value={userPreference?.min_age}></input>
+                <label>Manglik</label>
+                <input type="text" disabled value={userPreference?.manglik}></input>
               </div>
               <div className="profile-page-input">
                 <label>Min-height</label>

@@ -259,7 +259,7 @@ const SignUp = () => {
 
                                                     </div>
 
-                                                    <div className="col-lg-4 col-md-4 col-sm-12 form-group ">
+                                                    {/* <div className="col-lg-4 col-md-4 col-sm-12 form-group ">
                                                         <select className="custom-select-box" name="dobMonth" tabindex="7" id="month" onChange={(e) => handleRegister(e, 'dob')}>
                                                             <option value="" disabled selected hidden>Birth Month</option>
                                                             <option value="1">January</option>
@@ -298,7 +298,7 @@ const SignUp = () => {
                                                         </select>
                                                         <p className="form-text " style={{ color: "red" }}>{(!dateOfBirth.dobYear && error) ? "Please select the Birth Year" : ""}</p>
 
-                                                    </div>
+                                                    </div> */}
                                                     <div className="col-lg-12 col-md-12 col-sm-12 form-group">
 
                                                         <input type={showPassword ? "text" : "password"} name="password" placeholder="Password"
