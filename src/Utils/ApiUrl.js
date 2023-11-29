@@ -2,8 +2,8 @@
 // export let chatBaseUrl = "http://127.0.0.1:8001";
 
 export let baseUrl = "http://15.235.193.118:9000";
-export let chatBaseUrl = "http://192.168.1.101:8000";
-export let chatPortUrl = "ws://192.168.1.101:8000/ws/";
+export let chatBaseUrl = "http://15.235.193.118:3000";
+export let chatPortUrl = "ws://15.235.193.118:3000/ws/";
 export let aiChatPortUrl = "http://15.235.193.118:8080/predict";
 
 export const Api = {
