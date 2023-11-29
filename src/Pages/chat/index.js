@@ -145,13 +145,13 @@ const Chat = () => {
                         unreadEles[i].textContent = userMsg.count;
                         unreadEles[i].classList.add('unread-msg');
                     }
-                    else{
+                    else {
                         unreadEles[i].textContent = '';
                         unreadEles[i].classList.remove('unread-msg');
                     }
                 }
             }
-            else{
+            else {
                 document.getElementById('unread_msgs').textContent = '';
                 document.getElementById('unread_msgs').textContent = '';
                 for (let i = 0; i < unreadEles.length; i++) {
@@ -162,7 +162,7 @@ const Chat = () => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const getUnreadMsgs = async () => {
             let user_id = localStorage.getItem('user_id');
             if (user_id) {
@@ -182,13 +182,13 @@ const Chat = () => {
                             unreadEles[i].textContent = userMsg.count;
                             unreadEles[i].classList.add('unread-msg');
                         }
-                        else{
+                        else {
                             unreadEles[i].textContent = '';
                             unreadEles[i].classList.remove('unread-msg');
                         }
                     }
                 }
-                else{
+                else {
                     document.getElementById('unread_msgs').textContent = '';
                     for (let i = 0; i < unreadEles.length; i++) {
                         unreadEles[i].textContent = '';
@@ -197,7 +197,7 @@ const Chat = () => {
                 }
             }
         }
-        setTimeout(()=>{
+        setTimeout(() => {
             getUnreadMsgs();
         }, 1000)
     }, [])
@@ -233,6 +233,11 @@ const Chat = () => {
         stickFooter();
         window.addEventListener('resize', stickFooter);
     })
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            document.getElementById('send-message').click();
+        }
+    }
     return (
         <Layout>
             <section style={{}}>
@@ -314,9 +319,9 @@ const Chat = () => {
                                 </div>
                                 <div className="footer-chat-message-user">
                                     <div className="message-user-send">
-                                        <input type="text" value={sendMessage} placeholder="Please write message" onChange={(e) => setSendMessage(e.target.value)} />
+                                        <input type="text" value={sendMessage} onKeyPress={handleKeyPress} placeholder="Please write message" onChange={(e) => setSendMessage(e.target.value)} />
                                     </div>
-                                    <button type="button" data-id={selectedFriend?.id} onClick={handleSendMessage}>
+                                    <button type="button" id="send-message" data-id={selectedFriend?.id} onClick={handleSendMessage}>
                                         <BiSend size={25} data-id={selectedFriend?.id} />
                                     </button>
                                 </div>
