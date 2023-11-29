@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 import { getAllNotification } from "../Redux/Actions/ProfileActions";
 import Notification from "../Pages/Notification";
 import Search from "./Search";
+import { Api } from "../Utils/ApiUrl";
 
 const Navbar = ({ auth }) => {
+  const [unreadMsgs, setUnreadMsgs] = useState('');
 
   const { pathname } = useLocation()
 
@@ -19,6 +21,21 @@ const Navbar = ({ auth }) => {
     removeLocalStorage('user_id')
     window.location.href = "/login"
   }
+  const getUnreadMsgs = async()=>{
+    let user_id = localStorage.getItem('user_id');
+    if (user_id){
+      let options = {
+        method: 'GET',
+      };
+      let response = await fetch(Api.createChatRoom + `?user_id=${user_id}`, options);
+      let result = await response.json();
+      if (result.status){
+        setUnreadMsgs(result.unread_msgs);
+      }
+    }
+  }
+  getUnreadMsgs();
+
 
   return (
 
@@ -47,7 +64,9 @@ const Navbar = ({ auth }) => {
                   </li>
                   <li className={`${pathname === "/membership" ? 'current' : ""} dropdown`}><Link to="/membership">Membership</Link></li>
                   <li className={`${pathname === "/contact-us" ? 'current' : ""} dropdown`}><Link to="/contact-us">Contact</Link></li>
-                  <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/chat"><i class="fa fa-envelope" aria-hidden="true"></i></Link></li>
+                  <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/chat"><i class="fa fa-envelope" aria-hidden="true">
+                  <div class="badge">{unreadMsgs ? unreadMsgs : ''}</div>
+                    </i></Link></li>
                   <li className="dropdown"><Notification /></li>
                   <li className={`${pathname === "/profile" ? 'current' : ""} dropdown`}>
                    

@@ -146,6 +146,7 @@ const Chat = () => {
         stickFooter();
         window.addEventListener('resize', stickFooter);
     })
+    console.log('friendListData>>>')
     return (
         <Layout>
             <section style={{ }}>

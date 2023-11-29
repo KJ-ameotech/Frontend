@@ -18,13 +18,13 @@ const LikeDislikeCard = () => {
     const profile = useSelector((state) => state.Profile)
     const { allProfile, allSearchData, advanceSearchRes } = profile;
     const [advanceSearch, setAdvanceSearch] = useState({
-        start_height: "",
-        end_height: "",
+        startheight: "",
+        endheight: "",
         education: "",
-        min_weight: "",
-        max_weight: "",
-        min_income: "",
-        max_income: "",
+        minweight: "",
+        maxweight: "",
+        minincome: "",
+        maxincome: "",
         skin_tone: "",
         marital_status: "",
     })
@@ -269,8 +269,8 @@ const LikeDislikeCard = () => {
                                                 >
                                                     <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search">Min Height(Cm)</span></label>
-                                                        <select className="dropselect" name="start_height"
-                                                            value={advanceSearch.start_height}
+                                                        <select className="dropselect" name="startheight"
+                                                            value={advanceSearch.startheight}
                                                             onChange={handleSearch}
                                                         >
                                                             <option value="" selected disabled hidden>Select</option>
@@ -322,8 +322,8 @@ const LikeDislikeCard = () => {
                                                         <label className="label" htmlFor="lookingfor"><span className="search">Max Height(Cm)</span></label>
                                                         <select className="dropselect" id="fromage"
                                                             onChange={handleSearch}
-                                                            value={advanceSearch.end_height}
-                                                            name="end_height"
+                                                            value={advanceSearch.endheight}
+                                                            name="endheight"
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
                                                             <option value="150">150</option>
@@ -391,8 +391,8 @@ const LikeDislikeCard = () => {
                                                     <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Min Weight(Kg)</span></label>
                                                         <select className="dropselect"
-                                                            value={advanceSearch.min_weight}
-                                                            name="min_weight" id="weight"
+                                                            value={advanceSearch.minweight}
+                                                            name="minweight" id="weight"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
@@ -406,8 +406,8 @@ const LikeDislikeCard = () => {
                                                     <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Max Weight(Kg)</span></label>
                                                         <select className="dropselect"
-                                                            value={advanceSearch.max_weight}
-                                                            name="max_weight" id="weight"
+                                                            value={advanceSearch.maxweight}
+                                                            name="maxweight" id="weight"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
@@ -421,8 +421,8 @@ const LikeDislikeCard = () => {
                                                     <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Minimum Income</span></label>
                                                         <select className="dropselect"
-                                                            value={advanceSearch.min_income}
-                                                            name="min_income" id="weight"
+                                                            value={advanceSearch.minincome}
+                                                            name="minincome" id="weight"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>
@@ -436,8 +436,8 @@ const LikeDislikeCard = () => {
                                                     <div className="col-md-12 form-group">
                                                         <label className="label" htmlFor="lookingfor"><span className="search" >Maximum Income</span></label>
                                                         <select className="dropselect"
-                                                            value={advanceSearch.max_income}
-                                                            name="max_income" id="weight"
+                                                            value={advanceSearch.maxincome}
+                                                            name="maxincome" id="weight"
                                                             onChange={handleSearch}
                                                             required>
                                                             <option value="" selected disabled hidden>Select</option>

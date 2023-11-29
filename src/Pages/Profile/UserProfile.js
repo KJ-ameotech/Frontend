@@ -44,44 +44,44 @@ const UserProfile = () => {
                                         <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>{searchByIdRes[0].first_name && 'Name'}</li>
-                                                    <li>{searchByIdRes[0].username && 'Username'}</li>
-                                                    <li>{searchByIdRes[0].email && 'Email'}</li>
-                                                    <li>{searchByIdRes[0].profile_for && 'Profile for'}</li>
-                                                    <li>{searchByIdRes[0].age >= 0 && 'Age'}</li>
-                                                    <li>{searchByIdRes[0].religion && 'Religion'}</li>
-                                                    <li>{searchByIdRes[0].living_in && 'Living in'}</li>
-                                                    <li>{searchByIdRes[0].gender && 'Gender'}</li>
-                                                    <li>{searchByIdRes[0].community && 'Community'}</li>
-                                                    <li>{searchByIdRes[0].distance >= 0 && 'Distance'}</li>
-                                                    <li>{searchByIdRes[0].time_of_bith && 'Time of Birth'}</li>
-                                                    <li>{searchByIdRes[0].education && 'Education'}</li>
-                                                    <li>{searchByIdRes[0].height && 'Height'}</li>
-                                                    <li>{searchByIdRes[0].hobbies && 'Hobbies'}</li>
-                                                    <li>{searchByIdRes[0].income && 'Income'}</li>
-                                                    <li>{searchByIdRes[0].marital_status && 'Marital Status'}</li>
-                                                    <li>{searchByIdRes[0].occupation && 'Occupation'}</li>
-                                                    <li>{searchByIdRes[0].skin_tone && 'Skin Tone'}</li>
-                                                    <li>{searchByIdRes[0].alcoholic && 'Alcoholic'}</li>
-                                                    <li>{searchByIdRes[0].smoker && 'Smoker'}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].first_name && 'Name' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].username && 'Username' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].email && 'Email' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].profile_for && 'Profile for' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].age >= 0 && 'Age' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].religion && 'Religion' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].living_in && 'Living in' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].gender && 'Gender' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].community && 'Community' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].distance >= 0 && 'Distance' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].time_of_bith && 'Time of Birth' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].education && 'Education' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].height && 'Height' : ''}</li>
+                                                    {/* <li>{searchByIdRes ? searchByIdRes[0].hobbies && 'Hobbies' : ''}</li> */}
+                                                    <li>{searchByIdRes ? searchByIdRes[0].income && 'Income' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].marital_status && 'Marital Status' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].occupation && 'Occupation' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].skin_tone && 'Skin Tone' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].alcoholic && 'Alcoholic' : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].smoker && 'Smoker' : ''}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>{searchByIdRes[0].first_name} {searchByIdRes[0].last_name}</li>
-                                                    <li>{searchByIdRes[0].username}</li>
-                                                    <li>{searchByIdRes[0].email}</li>
-                                                    <li>{searchByIdRes[0].profile_for}</li>
-                                                    <li>{searchByIdRes[0].age}</li>
-                                                    <li>{searchByIdRes[0].religion}</li>
-                                                    <li>{searchByIdRes[0].living_in}</li>
-                                                    <li>{searchByIdRes[0].gender}</li>
-                                                    <li>{searchByIdRes[0].community}</li>
-                                                    <li>{searchByIdRes[0].distance}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].first_name + ' ' + searchByIdRes[0].last_name : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].username : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].email : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].profile_for : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].age : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].religion : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].living_in : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].gender : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].community : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].distance : ''}</li>
                                                     <li>{(()=>{
-                                                        if (searchByIdRes[0].time_of_bith){
+                                                        if (searchByIdRes && searchByIdRes[0].time_of_bith){
                                                             const datetime = new Date(searchByIdRes[0].time_of_bith);
                                                             return datetime.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
                                                         }
@@ -89,15 +89,15 @@ const UserProfile = () => {
                                                             return '';
                                                         }
                                                     })()}</li>
-                                                    <li>{searchByIdRes[0].education}</li>
-                                                    <li>{searchByIdRes[0].height} Cm</li>
-                                                    <li>{searchByIdRes[0].hobbies}</li>
-                                                    <li>{searchByIdRes[0].income}</li>
-                                                    <li>{searchByIdRes[0].marital_status}</li>
-                                                    <li>{searchByIdRes[0].occupation}</li>
-                                                    <li>{searchByIdRes[0].skin_tone}</li>
-                                                    <li>{searchByIdRes[0].alcoholic}</li>
-                                                    <li>{searchByIdRes[0].smoker}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].education : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].height + ' Cm' : ''}</li>
+                                                    {/* <li>{searchByIdRes ? searchByIdRes[0].hobbies : ''}</li> */}
+                                                    <li>{searchByIdRes ? searchByIdRes[0].income : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].marital_status : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].occupation : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].skin_tone : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].alcoholic : ''}</li>
+                                                    <li>{searchByIdRes ? searchByIdRes[0].smoker : ''}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -107,46 +107,46 @@ const UserProfile = () => {
                                         <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>{userPreferencesList[0]?.min_age && 'Age'}</li>
-                                                    <li>{userPreferencesList[0]?.min_height && userPreferencesList[0]?.max_height && 'Height'}</li>
-                                                    <li>{userPreferencesList[0]?.religion_preference && 'Religion Preference'}</li>
-                                                    <li>{userPreferencesList[0]?.marital_status_preference && 'Marital Status'}</li>
-                                                    <li>{userPreferencesList[0]?.occupation_preference && 'Occupation Preference'}</li>
-                                                    <li>{userPreferencesList[0]?.drinking_habits && 'Drinking Habits'}</li>
-                                                    <li>{userPreferencesList[0]?.country_of_residence && 'Country Of Residence'}</li>
-                                                    <li>{userPreferencesList[0]?.personal_value && 'Personal Value'}</li>
-                                                    <li>{userPreferencesList[0]?.any_disabblity && 'Any Disablity'}</li>
-                                                    <li>{userPreferencesList[0]?.family_value && 'Family Value'}</li>
-                                                    <li>{userPreferencesList[0]?.prefered_state && 'Prefered State'}</li>
-                                                    <li>{userPreferencesList[0]?.smoking_habits && 'Smoking Habits'}</li>
-                                                    <li>{userPreferencesList[0]?.manglik && 'Manglik'}</li>
-                                                    <li>{userPreferencesList[0]?.mother_tongue && 'Mother Tongue'}</li>
-                                                    <li>{userPreferencesList[0]?.caste_preference && 'Caste'}</li>
-                                                    <li>{userPreferencesList[0]?.education_preference && 'Education'}</li>
-                                                    <li>{userPreferencesList[0]?.body_type && 'Body Type'}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.min_age && 'Age' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.min_height && userPreferencesList[0]?.max_height && 'Height' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.religion_preference && 'Religion Preference' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.marital_status_preference && 'Marital Status' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.occupation_preference && 'Occupation Preference' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.drinking_habits && 'Drinking Habits' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.country_of_residence && 'Country Of Residence' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.personal_value && 'Personal Value' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.any_disabblity && 'Any Disablity' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.family_value && 'Family Value' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.prefered_state && 'Prefered State' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.smoking_habits && 'Smoking Habits' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.manglik && 'Manglik' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.mother_tongue && 'Mother Tongue' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.caste_preference && 'Caste' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.education_preference && 'Education' : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.body_type && 'Body Type' : ''}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="info-profile-one">
                                                 <ul>
-                                                    <li>{userPreferencesList[0]?.min_age} - {userPreferencesList[0]?.max_age}</li>
-                                                    <li>{userPreferencesList[0]?.min_height && userPreferencesList[0]?.max_height ? `${userPreferencesList[0]?.min_height} - ${userPreferencesList[0]?.max_height}` : ''}</li>
-                                                    <li>{userPreferencesList[0]?.religion_preference}</li>
-                                                    <li>{userPreferencesList[0]?.marital_status_preference}</li>
-                                                    <li>{userPreferencesList[0]?.occupation_preference}</li>
-                                                    <li>{userPreferencesList[0]?.drinking_habits}</li>
-                                                    <li>{userPreferencesList[0]?.country_of_residence}</li>
-                                                    <li>{userPreferencesList[0]?.personal_value}</li>
-                                                    <li>{userPreferencesList[0]?.any_disabblity}</li>
-                                                    <li>{userPreferencesList[0]?.family_value}</li>
-                                                    <li>{userPreferencesList[0]?.prefered_state}</li>
-                                                    <li>{userPreferencesList[0]?.smoking_habits}</li>
-                                                    <li>{userPreferencesList[0]?.manglik}</li>
-                                                    <li>{userPreferencesList[0]?.mother_tongue}</li>
-                                                    <li>{userPreferencesList[0]?.caste_preference}</li>
-                                                    <li>{userPreferencesList[0]?.education_preference}</li>
-                                                    <li>{userPreferencesList[0]?.body_type}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.min_age + ' - ' + userPreferencesList[0]?.max_age : ''}</li>
+                                                    <li>{userPreferencesList ? (userPreferencesList[0]?.min_height && userPreferencesList[0]?.max_height ? `${userPreferencesList[0]?.min_height} - ${userPreferencesList[0]?.max_height}` : '') : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.religion_preference : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.marital_status_preference : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.occupation_preference : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.drinking_habits : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.country_of_residence : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.personal_value : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.any_disabblity : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.family_value : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.prefered_state : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.smoking_habits : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.manglik : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.mother_tongue : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.caste_preference : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.education_preference : ''}</li>
+                                                    <li>{userPreferencesList ? userPreferencesList[0]?.body_type : ''}</li>
                                                 </ul>
                                             </div>
                                         </div>
