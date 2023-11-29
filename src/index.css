@@ -340,3 +340,11 @@ div.edit-partner-data input{
 .ifo-bg  i {
   color: #fff;
 }
+.unread-msg{
+  margin-left: 80px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  padding: 0px 5px;
+  background-color: #00000033;
+  color: white;
+}

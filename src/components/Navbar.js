@@ -30,7 +30,10 @@ const Navbar = ({ auth }) => {
       let response = await fetch(Api.createChatRoom + `?user_id=${user_id}`, options);
       let result = await response.json();
       if (result.status){
-        setUnreadMsgs(result.unread_msgs);
+        setUnreadMsgs(result.total_msgs);
+      }
+      else{
+        setUnreadMsgs('');
       }
     }
   }
@@ -65,7 +68,7 @@ const Navbar = ({ auth }) => {
                   <li className={`${pathname === "/membership" ? 'current' : ""} dropdown`}><Link to="/membership">Membership</Link></li>
                   <li className={`${pathname === "/contact-us" ? 'current' : ""} dropdown`}><Link to="/contact-us">Contact</Link></li>
                   <li className={`${pathname === "/all-notification" ? 'current' : ""} dropdown`}><Link to="/chat"><i class="fa fa-envelope" aria-hidden="true">
-                  <div class="badge">{unreadMsgs ? unreadMsgs : ''}</div>
+                  <div class="badge" id="unread_msgs">{unreadMsgs ? unreadMsgs : ''}</div>
                     </i></Link></li>
                   <li className="dropdown"><Notification /></li>
                   <li className={`${pathname === "/profile" ? 'current' : ""} dropdown`}>
