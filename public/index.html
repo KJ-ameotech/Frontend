@@ -26,12 +26,11 @@
 
     <script>
       function stickFooter() {
-        console .log("hello")
         const body = document.body;
         const footer = document.getElementById('sticky-footer');
         const bodyHeight = body.clientHeight;
         const windowHeight = window.innerHeight;
-  
+
         if (bodyHeight < windowHeight) {
           footer.style.position = 'fixed';
           footer.style.bottom = '0';
@@ -39,9 +38,11 @@
           footer.style.position = 'static';
         }
       }
-  
+
       // Call the function initially and on window resize
-      stickFooter();
+      setTimeout(()=>{
+        stickFooter();
+      }, 1000)
       window.addEventListener('resize', stickFooter);
     </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

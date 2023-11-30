@@ -83,10 +83,12 @@ const Login = () => {
     }, [loginRequest])
 
     useEffect(() => {
+        console.log('loginResponse>>>>', loginResponse);
         if (loginResponse?.status_code === 200) {
             toastify(toast.success, "Login Successfully", "dark")
-            const { access_token, refresh_token, user_id } = loginResponse
+            const { access_token, refresh_token, user_id, username } = loginResponse
             setLocalStorage("access_token", access_token)
+            setLocalStorage("username", username)
             setLocalStorage("refresh_token", refresh_token)
             setLocalStorage("user_id", user_id)
             setTimeout(()=>{

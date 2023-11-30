@@ -13,7 +13,9 @@ const Notification = () => {
     const [isShown, setIsShown] = useState(false);
     const dispatch = useDispatch()
     const handleAccept = (item) => {
-        let slug = randomString(9);
+        // 'user1!&chat*#user2'
+        // let slug = randomString(9);
+        let slug = `${getLocalStorage('username')}__chat__${item.username}`;
         let req = { id: item.id, approved: true, display: false, liked_user: item.liked_user, user: item.user, slug: slug };
         dispatch(acceptRequest(req))
         setIsShown(false);

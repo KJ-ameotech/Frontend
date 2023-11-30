@@ -116,11 +116,12 @@ const Contactus = () => {
                                         <div className="contact-form">
                                             <div className="sec-title">
                                                 <h2>Feedback</h2>
+                                                <p className='text-center'>Username , Email , Phone number should be excatly same as you entered during registration.</p>
                                             </div>
                                             <form id="contact-form">
                                                 <div className="row clearfix">
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" maxLength="40" name="name" placeholder="Name" value={feedback?.name} onChange={(e) => handleFeedBack(e)} tabIndex="1" required />
+                                                        <input type="text" maxLength="40" name="name" placeholder="Username" value={feedback?.name} onChange={(e) => handleFeedBack(e)} tabIndex="1" required />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">

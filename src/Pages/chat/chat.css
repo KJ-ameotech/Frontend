@@ -626,10 +626,18 @@ ol li {
     width: 10px;
     height: 10px;
     font-size: 20px;
-    background-color: #009975;
+    /* background-color: #009975; */
     border-radius: 50%;
     border: 3px solid #ffffff;
     box-shadow: 1px 1px 15px -4px #000;
+}
+
+p.status-online {
+    background-color: green;
+}
+
+p.status-offline {
+    background-color: red;
 }
 
 .content-chat .content-chat-user .list-search-user-chat .user-chat .user-chat-img .offline {
@@ -691,7 +699,7 @@ ol li {
     width: 10px;
     height: 10px;
     font-size: 20px;
-    background-color: #009975;
+    /* background-color: #009975; */
     border-radius: 50%;
     border: 3px solid #ffffff;
     box-shadow: 1px 1px 15px -4px #000;
@@ -967,16 +975,16 @@ strong {
 }
 
 
-div.not-upgraded{
+div.not-upgraded {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
 
-div.upgrade-btn{
+div.upgrade-btn {
     margin-top: 30px;
 }
 
-div.upgrade-btn a:hover{
+div.upgrade-btn a:hover {
     color: #890025;
 }

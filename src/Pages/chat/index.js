@@ -27,25 +27,23 @@ const Chat = () => {
     const [chatSocket, setChatSocket] = useState(null);
 
     const [otherUserId, setOtherUserId] = useState('');
+    const [userStatus, setUserStatus] = useState('Offline');
 
     useEffect(() => {
         if (roomName != '') {
-            let webSocket = new WebSocket(chatPortUrl + roomName + '/');
-            console.log("socket", webSocket)
+            let room_name = getLocalStorage('username') + '__chat__' + (roomName.split('__chat__')[0] === getLocalStorage('username') ? roomName.split('__chat__')[1] : roomName.split('__chat__')[0]);
+            let webSocket = new WebSocket(chatPortUrl + room_name + '/');
             webSocket.onopen = function (e) {
                 console.log("The connection was setup successfully !");
                 if (userId && otherUserId) {
-                    let data = { user_id: otherUserId, other_user: userId, room_name: roomName };
+                    let data = { user_id: otherUserId, other_user: userId, room_name: room_name };
                     webSocket.send(JSON.stringify(data));
                 }
             };
-            webSocket.onclose = function (e) {
-                console.log("Something unexpected happened !");
-            };
             webSocket.onmessage = function (e) {
                 const data = JSON.parse(e.data);
-                let msg = {};
-                if (data.username == userId) {
+                let msg;
+                if (data.username === userId) {
                     msg = {
                         id: data.username,
                         message: data.message,
@@ -53,6 +51,14 @@ const Chat = () => {
                         username: userData.username,
                         image: userData.profile_image,
                         date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                    }
+                }
+                else if(data.status){
+                    if (getLocalStorage('username') !== data.username){
+                        setUserStatus(data.status);
+                    }
+                    if (data.online_members === 2){
+                        setUserStatus(data.status);
                     }
                 }
                 else {
@@ -65,11 +71,12 @@ const Chat = () => {
                         date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
                     }
                 }
-                setMessages((messages) => [...messages, msg]);
+                if (msg){
+                    setMessages((messages) => [...messages, msg]);
+                }
             }
 
             setChatSocket(webSocket);
-
             if (chatRoomList?.messages?.length > messages.length) {
                 for (let index = 0; index < chatRoomList?.messages?.length; index++) {
                     const element = chatRoomList?.messages[index];
@@ -82,6 +89,10 @@ const Chat = () => {
                     }
                     setMessages((messages) => [...messages, el]);
                 }
+            }
+            return () =>{
+                webSocket.close();
+                console.log("Something unexpected happened !");
             }
         }
     }, [chatRoomList])
@@ -216,7 +227,6 @@ const Chat = () => {
         }, 500)
     }
     function stickFooter() {
-        console.log("hello")
         const body = document.body;
         const footer = document.getElementById('sticky-footer');
         const bodyHeight = body.clientHeight;
@@ -278,7 +288,7 @@ const Chat = () => {
                                                 <div className="user-chat-img">
                                                     <img src={item?.profile_image ? baseUrl + item?.profile_image :
                                                         "/assets/images/background/bg.jpg"} alt="user_image" />
-                                                    <div className="online"></div>
+                                                    {/* <div className="online"></div> */}
                                                 </div>
 
                                                 <div className="user-chat-text">
@@ -297,7 +307,7 @@ const Chat = () => {
                                     <img src={selectedFriend?.profile_image ? baseUrl + selectedFriend?.profile_image : "/assets/images/background/bg.jpg"} alt="" />
                                     <div className="message-user-profile">
                                         <p className="mt-0 mb-0 text-white"><strong>{selectedFriend?.first_name?.charAt(0).toUpperCase() + selectedFriend?.first_name?.slice(1) + " " + selectedFriend?.last_name?.charAt(0).toUpperCase() + selectedFriend?.last_name?.slice(1)}</strong></p>
-                                        <small className="text-white"><p className="online mt-0 mb-0"></p>Online</small>
+                                        <small className="text-white"><p className={userStatus === 'Offline' ? "status-offline user-status online mt-0 mb-0" : "status-online user-status online mt-0 mb-0"}></p>{userStatus}</small>
                                     </div>
                                 </div>
                                 <div className="body-chat-message-user">

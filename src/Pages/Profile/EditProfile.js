@@ -14,6 +14,7 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
         profile_for: "",
         date_of_birth: "",
         religion: "",
+        hobbies: "",
         community: "",
         living_in: "",
         mobile_number: "",
@@ -22,8 +23,8 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
         user: +getLocalStorage("user_id"),
     })
     const [startDate, setStartDate] = useState("");
-    const [hobbiesList, setHobbiesList] = useState([])
-    const [hobbies, setHobbies] = useState('')
+    // const [hobbiesList, setHobbiesList] = useState([])
+    // const [hobbies, setHobbies] = useState('')
 
     const handleEditProfile = (e) => {
         const { name, value } = e.target;
@@ -31,28 +32,27 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
             return { ...prev, [name]: value }
         })
     }
-    const handleHobbies = () => {
-        if (!!hobbies.length) {
-            setHobbiesList((prev) => [...prev, hobbies])
-            setHobbies("")
-        }
-    }
+    // const handleHobbies = () => {
+    //     if (!!hobbies.length) {
+    //         setHobbiesList((prev) => [...prev, hobbies])
+    //         setHobbies("")
+    //     }
+    // }
 
     useEffect(() => {
         if (profileUserData) {
-            const obj = { ...hobbiesList }
+            // const obj = { ...hobbiesList }
 
-            setEditProfileData({ ...profileUserData, name: profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name, hobbies: { ...obj }, date_of_birth: moment(startDate).utc().format('YYYY-MM-DD') })
+            setEditProfileData({ ...profileUserData, name: profileUserData?.first_name?.charAt(0)?.toUpperCase() + profileUserData?.first_name?.slice(1) + " " + profileUserData?.last_name, date_of_birth: moment(startDate).utc().format('YYYY-MM-DD') })
             setStartDate(moment(profileUserData.date_of_birth).utc()._d)
         }
-    }, [profileUserData, hobbiesList])
+    }, [profileUserData])
 
     useEffect(() => {
         setEditProfileData({ ...editProfileData, date_of_birth: moment(startDate).utc().format('YYYY-MM-DD') })
     }, [startDate])
 
     const handleSaveEditProfileData = () => {
-        console.log('editProfileData>>>', editProfileData)
         dispatch(updateProfileData(getLocalStorage("user_id"), editProfileData))
         dispatch(updateProfilesData(getLocalStorage("user_id"), editProfileData))
         cancelEdit();
@@ -117,7 +117,7 @@ const EditProfile = ({ isEdit, profileUserData, cancelEdit }) => {
                                         <label>
                                             hobbies
                                         </label>
-                                        <input type="text" value="Add Hobbies" onClick={(e) => handleHobbies(e)}></input>
+                                        <input type="text" name="hobbies" placeholder="Hobbies" value={editProfileData.hobbies} onChange={(e) => handleEditProfile(e)}></input>
                                     </li>
                                 </div>
                             </ul>
