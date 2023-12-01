@@ -3,18 +3,18 @@ import "./chat.css";
 import Layout from "../../Layout";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createRoom, getFriendList } from "../../Redux/Actions/ProfileActions";
+import { createRoom, getFriendList, getCustomSearchProfile } from "../../Redux/Actions/ProfileActions";
 import { getLocalStorage } from "../../Utils/LocalStorage";
 import { baseUrl, chatPortUrl, Api } from "../../Utils/ApiUrl";
 import { BiSend } from "react-icons/bi"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // let chatPortURL = "ws://127.0.0.1:8001/ws/";
 
 const Chat = () => {
     const dispatch = useDispatch();
     const friendListState = useSelector((state) => state.Profile)
-    const { friendList, friendListLoading, chatRoomList, chatRoomLoading } = friendListState
+    const { friendList, friendListLoading, chatRoomList, chatRoomLoading, searchByIdRes } = friendListState;
     const [friendListData, setFriendListData] = useState([])
 
     const [userId, setUserId] = useState(getLocalStorage('user_id'));
@@ -23,6 +23,7 @@ const Chat = () => {
     const [roomName, setRoomName] = useState('');
     const [sendMessage, setSendMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const navigate = useNavigate();
 
     const [chatSocket, setChatSocket] = useState(null);
 
@@ -225,6 +226,7 @@ const Chat = () => {
         setTimeout(() => {
             getUnreadMsgs();
         }, 500)
+        getChatProfileData(item?.custom_id);
     }
     function stickFooter() {
         const body = document.body;
@@ -246,6 +248,21 @@ const Chat = () => {
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             document.getElementById('send-message').click();
+        }
+    }
+
+    const getChatProfileData = (customId)=>{
+        if (customId.length === 10) {
+            let id = getLocalStorage("user_id");
+            const quary = `?user_id=${id}&custom_id=${customId}`;
+            dispatch(getCustomSearchProfile(quary));
+        }
+
+    }
+
+    const goToChatProfile = ()=>{
+        if (searchByIdRes?.length > 0) {
+            navigate("/user-profile");
         }
     }
     return (
@@ -306,7 +323,7 @@ const Chat = () => {
                                 <div className="head-chat-message-user">
                                     <img src={selectedFriend?.profile_image ? baseUrl + selectedFriend?.profile_image : "/assets/images/background/bg.jpg"} alt="" />
                                     <div className="message-user-profile">
-                                        <p className="mt-0 mb-0 text-white"><strong>{selectedFriend?.first_name?.charAt(0).toUpperCase() + selectedFriend?.first_name?.slice(1) + " " + selectedFriend?.last_name?.charAt(0).toUpperCase() + selectedFriend?.last_name?.slice(1)}</strong></p>
+                                        <p className="mt-0 mb-0 text-white get-chat-profile" onClick={goToChatProfile}><strong>{selectedFriend?.first_name?.charAt(0).toUpperCase() + selectedFriend?.first_name?.slice(1) + " " + selectedFriend?.last_name?.charAt(0).toUpperCase() + selectedFriend?.last_name?.slice(1)}</strong></p>
                                         <small className="text-white"><p className={userStatus === 'Offline' ? "status-offline user-status online mt-0 mb-0" : "status-online user-status online mt-0 mb-0"}></p>{userStatus}</small>
                                     </div>
                                 </div>

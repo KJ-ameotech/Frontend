@@ -988,3 +988,7 @@ div.upgrade-btn {
 div.upgrade-btn a:hover {
     color: #890025;
 }
+
+p.get-chat-profile {
+    cursor: pointer;
+}

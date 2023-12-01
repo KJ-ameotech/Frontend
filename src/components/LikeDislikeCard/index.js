@@ -45,6 +45,7 @@ const LikeDislikeCard = () => {
         } else if (state?.searchByFilter) {
             dispatch(getSearchProfileUser(state?.searchByFilter))
         }
+        document.getElementsByClassName('flaticon-search')[0]?.click();
     }, [])
 
     useEffect(() => {
