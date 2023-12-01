@@ -57,7 +57,7 @@ const Chat = () => {
                     if (getLocalStorage('username') !== data.username){
                         setUserStatus(data.status);
                     }
-                    if (data.online_members === 2){
+                    if (data.online_members > 1){
                         setUserStatus(data.status);
                     }
                 }

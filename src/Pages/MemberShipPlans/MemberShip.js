@@ -29,6 +29,10 @@ const MemberShip = () => {
         setMembershipList(subsriptionRes)
     }, [subsriptionRes])
 
+    const htmlDescription = (data)=>{
+        return { __html: data };
+    }
+
     return (
         <Layout>
             <section className="cards-wrapper" style={{  }}>
@@ -42,8 +46,7 @@ const MemberShip = () => {
                                         <h5>${item.price} / month</h5>
                                         <div className="border-line">
                                         </div>
-                                        <div className="inner-list">
-                                            {item.description}
+                                        <div className="inner-list" dangerouslySetInnerHTML={htmlDescription(item.description)}>
                                         </div>
                                         <div className="last-button">
                                             <button type="button" onClick={() => handlePayment(item)}> Upgrade</button>

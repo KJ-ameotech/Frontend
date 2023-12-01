@@ -50,7 +50,6 @@ const LikeDislikeCard = () => {
     useEffect(() => {
         setAllProfilesData([]);
         setWait(false)
-        console.log('advanceSearchRes>>>', advanceSearchRes, 'allSearchData>>>', allSearchData, 'allProfile>>>', allProfile)
         if (!!advanceSearchRes?.length) {
             setAllProfilesData(advanceSearchRes)
         }
@@ -114,7 +113,7 @@ const LikeDislikeCard = () => {
             <div class="bottom">
                 <div class="title">
                 <span>${data.first_name + ' ' + data.last_name}</span>
-                <span>${data.age}</span>
+                <span>${data.age ? data.age : ''}</span>
                 </div>
                 <div class="info">
                 User ID: ${data.custom_id}
