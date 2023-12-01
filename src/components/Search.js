@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getCustomSearchProfile } from '../Redux/Actions/ProfileActions';
 import { getLocalStorage } from '../Utils/LocalStorage';
+import { toastify } from '../../src/Utils/Function';
+import { toast } from 'react-toastify';
 
 const Search = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const profile = useSelector(state => state.Profile);
+    const [test, setTest] = useState(false);
     const { searchByIdRes } = profile;
 
     const [search, setSearch] = useState("")
@@ -16,7 +19,7 @@ const Search = () => {
     const [showError, setShowError] = useState(false);
 
     function toggle() {
-        setShowError(false)
+        setShowError(false);
         if (searchByIdRes?.length > 0 && search != '') {
             setSearch("")
             navigate("/user-profile")
@@ -28,6 +31,10 @@ const Search = () => {
         if (searchByIdRes?.length == 0) {
             setShowError(true)
         }
+        if (searchByIdRes?.response?.data?.detail && test){
+            toastify(toast.warning, searchByIdRes?.response?.data?.detail);
+            setTest(false);
+        }
     }, [searchByIdRes])
 
     const handleSearchSubmit = (val) => {
@@ -37,6 +44,7 @@ const Search = () => {
             let id = getLocalStorage("user_id")
             const quary = `?user_id=${id}&custom_id=${val}`
             dispatch(getCustomSearchProfile(quary))
+            setTest(true);
         } else if (val.length > 10) {
             setShowError(true)
         }
