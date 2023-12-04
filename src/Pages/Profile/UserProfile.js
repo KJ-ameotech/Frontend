@@ -44,19 +44,15 @@ const UserProfile = () => {
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.first_name && 'Name' : ''}</li>
-                                                    <li>{searchByIdRes ? searchByIdRes[0]?.username && 'Username' : ''}</li>
-                                                    <li>{searchByIdRes ? searchByIdRes[0]?.email && 'Email' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.profile_for && 'Profile for' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.age > 0 && 'Age' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.religion && 'Religion' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.living_in && 'Living in' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.gender && 'Gender' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.community && 'Community' : ''}</li>
-                                                    {/* <li>{searchByIdRes ? searchByIdRes[0]?.distance >= 0 && 'Distance' : ''}</li> */}
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.time_of_bith && 'Time of Birth' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.education && 'Education' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.height && 'Height' : ''}</li>
-                                                    {/* <li>{searchByIdRes ? searchByIdRes[0].hobbies && 'Hobbies' : ''}</li> */}
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.income && 'Income' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.marital_status && 'Marital Status' : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.occupation && 'Occupation' : ''}</li>
@@ -70,15 +66,12 @@ const UserProfile = () => {
                                             <div class="info-profile-one">
                                                 <ul>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.first_name + ' ' + searchByIdRes[0].last_name : ''}</li>
-                                                    <li>{searchByIdRes ? searchByIdRes[0]?.username : ''}</li>
-                                                    <li>{searchByIdRes ? searchByIdRes[0]?.email : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.profile_for : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.age : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.religion : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.living_in : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.gender : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.community : ''}</li>
-                                                    {/* <li>{searchByIdRes ? searchByIdRes[0]?.distance : ''}</li> */}
                                                     <li>{(()=>{
                                                         if (searchByIdRes && searchByIdRes[0]?.time_of_bith){
                                                             const datetime = new Date(searchByIdRes[0].time_of_bith);
@@ -90,7 +83,6 @@ const UserProfile = () => {
                                                     })()}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.education : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.height + ' Cm' : ''}</li>
-                                                    {/* <li>{searchByIdRes ? searchByIdRes[0].hobbies : ''}</li> */}
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.income : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.marital_status : ''}</li>
                                                     <li>{searchByIdRes ? searchByIdRes[0]?.occupation : ''}</li>
