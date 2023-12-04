@@ -38,7 +38,6 @@ const FriendInfo = ({ likedUserList }) => {
                                     </div>
                                     <div className="third-content">
                                         <h5>{item.first_name} {item.last_name}</h5>
-                                        <h6>{item.email}</h6>
                                     </div>
                                 </div>
                             </li>
