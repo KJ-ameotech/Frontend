@@ -12,13 +12,19 @@ const UserProfile = () => {
     const profile = useSelector(state => state.Profile)
     const { searchByIdRes, profilePicturesData, userPreferencesList } = profile;
     useEffect(() => {
+        if (!searchByIdRes){
+            navigate('/');
+        }
         if (searchByIdRes?.response?.data?.detail) {
             navigate('/')
         }
         else {
-            dispatch(getUserPictures(searchByIdRes[0]?.user_id))
-            dispatch(getUserPreferences(searchByIdRes[0]?.user_id))
+            if (searchByIdRes){
+                dispatch(getUserPictures(searchByIdRes[0]?.user_id))
+                dispatch(getUserPreferences(searchByIdRes[0]?.user_id))
+            }
         }
+
     }, [searchByIdRes])
     return (
         <Layout>
