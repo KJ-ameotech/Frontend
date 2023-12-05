@@ -4,7 +4,7 @@
 export let baseUrl = "http://15.235.193.118:9000";
 export let chatBaseUrl = "http://15.235.193.118:3000";
 export let chatPortUrl = "ws://15.235.193.118:3000/ws/";
-export let aiChatPortUrl = "http://15.235.193.118:5000/predict";
+export let aiChatPortUrl = "http://15.235.193.118:8080/predict";
 
 export const Api = {
     register: `${baseUrl}/register/`,
