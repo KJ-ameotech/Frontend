@@ -170,22 +170,22 @@ const Login = () => {
                                                         />
                                                     </label>
                                                     I Agree{" "}
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        to="/privacy-policy"
                                                         target="_blank"
                                                         tabindex="3"
                                                     >
                                                         <u>Terms of Service </u>
-                                                    </a>{" "}
+                                                    </Link>{" "}
                                                     <span className="privacyPolicy">
                                                         {" "}
                                                         And
-                                                        <a
-                                                            href="#"
+                                                        <Link
+                                                            to="/privacy-policy"
                                                             target="_blank"
                                                         >
                                                             <u> Privacy Policy*</u>
-                                                        </a>
+                                                        </Link>
                                                     </span>
                                                 </div>
                                                 <div className="col-lg-6 col-md-6 col-sm-6 mt-2 keepin_Sign">

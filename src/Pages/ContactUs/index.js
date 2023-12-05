@@ -108,11 +108,6 @@ const Contactus = () => {
 
                                 <div className="form-inner">
                                     <div className="contact-form ">
-                                        <div className="sec-title">
-                                            <h2>Address</h2>
-                                            <p className="mt-3">Ameotech Mohali</p>
-                                        </div>
-
                                         <div className="contact-form">
                                             <div className="sec-title">
                                                 <h2>Feedback</h2>

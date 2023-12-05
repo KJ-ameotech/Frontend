@@ -8,7 +8,7 @@ import { firstNameAndLastNameValidation, userNameValidation, validEmail, validPa
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { toastify } from '../../Utils/Function';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { setLocalStorage } from '../../Utils/LocalStorage';
 
 const SignUp = () => {
@@ -323,7 +323,7 @@ const SignUp = () => {
 
                                                     <div className="col-lg-12 col-md-12 col-sm-12">
                                                         <div className="btn-box">
-                                                            <div className="text"><input id='agree-terms' type="checkbox" tabindex="10" style={{ verticalAlign: "text-bottom" }} />  I have read and agree to the <a href="#" target={"_blank"}><u>terms, conditions</u></a> and <a href="#" target={"_blank"}><u>  privacy policy.</u> </a></div>
+                                                            <div className="text"><input id='agree-terms' type="checkbox" tabindex="10" style={{ verticalAlign: "text-bottom" }} />  I have read and agree to the <Link to="/privacy-policy" target={"_blank"}><u>terms, conditions</u></Link> and <Link to="/privacy-policy" target={"_blank"}><u>  privacy policy.</u> </Link></div>
                                                         </div>
                                                         <a><button className="btn btn-primary mt-4 mb-4" type="submit" name="submit" style={{ width: "100%" }}> <span tabindex="11" className="btn-title">Register  </span></button></a>
                                                     </div>

@@ -17,7 +17,7 @@ const AIChat = () => {
   useEffect(() => {
     console.log('aiMessageData>>>', aiMessageData)
     if (aiMessageData?.answer) {
-      const aiMessage = { name: "Ameo", message: aiMessageData?.answer };
+      const aiMessage = { name: "Kaveri", message: aiMessageData?.answer };
       setMessages((messages) => [...messages, aiMessage]);
     }
   }, [aiMessageData]);
@@ -55,9 +55,9 @@ const AIChat = () => {
             <div class="chatbox__support">
               <div class="chatbox__header">
                 <div class="chatbox__content--header">
-                  <h4 class="chatbox__heading--header">Ameo Bot</h4>
+                  <h4 class="chatbox__heading--header">Kaveri Bot</h4>
                   <p class="chatbox__description--header">
-                    Hi. My name is Ameo. How can I help you?
+                    Hi. My name is Kaveri. How can I help you?
                   </p>
                 </div>
               </div>
@@ -68,14 +68,14 @@ const AIChat = () => {
                       return (
                         <div
                           className={
-                            item?.name != "Ameo"
+                            item?.name != "Kaveri"
                               ? "message-user-right"
                               : "message-user-left"
                           }
                         >
                           <div
                             className={
-                              item?.name != "Ameo"
+                              item?.name != "Kaveri"
                                 ? "message-user-right-img"
                                 : "message-user-left-img"
                             }
@@ -88,7 +88,7 @@ const AIChat = () => {
                           </div>
                           <div
                             className={
-                              item?.name != "Ameo"
+                              item?.name != "Kaveri"
                                 ? "message-user-right-text"
                                 : "message-user-left-text"
                             }

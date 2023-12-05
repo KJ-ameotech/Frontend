@@ -24,3 +24,24 @@
     font-weight: 700;
 
 }
+
+p{
+    color: black;
+}
+
+div.final-privacy-text{
+    margin-left: 100px;
+}
+
+div.final-privacy-text .indent-text{
+    margin-left: 50px;
+}
+
+ul.use-license-lis{
+    margin-left: 30px;
+}
+
+ul.use-license-lis li{
+    color: black;
+    list-style: disc;
+}

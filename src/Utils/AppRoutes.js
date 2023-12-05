@@ -14,6 +14,7 @@ const ForgotPassword = lazy(() => import("../Pages/AuthPages/ForgotPassword"))
 const MemberShip = lazy(() => import("../Pages/MemberShipPlans/MemberShip"))
 const ConfirmPassword = lazy(() => import("../Pages/AuthPages/ConfirmPassword"))
 const AboutUs = lazy(() => import('../Pages/About/AboutUs'))
+const PrivacyPolicy = lazy(() => import('../Pages/PrivacyPolicy/PrivacyPolicy'))
 const Contactus = lazy(() => import('../Pages/ContactUs'))
 const ProfileUserDetail = lazy(() => import('../Pages/Profile/ProfileUserDetail'))
 const UserProfile = lazy(() => import("../Pages/Profile/UserProfile"))
@@ -80,6 +81,7 @@ const AppRoutes = ({ auth }) => {
             <Route path="/payment/:id" element={<Suspense fallback={<Loading />}><Payment /></Suspense>} />
             {/* <Route path="/payment/:id" Component={(props) => { <Suspense fallback={<Loading />}><Payment {...props} /></Suspense> }} /> */}
             <Route path="/about" element={<Suspense fallback={<Loading />}><AboutUs /></Suspense>} />
+            <Route path="/privacy-policy" element={<Suspense fallback={<Loading />}><PrivacyPolicy /></Suspense>} />
             <Route path="/user-profile" element={<Suspense fallback={<Loading />}><UserProfile /></Suspense>} />
             <Route path="*" element={<Navigate to="/" replace />} />
             {/* public  routes end here*/}

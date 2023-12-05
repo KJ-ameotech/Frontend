@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="copyright-text">
               {" "}
               &copy; Copyright 2023 All Rights Reserved. BY:{" "}
-              <a href="http://www.ameotech.com">Ameotech Informatics</a>
+              <a href="http://www.theworklabs.com">theworklabs</a>
             </div>
             <ul className="social-icon-one">
               <li>
