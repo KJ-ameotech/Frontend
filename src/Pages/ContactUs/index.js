@@ -96,8 +96,14 @@ const Contactus = () => {
 
                                         <li>
                                             <span className="icon fa fa-clock"></span>
-                                            <p><strong>Our Other Services</strong></p>
+                                            <p><strong>Timing</strong></p>
                                             <p>{contact?.timeing}</p>
+                                        </li>
+
+                                        <li>
+                                            <span className="icon fa fa-cogs"></span>
+                                            <p><strong>Our Other Services</strong></p>
+                                            <p>{contact?.OurServices}</p>
                                         </li>
                                     </ul>
                                 </div>

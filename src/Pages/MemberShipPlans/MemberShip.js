@@ -43,7 +43,7 @@ const MemberShip = () => {
                                 <div key={index} className=" col-md-6 col-lg-3 col-xl-3 col-sm-12 ">
                                     <div className="card-one-silver">
                                         <h4>{item.subscription_name}</h4>
-                                        <h5>${item.price} / month</h5>
+                                        <h5>&#8377; {item.price} / month</h5>
                                         <div className="border-line">
                                         </div>
                                         <div className="inner-list" dangerouslySetInnerHTML={htmlDescription(item.description)}>
