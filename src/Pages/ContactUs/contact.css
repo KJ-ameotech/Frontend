@@ -7,3 +7,10 @@
     width: 150px;
     padding: 15px;
 }
+
+.contact-help {
+    padding-top: 10px;
+    font-size: 10px;
+    font-style: italic;
+    margin-bottom: 0;
+}

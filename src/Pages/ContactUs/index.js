@@ -117,20 +117,20 @@ const Contactus = () => {
                                         <div className="contact-form">
                                             <div className="sec-title">
                                                 <h2>Feedback</h2>
-                                                <p className='text-center'>Username , Email , Phone number should be excatly same as you entered during registration.</p>
+                                                {/* <p className='text-center'>Username , Email , Phone number should be excatly same as you entered during registration.</p> */}
                                             </div>
                                             <form id="contact-form">
                                                 <div className="row clearfix">
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="text" maxLength="40" name="name" placeholder="Username" value={feedback?.name} onChange={(e) => handleFeedBack(e)} tabIndex="1" required />
+                                                        <input type="text" maxLength="40" name="name" placeholder="Username (Same as used during registration)" value={feedback?.name} onChange={(e) => handleFeedBack(e)} tabIndex="1" required />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="number" maxLength="10" name="phoneNumber" placeholder="Phone" value={feedback?.phoneNumber} onChange={(e) => handleFeedBack(e)} tabIndex="2" required />
+                                                        <input type="number" maxLength="10" name="phoneNumber" placeholder="Phone (Same as used during registration)" value={feedback?.phoneNumber} onChange={(e) => handleFeedBack(e)} tabIndex="2" required />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                        <input type="email" name="email" maxLength="35" placeholder="Email" value={feedback?.email} onChange={(e) => handleFeedBack(e)} tabIndex="3" required="" />
+                                                        <input type="email" name="email" maxLength="35" placeholder="Email (Same as used during registration)" value={feedback?.email} onChange={(e) => handleFeedBack(e)} tabIndex="3" required="" />
                                                     </div>
 
                                                     <div className="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -142,6 +142,7 @@ const Contactus = () => {
                                                     </div>
                                                     <div className='sub-div'>
                                                         <button className='sub-btn ' onClick={handleSubmit}>Submit</button>
+                                                        <p className='text-right contact-help'>**Username , Email , Phone number should be excatly same as you entered during registration.</p>
                                                     </div>
                                                 </div>
                                             </form>
